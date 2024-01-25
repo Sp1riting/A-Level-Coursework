@@ -202,8 +202,6 @@ class Player:
             self.drawChance(counter)
     
         else:
-            #print(f"{self.name} landed on {boardProperty.cardName}")
-            
             if boardProperty.mortgaged:
                 print(f"{self.name} landed on a mortgaged property.")
 
@@ -216,7 +214,7 @@ class Player:
 
             else:
                 print(f"{self.name} landed on {boardProperty.cardName}")
-                Question = input("Do you want to buy the property? (y/n) ")
+                Question = input(f"Do you want to buy the property? It costs ${boardProperty.cost} (y/n) ")
                 if Question == 'y':
                     boardProperty.purchaseCard(self)
         
@@ -267,9 +265,3 @@ class Player:
         if self.doublesCount > 0:
             self.playTurn(board)
         return True
-            
-
-
-
-#
-#Do trading properly later
