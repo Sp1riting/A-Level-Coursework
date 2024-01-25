@@ -18,6 +18,7 @@ class Card:
     def sell(self, player):
         player.addBalance(self.cost)
         self.owner = 'Bank'
+        self.ownerID = "0"
         self.housesBuilt = 0
     
     def purchaseCard(self, player):
@@ -26,10 +27,10 @@ class Card:
         else:
             player.ownedCards.append(self)
             player.reduceBalance(self.cost)
-            self.owner = player.playerID
+            self.owner = player
+            self.ownerID = player.playerID
 
 def locateCard(name, board):
-
     for card in board:
         if card.cardName == name:
             cardObject = card

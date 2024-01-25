@@ -8,53 +8,49 @@ valid = False
 gameEnded = False
 turnEnded = False
 
-
-while valid == False:
+while not valid:
     numberOfPlayers = int(input("Enter the number of players in the game (2 to 8 players) "))
     if numberOfPlayers !=4:
         print("Only 4 players available for now until login dings are coded")
     else:
-        newName = str(input(f"Enter the name of player number 1 "))
-        player1 = Players.Player(player1,newName)
-        newName = str(input(f"Enter the name of player number 2 "))
-        player2 = Players.Player(player2,newName)
-        newName = str(input(f"Enter the name of player number 3 "))
-        player3 = Players.Player(player3,newName)
-        newName = str(input(f"Enter the name of player number 4 "))
-        player4 = Players.Player(player4,newName)
+        newName = str(input("Enter the name of player number 1 "))
+        player1 = Players.Player(1,newName)
+        newName = str(input("Enter the name of player number 2 "))
+        player2 = Players.Player(2,newName)
+        newName = str(input("Enter the name of player number 3 "))
+        player3 = Players.Player(3,newName)
+        newName = str(input("Enter the name of player number 4 "))
+        player4 = Players.Player(4,newName)
         valid = True
 
-while gameEnded == False:
 
-    if player1.bankrupt == False:
+
+while not gameEnded:
+
+    if not player1.bankrupt:
         turnEnded = False
         print(f"{player1.name}'s turn has started. They have a balance of {player1.balance}")
-        while turnEnded == False:
+        while not turnEnded:
             turnEnded = player1.playTurn(board)
         print(f"{player1.name}'s turn has ended")
 
-    if player2.bankrupt == False:
+    if not player2.bankrupt:
         turnEnded = False
         print(f"{player2.name}'s turn has started. They have a balance of {player2.balance}")
-        while turnEnded == False:
+        while not turnEnded:
             turnEnded = player2.playTurn(board)
         print(f"{player2.name}'s turn has ended")
 
-    if player3.bankrupt == False:
+    if not player3.bankrupt:
         turnEnded = False
         print(f"{player3.name}'s turn has started. They have a balance of {player3.balance}")
-        while turnEnded == False:
+        while not turnEnded:
             turnEnded = player3.playTurn(board)
         print(f"{player3.name}'s turn has ended")
 
-    if player4.bankrupt == False:
+    if not player4.bankrupt:
         turnEnded = False
         print(f"{player4.name}'s turn has started. They have a balance of {player4.balance}")
-        while turnEnded == False:
+        while not turnEnded:
             turnEnded = player4.playTurn(board)
         print(f"{player4.name}'s turn has ended")
-
-    
-
-    
-    

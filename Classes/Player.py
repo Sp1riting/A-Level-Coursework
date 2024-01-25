@@ -118,7 +118,7 @@ class Player:
         worth = 0
 
         for card in self.ownedCards:
-            if card.mortgaged == True:
+            if card.mortgaged:
                 worth -= card.mortgageCost
                 worth += card.cost
             else:
@@ -150,15 +150,15 @@ class Player:
             self.checkPosition(board)
         
 
-    def payRent(self, card):
+    def payRent(self,card):
         if card.cardSet == "Travel Square":
-            if card.ownerID.travelSquaresOwned == 1:
+            if card.owner.travelSquaresOwned == 1:
                 rent = 25
-            if card.ownerID.travelSquaresOwned == 2:
+            if card.owner.travelSquaresOwned == 2:
                 rent = 50
-            if card.ownerID.travelSquaresOwned == 3:
+            if card.owner.travelSquaresOwned == 3:
                 rent = 100
-            if card.ownerID.travelSquaresOwned == 4:
+            if card.owner.travelSquaresOwned == 4:
                 rent = 200
         else:
             rent = card.rentAmounts[card.housesBuilt]
@@ -174,10 +174,10 @@ class Player:
             self.currentPos = self.currentPos % 40
         boardProperty = board[self.currentPos]
 
-        if boardProperty.cardName == 'Jail' and self.inJail == False:
+        if boardProperty.cardName == 'Jail' and not self.inJail:
                 print(f"{self.name} is visiting jail.")
         
-        elif boardProperty.cardName == 'Jail' and self.inJail == True:
+        elif boardProperty.cardName == 'Jail' and self.inJail:
                 print(f"{self.name} is in jail.")
 
         elif boardProperty.cardName == 'Luxury Tax':
@@ -201,7 +201,7 @@ class Player:
         elif boardProperty.cardName == 'Chance':
             print(f"{self.name} landed on Chance, and will draw a card.")
             self.drawChance(counter)
-    
+
         else:
             if boardProperty.mortgaged:
                 print(f"{self.name} landed on a mortgaged property.")
@@ -216,8 +216,8 @@ class Player:
 
             else:
                 print(f"{self.name} landed on {boardProperty.cardName}")
-                Question = input(f"Do you want to buy the property? It costs ${boardProperty.cost} (y/n) ")
-                if Question == 'y':
+                question = input(f"Do you want to buy the property? It costs ${boardProperty.cost} (y/n) ")
+                if question == 'y':
                     boardProperty.purchaseCard(self)
         
         
