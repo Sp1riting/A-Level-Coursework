@@ -15,13 +15,13 @@ while valid == False:
         print("Only 4 players available for now until login dings are coded")
     else:
         newName = str(input(f"Enter the name of player number 1 "))
-        player1 = Players.Player(1,newName)
+        player1 = Players.Player(player1,newName)
         newName = str(input(f"Enter the name of player number 2 "))
-        player2 = Players.Player(2,newName)
+        player2 = Players.Player(player2,newName)
         newName = str(input(f"Enter the name of player number 3 "))
-        player3 = Players.Player(3,newName)
+        player3 = Players.Player(player3,newName)
         newName = str(input(f"Enter the name of player number 4 "))
-        player4 = Players.Player(4,newName)
+        player4 = Players.Player(player4,newName)
         valid = True
 
 while gameEnded == False:

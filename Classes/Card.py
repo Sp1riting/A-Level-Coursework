@@ -1,5 +1,5 @@
 class Card:
-    def __init__(self, cost, cardName, cardSet, houseCost, housesBuilt, mortgaged, mortgageCost, owner, rentAmounts):
+    def __init__(self, cost, cardName, cardSet, houseCost, housesBuilt, mortgaged, mortgageCost, ownerID, owner, rentAmounts):
         self.cost = cost
         self.cardName = cardName
         self.cardSet = cardSet
@@ -7,6 +7,7 @@ class Card:
         self.housesBuilt = housesBuilt
         self.mortgaged = mortgaged
         self.mortgageCost = mortgageCost
+        self.ownerID = ownerID
         self.owner = owner
         self.rentAmounts = rentAmounts
     

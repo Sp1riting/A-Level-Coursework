@@ -109,6 +109,7 @@ class Player:
         if len(self.cardsOwned) > 0:
             for card in self.cardsOwned:
                 card.owner = "Bank"
+                card.ownerID = 0
         
         print(f"Unfortunately, {self.name} is now bankrupt! It's game over for them!")
     
@@ -151,17 +152,17 @@ class Player:
 
     def payRent(self, card):
         if card.cardSet == "Travel Square":
-            if card.owner.travelSquaresOwned == 1:
+            if card.ownerID.travelSquaresOwned == 1:
                 rent = 25
-            if card.owner.travelSquaresOwned == 2:
+            if card.ownerID.travelSquaresOwned == 2:
                 rent = 50
-            if card.owner.travelSquaresOwned == 3:
+            if card.ownerID.travelSquaresOwned == 3:
                 rent = 100
-            if card.owner.travelSquaresOwned == 4:
+            if card.ownerID.travelSquaresOwned == 4:
                 rent = 200
         else:
             rent = card.rentAmounts[card.housesBuilt]
-        print(f"{self.name} is paying ${rent} to {card.owner.name} for rent.")
+        print(f"{self.name} is paying ${rent} to player{card.ownerID} for rent.")
         self.reduceBalance(rent)
         card.owner.addBalance(rent)
 
@@ -205,11 +206,12 @@ class Player:
             if boardProperty.mortgaged:
                 print(f"{self.name} landed on a mortgaged property.")
 
-            elif boardProperty.owner != 0:
-                if boardProperty.owner == self.playerID:
+            elif boardProperty.ownerID != 0:
+                if boardProperty.ownerID == self.playerID:
                     print(f"{self.name} landed on {boardProperty.cardName}, a property they own.")
                 else:
-                    print(f"{self.name} landed on {boardProperty.cardName}, a property owned by {boardProperty.owner.name}")
+
+                    print(f"{self.name} landed on {boardProperty.cardName}, a property owned by player{boardProperty.ownerID}")
                     self.payRent(boardProperty)
 
             else:
