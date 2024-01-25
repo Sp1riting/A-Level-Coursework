@@ -1,11 +1,12 @@
 import random
 import GameStart as gameStart
-import Classes.Card as Cards
-import Classes.Player as Players
+import Classes.card as Cards
+import Classes.player as Players
+from GameStart import board as board
 
 valid = False
 gameEnded = False
-board = gameStart.defaultCardsAndBoard()
+
 
 
 while valid == False:
@@ -25,13 +26,9 @@ while valid == False:
         
         
 while gameEnded == False:
-    roll = player1.rollDice()
-    player1.currentPos = player1.movePlayer(roll)
-    if player1.inJail:
-        player1.playInJail()
-    else:
-        player1.checkPosition(board)
-    player1.doublesCount = 0
+    player1.playTurn(board)
+
+    
 
     
     

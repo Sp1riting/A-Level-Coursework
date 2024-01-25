@@ -1,4 +1,4 @@
-import Classes.Card as Cards
+import Classes.card as Cards
 
 ## cost, cardName, cardSet, houseCost, housesBuilt, mortgaged, mortgageCost, owner, rentAmounts
 
@@ -93,3 +93,5 @@ def defaultCardsAndBoard():
     ]
 
     return board
+
+board = defaultCardsAndBoard()

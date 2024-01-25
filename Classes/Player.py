@@ -1,8 +1,7 @@
 import random
 import GameStart as gameStart
-import Classes.Card as Cards
-import Chance as Chances
-from main import board as board
+import Classes.card as Cards
+from GameStart import board as board
 
 counter = 0
 
@@ -33,11 +32,8 @@ class Player:
             if self.doublesCount == 3:
                 self.sendToJail()
                 return roll
-            self.checkPosition(board)
         else:
-            self.checkPosition(board)
-            self.rollDice()
-
+            self.doublesCount = 0
         return roll
     
     def sendToJail(self):
@@ -51,9 +47,7 @@ class Player:
         if bail == "y":
             self.reduceBalance(50)
             self.inJail = False
-            diceRoll = self.rollDice()
-            self.movePlayer(diceRoll)
-            self.checkPosition(board)
+            self.playTurn(board)
         else:
             self.rollDice()
             if self.doublesCount == 1:
@@ -233,6 +227,17 @@ class Player:
 
             print(f"{self.name} has given ${cashGiven} and the following properties: {propertiesToOffer}")
             print(f"{otherPlayer.name} has received ${cashReceived} and the following properties: {propertiesReceived}")
+
+        def playTurn(self,board):
+            if self.inJail:
+                self.playInJail(diceRoll)
+            else:
+                diceRoll = self.rollDice()
+                self.movePlayer(diceRoll)
+                self.checkPosition(board)
+            if self.doublesCount > 0:
+                playTurn(self,board)
+            
 
 
 
