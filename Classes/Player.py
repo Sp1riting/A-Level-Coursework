@@ -6,20 +6,20 @@ from GameStart import board as board
 counter = 0
 
 class Player:
-    def __init__(self, playerID, name, balance, ownedCards, currentPos, doublesCount, travelSquaresOwned, bankrupt, inJail, housesOwned, gamesPlayed, wins, losses):
+
+    currentPos = 0
+    doublesCount = 0
+    travelSquaresOwned = 0
+    housesOwned = 0
+    balance = 1500
+    ownedCards = []
+    turnsInJail = 0
+    inJail = False
+    bankrupt = False
+    
+    def __init__(self, playerID, name):
         self.playerID = playerID
         self.name = name
-        self.balance = balance
-        self.ownedCards = ownedCards
-        self.currentPos = currentPos
-        self.doublesCount = doublesCount
-        self.travelSquaresOwned = travelSquaresOwned
-        self.bankrupt = bankrupt
-        self.inJail = inJail
-        self.housesOwned = housesOwned
-        self.gamesPlayed = gamesPlayed
-        self.wins = wins
-        self.losses = losses
     
     def rollDice(self):
         dice1 = random.randint(1, 6)
@@ -43,18 +43,26 @@ class Player:
     
     def playInJail(self):
         self.doublesCount = 0
+        self.rollDice()
+        if self.doublesCount == 1:
+            print("Your double got you out of jail")
+            self.doublesCount = 0
+            diceRoll = self.rollDice()
+            self.movePlayer(diceRoll)
+            self.checkPosition(board)
+        
         bail = input("Would you like to pay the $50 bail? (y/n) ")
+
         if bail == "y":
+            turnsInJail = 0
             self.reduceBalance(50)
             self.inJail = False
             self.playTurn(board)
         else:
-            self.rollDice()
-            if self.doublesCount == 1:
-                self.doublesCount = 0
-                diceRoll = self.rollDice()
-                self.movePlayer(diceRoll)
-                self.checkPosition(board)
+
+            
+            
+                
     
     def movePlayer(self, amount):
         self.currentPos += amount
@@ -178,8 +186,8 @@ class Player:
             if boardProperty.mortgaged:
                 print(f"{self.name} landed on a mortgaged property.")
 
-            elif boardProperty.owner != 'Bank':
-                if boardProperty.owner.name == self.name:
+            elif boardProperty.owner != 0:
+                if boardProperty.owner == self.ID:
                     print(f"{self.name} landed on {boardProperty.cardName}, a property they own.")
                 else:
                     print(f"{self.name} landed on {boardProperty.cardName}, a property owned by {boardProperty.owner.name}")
@@ -230,13 +238,13 @@ class Player:
 
     def playTurn(self,board):
         if self.inJail:
-            self.playInJail(diceRoll)
+            self.playInJail()
         else:
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
             self.checkPosition(board)
         if self.doublesCount > 0:
-            playTurn(self,board)
+            self.playTurn(board)
             
 
 

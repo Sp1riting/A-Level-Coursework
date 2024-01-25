@@ -15,15 +15,8 @@ while valid == False:
         print("Only 4 players available for now until login dings are coded")
     else:
         newName = str(input(f"Enter the name of player number 1 "))
-        player1 = Players.Player(1,newName,1500,[],0,0,0,False,False,0,0,0,0)
-        #newName = str(input(f"Enter the name of player number 2 "))
-        #player2 = Players.Player(2,newName,1500,[],0,0,0,False,False,0,0,0,0)
-        #newName = str(input(f"Enter the name of player number 3 "))
-        #player3 = Players.Player(3,newName,1500,[],0,0,0,False,False,0,0,0,0)
-        #newName = str(input(f"Enter the name of player number 4 "))
-        #player4 = Players.Player(4,newName,1500,[],0,0,0,False,False,0,0,0,0)
+        player1 = Players.Player(1,newName)
         valid = True
-        
         
 while gameEnded == False:
     player1.playTurn(board)
