@@ -1,5 +1,3 @@
-import random
-
 class Card:
     def __init__(self, cost, cardName, cardSet, houseCost, housesBuilt, mortgaged, mortgageCost, owner, rentAmounts):
         self.cost = cost
