@@ -29,6 +29,8 @@ class Card:
         else:
             if self.cardSet == "Travel Square":
                 player.travelSquaresOwned += 1
+            elif self.cardSet == "Utility":
+                player.utilitiesOwned += 1
             player.ownedCards.append(self)
             player.reduceBalance(self.cost)
             self.owner = player.name

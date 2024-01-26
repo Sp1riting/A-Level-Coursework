@@ -9,6 +9,7 @@ class Player:
     currentPos = 0
     doublesCount = 0
     travelSquaresOwned = 0
+    utilitiesOwned = 0
     housesOwned = 0
     balance = 1500
     ownedCards = []
@@ -40,36 +41,39 @@ class Player:
     
 
     def sendToJail(self):
-        self.turnsInJail = 0
         self.currentPos = 10
+        self.turnsInJail = 0
         self.doublesCount = 0
         self.inJail = True
     
+    def leaveJail(self):
+        self.currentPos = 10
+        self.turnsInJail = 0
+        self.doublesCount = 0
+        self.inJail = False
 
     def playInJail(self, playerList):
         self.doublesCount = 0
 
         if self.turnsInJail >= 3:
             print("Now that you have spent 3 turns in jail, you have been released and will roll again")
-            self.turnsInJail = 0
-            self.inJail = False
+            self.leaveJail()
             self.playTurn(board, playerList)
 
         self.rollDice()
 
         if self.doublesCount == 1:
             print("Your double got you out of jail")
-            self.doublesCount = 0
+            self.leaveJail()
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
-            self.checkPosition(board,playerList)
+            self.checkPosition(board, playerList, diceRoll)
         
         bail = input("Would you like to pay the $50 bail? (y/n) ")
 
         if bail == "y":
-            self.turnsInJail = 0
+            self.leaveJail()
             self.reduceBalance(50)
-            self.inJail = False
             print("You are no longer in jail")
         else:
             self.turnsInJail += 1
@@ -156,17 +160,22 @@ class Player:
             self.checkPosition(board)
         
 
-    def payRent(self, card, playerList):
+    def payRent(self, card, playerList, roll):
         cardOwner = self.findOwner(card, playerList)
         if card.cardSet == "Travel Square":
             if cardOwner.travelSquaresOwned == 1:
                 rent = 25
-            if cardOwner.travelSquaresOwned == 2:
+            elif cardOwner.travelSquaresOwned == 2:
                 rent = 50
-            if cardOwner.travelSquaresOwned == 3:
+            elif cardOwner.travelSquaresOwned == 3:
                 rent = 100
-            if cardOwner.travelSquaresOwned == 4:
+            elif cardOwner.travelSquaresOwned == 4:
                 rent = 200
+        elif card.cardSet == "Utility":
+            if cardOwner.utilitiesOwned == 1:
+                rent = roll * 4
+            elif cardOwner.utilitiesOwned == 2:
+                rent = roll * 10
         else:
             rent = card.rentAmounts[card.housesBuilt]
         print(f"{self.name} is paying ${rent} to {cardOwner.name} for rent.")
@@ -174,7 +183,7 @@ class Player:
         cardOwner.addBalance(rent)
 
 
-    def checkPosition(self, board, playerList):
+    def checkPosition(self, board, playerList, roll):
         if self.currentPos >= 40:
             print(f"{self.name} passed Go, and collects $200.")
             self.addBalance(200)
@@ -219,7 +228,7 @@ class Player:
                 else:
 
                     print(f"{self.name} landed on {boardProperty.cardName}, a property owned by player{boardProperty.ownerID}")
-                    self.payRent(boardProperty, playerList)
+                    self.payRent(boardProperty, playerList, roll)
 
             else:
                 print(f"{self.name} landed on {boardProperty.cardName}")
@@ -270,7 +279,7 @@ class Player:
         else:
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
-            self.checkPosition(board, playerList)
+            self.checkPosition(board, playerList, diceRoll)
         if self.doublesCount > 0:
             self.playTurn(board, playerList)
         return True
