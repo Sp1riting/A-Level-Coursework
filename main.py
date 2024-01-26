@@ -67,6 +67,7 @@ while not gameEnded:
         while not turnEnded:
             turnEnded = player1.playTurn(board,playerList)
         print(f"{player1.name}'s turn has ended")
+        print("")
 
     if numberOfPlayers >=2 and not player2.bankrupt:
         turnEnded = False
@@ -74,6 +75,7 @@ while not gameEnded:
         while not turnEnded:
             turnEnded = player2.playTurn(board,playerList)
         print(f"{player2.name}'s turn has ended")
+        print("")
 
     if numberOfPlayers >=3 and not player3.bankrupt:
         turnEnded = False
@@ -81,6 +83,7 @@ while not gameEnded:
         while not turnEnded:
             turnEnded = player3.playTurn(board,playerList)
         print(f"{player3.name}'s turn has ended")
+        print("")
 
     if numberOfPlayers >=4 and not player4.bankrupt:
         turnEnded = False
@@ -88,6 +91,7 @@ while not gameEnded:
         while not turnEnded:
             turnEnded = player4.playTurn(board,playerList)
         print(f"{player4.name}'s turn has ended")
+        print("")
 
     if numberOfPlayers >=5 and not player5.bankrupt:
         turnEnded = False
@@ -95,6 +99,7 @@ while not gameEnded:
         while not turnEnded:
             turnEnded = player5.playTurn(board,playerList)
         print(f"{player5.name}'s turn has ended")
+        print("")
 
     if numberOfPlayers >=6 and not player6.bankrupt:
         turnEnded = False
@@ -102,6 +107,7 @@ while not gameEnded:
         while not turnEnded:
             turnEnded = player6.playTurn(board,playerList)
         print(f"{player6.name}'s turn has ended")
+        print("")
 
     if numberOfPlayers >=7 and not player7.bankrupt:
         turnEnded = False
@@ -109,6 +115,7 @@ while not gameEnded:
         while not turnEnded:
             turnEnded = player7.playTurn(board,playerList)
         print(f"{player7.name}'s turn has ended")
+        print("")
 
     if numberOfPlayers >=8 and not player8.bankrupt:
         turnEnded = False
@@ -116,3 +123,4 @@ while not gameEnded:
         while not turnEnded:
             turnEnded = player8.playTurn(board,playerList)
         print(f"{player8.name}'s turn has ended")
+        print("")

@@ -1,14 +1,16 @@
 class Card:
-    def __init__(self, cost, cardName, cardSet, houseCost, housesBuilt, mortgaged, mortgageCost, owner, ownerID, rentAmounts):
+
+    mortgaged = False
+    owner = "Bank"
+    ownerID = "0"
+
+    def __init__(self, cost, cardName, cardSet, houseCost, housesBuilt, mortgageCost, rentAmounts):
         self.cost = cost
         self.cardName = cardName
         self.cardSet = cardSet
         self.houseCost = houseCost
         self.housesBuilt = housesBuilt
-        self.mortgaged = mortgaged
         self.mortgageCost = mortgageCost
-        self.owner = owner
-        self.ownerID = ownerID
         self.rentAmounts = rentAmounts
     
     def mortgage(self, player):
