@@ -1,6 +1,5 @@
 ToDo:
 
-- Account for utilities in rent amount
 - Chance cards aren't cycling through the options
 - More chance cards need to be added
 - Add houses
