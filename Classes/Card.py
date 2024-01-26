@@ -1,5 +1,5 @@
 class Card:
-    def __init__(self, cost, cardName, cardSet, houseCost, housesBuilt, mortgaged, mortgageCost, ownerID, owner, rentAmounts):
+    def __init__(self, cost, cardName, cardSet, houseCost, housesBuilt, mortgaged, mortgageCost, owner, ownerID, rentAmounts):
         self.cost = cost
         self.cardName = cardName
         self.cardSet = cardSet
@@ -7,8 +7,8 @@ class Card:
         self.housesBuilt = housesBuilt
         self.mortgaged = mortgaged
         self.mortgageCost = mortgageCost
-        self.ownerID = ownerID
         self.owner = owner
+        self.ownerID = ownerID
         self.rentAmounts = rentAmounts
     
     def mortgage(self, player):
@@ -16,6 +16,8 @@ class Card:
         self.mortgaged = True
     
     def sell(self, player):
+        if self.cardSet == "TravelSquare":
+            player.travelSquaresOwned -= 1
         player.addBalance(self.cost)
         self.owner = 'Bank'
         self.ownerID = "0"
@@ -25,10 +27,13 @@ class Card:
         if self.cost > player.balance:
             print("You do not have enough to purchase this card")
         else:
+            if self.cardSet == "Travel Square":
+                player.travelSquaresOwned += 1
             player.ownedCards.append(self)
             player.reduceBalance(self.cost)
-            self.owner = player
-            self.ownerID = player.playerID
+            self.owner = player.name
+            self.ownerID = str(player.playerID)
+
 
 def locateCard(name, board):
     for card in board:

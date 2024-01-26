@@ -1,6 +1,6 @@
 ToDo:
 
-- Pay rent function in Player class needs to be changed
+- Rent amounts in the plauer class should change format
 - Chance cards aren't cycling through the options
 - More chance cards need to be added
 - Add houses

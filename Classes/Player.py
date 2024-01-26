@@ -46,14 +46,14 @@ class Player:
         self.inJail = True
     
 
-    def playInJail(self):
+    def playInJail(self, playerList):
         self.doublesCount = 0
 
         if self.turnsInJail >= 3:
             print("Now that you have spent 3 turns in jail, you have been released and will roll again")
             self.turnsInJail = 0
             self.inJail = False
-            self.playTurn(board)
+            self.playTurn(board, playerList)
 
         self.rollDice()
 
@@ -62,7 +62,7 @@ class Player:
             self.doublesCount = 0
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
-            self.checkPosition(board)
+            self.checkPosition(board,playerList)
         
         bail = input("Would you like to pay the $50 bail? (y/n) ")
 
@@ -109,7 +109,7 @@ class Player:
         if len(self.cardsOwned) > 0:
             for card in self.cardsOwned:
                 card.owner = "Bank"
-                card.ownerID = 0
+                card.ownerID = "0"
         
         print(f"Unfortunately, {self.name} is now bankrupt! It's game over for them!")
     
@@ -131,6 +131,12 @@ class Player:
             return False
 
 
+    def findOwner(self, card, playerList):
+         for person in playerList:
+            if str(person.playerID) == card.ownerID:
+                return person
+
+
     def drawChance(self,counter):
         currentChance = counter % (4)
         counter += 1
@@ -150,24 +156,25 @@ class Player:
             self.checkPosition(board)
         
 
-    def payRent(self,card):
+    def payRent(self, card, playerList):
+        cardOwner = self.findOwner(card, playerList)
         if card.cardSet == "Travel Square":
-            if card.owner.travelSquaresOwned == 1:
+            if cardOwner.travelSquaresOwned == 1:
                 rent = 25
-            if card.owner.travelSquaresOwned == 2:
+            if cardOwner.travelSquaresOwned == 2:
                 rent = 50
-            if card.owner.travelSquaresOwned == 3:
+            if cardOwner.travelSquaresOwned == 3:
                 rent = 100
-            if card.owner.travelSquaresOwned == 4:
+            if cardOwner.travelSquaresOwned == 4:
                 rent = 200
         else:
             rent = card.rentAmounts[card.housesBuilt]
-        print(f"{self.name} is paying ${rent} to player{card.ownerID} for rent.")
+        print(f"{self.name} is paying ${rent} to {cardOwner.name} for rent.")
         self.reduceBalance(rent)
-        card.owner.addBalance(rent)
+        cardOwner.addBalance(rent)
 
 
-    def checkPosition(self, board):
+    def checkPosition(self, board, playerList):
         if self.currentPos >= 40:
             print(f"{self.name} passed Go, and collects $200.")
             self.addBalance(200)
@@ -206,13 +213,13 @@ class Player:
             if boardProperty.mortgaged:
                 print(f"{self.name} landed on a mortgaged property.")
 
-            elif boardProperty.ownerID != 0:
-                if boardProperty.ownerID == self.playerID:
+            elif boardProperty.ownerID != "0":
+                if boardProperty.ownerID == str(self.playerID):
                     print(f"{self.name} landed on {boardProperty.cardName}, a property they own.")
                 else:
 
                     print(f"{self.name} landed on {boardProperty.cardName}, a property owned by player{boardProperty.ownerID}")
-                    self.payRent(boardProperty)
+                    self.payRent(boardProperty, playerList)
 
             else:
                 print(f"{self.name} landed on {boardProperty.cardName}")
@@ -221,49 +228,49 @@ class Player:
                     boardProperty.purchaseCard(self)
         
         
-    def trade(self, playerReference, playerList, board):
+    # def trade(self, playerReference, playerList, board):
 
-        for player in playerList:
-            if player.name == playerReference:
-                otherPlayer = player
+    #     for player in playerList:
+    #         if player.name == playerReference:
+    #             otherPlayer = player
 
-        cashGiven = int(input("How much cash are you giving away? "))
-        propertiesToOffer = input("Enter the properties do you want to offer separated by commas\n").split(',')
+    #     cashGiven = int(input("How much cash are you giving away? "))
+    #     propertiesToOffer = input("Enter the properties do you want to offer separated by commas\n").split(',')
 
-        cashReceived = int(input(f"How much cash is {otherPlayer.name} giving you?"))
-        propertiesReceived = input(f"Which properties is {otherPlayer.name} giving you?\n").split(',')
+    #     cashReceived = int(input(f"How much cash is {otherPlayer.name} giving you?"))
+    #     propertiesReceived = input(f"Which properties is {otherPlayer.name} giving you?\n").split(',')
 
-        if propertiesToOffer[0] == '':
-            pass
-        else:
-            for card in propertiesToOffer:
-                cardObject = Cards.locateCard(card, board)
-                otherPlayer.ownedCards.append(cardObject)
+    #     if propertiesToOffer[0] == '':
+    #         pass
+    #     else:
+    #         for card in propertiesToOffer:
+    #             cardObject = Cards.locateCard(card, board)
+    #             otherPlayer.ownedCards.append(cardObject)
 
-        self.reduceBalance(cashGiven)
-        otherPlayer.addBalance(cashGiven)
+    #     self.reduceBalance(cashGiven)
+    #     otherPlayer.addBalance(cashGiven)
 
-        if propertiesReceived[0] == '':
-            pass
-        else:
-            for card in propertiesReceived:
-                cardObject = Cards.locateCard(card, board)
-                self.ownedCards.append(cardObject)
+    #     if propertiesReceived[0] == '':
+    #         pass
+    #     else:
+    #         for card in propertiesReceived:
+    #             cardObject = Cards.locateCard(card, board)
+    #             self.ownedCards.append(cardObject)
 
-        otherPlayer.reduceBalance(cashReceived)
-        self.addBalance(cashReceived)
+    #     otherPlayer.reduceBalance(cashReceived)
+    #     self.addBalance(cashReceived)
 
-        print(f"{self.name} has given ${cashGiven} and the following properties: {propertiesToOffer}")
-        print(f"{otherPlayer.name} has received ${cashReceived} and the following properties: {propertiesReceived}")
+    #     print(f"{self.name} has given ${cashGiven} and the following properties: {propertiesToOffer}")
+    #     print(f"{otherPlayer.name} has received ${cashReceived} and the following properties: {propertiesReceived}")
 
 
-    def playTurn(self,board):
+    def playTurn(self, board, playerList):
         if self.inJail:
-            self.playInJail()
+            self.playInJail(playerList)
         else:
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
-            self.checkPosition(board)
+            self.checkPosition(board, playerList)
         if self.doublesCount > 0:
-            self.playTurn(board)
+            self.playTurn(board, playerList)
         return True

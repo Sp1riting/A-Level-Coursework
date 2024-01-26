@@ -1,6 +1,6 @@
 import Classes.card as Cards
 
-## cost, cardName, cardSet, houseCost, housesBuilt, mortgaged, mortgageCost, ownerID, owner, rentAmounts. For ownerID, Bank is 0
+## cost, cardName, cardSet, houseCost, housesBuilt, mortgaged, mortgageCost, owner, ownerID, rentAmounts. For ownerID, Bank is 0
 
 def defaultCardsAndBoard():
     go = Cards.Card("N/A", "Go", "N/A", "N/A", "N/A", False, "N/A", "Bank", "0", "N/A")
@@ -11,10 +11,10 @@ def defaultCardsAndBoard():
     jail = Cards.Card("N/A", "Jail", "N/A", "N/A", "N/A", False, "N/A", "Bank", "0", "N/A")
     goToJail = Cards.Card("N/A", "Go To Jail", "N/A", "N/A", "N/A", False, "N/A", "Bank", "0", "N/A")
 
-    rr1 = Cards.Card(200, "Zebra Crossing", "Railroad", "N/A", "N/A", False, 100, "Bank", "0", "N/A")
-    rr2 = Cards.Card(200, "Snail Trail", "Railroad", "N/A", "N/A", False, 100, "Bank", "0", "N/A")
-    rr3 = Cards.Card(200, "Raccoon Railway", "Railroad", "N/A", "N/A", False, 100, "Bank", "0", "N/A")
-    rr4 = Cards.Card(200, "Panda Express", "Railroad", "N/A", "N/A", False, 100, "Bank", "0", "N/A")
+    rr1 = Cards.Card(200, "Zebra Crossing", "Travel Square", "N/A", "N/A", False, 100, "Bank", "0", "N/A")
+    rr2 = Cards.Card(200, "Snail Trail", "Travel Square", "N/A", "N/A", False, 100, "Bank", "0", "N/A")
+    rr3 = Cards.Card(200, "Raccoon Railway", "Travel Square", "N/A", "N/A", False, 100, "Bank", "0", "N/A")
+    rr4 = Cards.Card(200, "Panda Express", "Travel Square", "N/A", "N/A", False, 100, "Bank", "0", "N/A")
 
     u1 = Cards.Card(150, "Eel Electric", "Utility", "N/A", "N/A", False, 75, "Bank", "0", "N/A")
     u2 = Cards.Card(150, "Turtle Taps", "Utility", "N/A", "N/A", False, 75, "Bank", "0", "N/A")
