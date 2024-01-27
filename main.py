@@ -7,7 +7,7 @@ gameStart.defaultCardsAndBoard()
 valid = False
 gameEnded = False
 turnEnded = False
-
+chanceCounter = 0
 
 while not valid:
     numberOfPlayers = int(input("Enter the number of players in the game (2 to 8 players) "))
@@ -65,7 +65,7 @@ while not gameEnded:
         turnEnded = False
         print(f"{player1.name}'s turn has started. They have a balance of {player1.balance}")
         while not turnEnded:
-            turnEnded = player1.playTurn(board,playerList)
+            turnEnded = player1.playTurn(board, playerList, chanceCounter)
         print(f"{player1.name}'s turn has ended")
         print("")
 
@@ -73,7 +73,7 @@ while not gameEnded:
         turnEnded = False
         print(f"{player2.name}'s turn has started. They have a balance of {player2.balance}")
         while not turnEnded:
-            turnEnded = player2.playTurn(board,playerList)
+            turnEnded = player2.playTurn(board, playerList, chanceCounter)
         print(f"{player2.name}'s turn has ended")
         print("")
 
@@ -81,7 +81,7 @@ while not gameEnded:
         turnEnded = False
         print(f"{player3.name}'s turn has started. They have a balance of {player3.balance}")
         while not turnEnded:
-            turnEnded = player3.playTurn(board,playerList)
+            turnEnded = player3.playTurn(board, playerList, chanceCounter)
         print(f"{player3.name}'s turn has ended")
         print("")
 
@@ -89,7 +89,7 @@ while not gameEnded:
         turnEnded = False
         print(f"{player4.name}'s turn has started. They have a balance of {player4.balance}")
         while not turnEnded:
-            turnEnded = player4.playTurn(board,playerList)
+            turnEnded = player4.playTurn(board, playerList, chanceCounter)
         print(f"{player4.name}'s turn has ended")
         print("")
 
@@ -97,7 +97,7 @@ while not gameEnded:
         turnEnded = False
         print(f"{player5.name}'s turn has started. They have a balance of {player5.balance}")
         while not turnEnded:
-            turnEnded = player5.playTurn(board,playerList)
+            turnEnded = player5.playTurn(board, playerList, chanceCounter)
         print(f"{player5.name}'s turn has ended")
         print("")
 
@@ -105,7 +105,7 @@ while not gameEnded:
         turnEnded = False
         print(f"{player6.name}'s turn has started. They have a balance of {player6.balance}")
         while not turnEnded:
-            turnEnded = player6.playTurn(board,playerList)
+            turnEnded = player6.playTurn(board, playerList, chanceCounter)
         print(f"{player6.name}'s turn has ended")
         print("")
 
@@ -113,7 +113,7 @@ while not gameEnded:
         turnEnded = False
         print(f"{player7.name}'s turn has started. They have a balance of {player7.balance}")
         while not turnEnded:
-            turnEnded = player7.playTurn(board,playerList)
+            turnEnded = player7.playTurn(board, playerList, chanceCounter)
         print(f"{player7.name}'s turn has ended")
         print("")
 
@@ -121,6 +121,6 @@ while not gameEnded:
         turnEnded = False
         print(f"{player8.name}'s turn has started. They have a balance of {player8.balance}")
         while not turnEnded:
-            turnEnded = player8.playTurn(board,playerList)
+            turnEnded = player8.playTurn(board, playerList, chanceCounter)
         print(f"{player8.name}'s turn has ended")
         print("")
