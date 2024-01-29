@@ -6,6 +6,7 @@ from GameStart import board as board
 gameStart.defaultCardsAndBoard()
 valid = False
 gameEnded = False
+chanceCounter = 0
 
 while not valid:
     numberOfPlayers = int(input("Enter the number of players in the game (2 to 8 players) "))
