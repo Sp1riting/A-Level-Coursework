@@ -66,7 +66,7 @@ class Player:
             self.leaveJail()
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
-            self.checkPosition(board, playerList, diceRoll, chanceCounter)
+            chanceCounter = self.checkPosition(board, playerList, diceRoll, chanceCounter)
         
         bail = input("Would you like to pay the $50 bail? (y/n) ")
 
@@ -216,6 +216,8 @@ class Player:
                 if question == 'y':
                     boardProperty.purchaseCard(self)
         
+        return chanceCounter
+        
         
     # def trade(self, playerReference, playerList, board):
 
@@ -259,6 +261,8 @@ class Player:
         else:
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
-            self.checkPosition(board, playerList, diceRoll, chanceCounter)
+            chanceCounter = self.checkPosition(board, playerList, diceRoll, chanceCounter)
         if self.doublesCount > 0:
             self.playTurn(board, playerList, chanceCounter)
+        
+        return chanceCounter
