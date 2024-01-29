@@ -140,6 +140,7 @@ class Player:
 
 
     def drawChance(self, board, playerList, diceRoll, chanceCounter):
+
         currentChance = chanceCounter % (4)
         if currentChance == 0:
             print("Oh no, your friend is asking for a loan from you. Pay $50.")
@@ -280,4 +281,3 @@ class Player:
             self.checkPosition(board, playerList, diceRoll, chanceCounter)
         if self.doublesCount > 0:
             self.playTurn(board, playerList, chanceCounter)
-        return True

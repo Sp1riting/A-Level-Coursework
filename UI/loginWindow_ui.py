@@ -24,7 +24,7 @@ class Ui_w_LoginForm(object):
     def setupUi(self, w_LoginForm):
         if not w_LoginForm.objectName():
             w_LoginForm.setObjectName(u"w_LoginForm")
-        w_LoginForm.resize(1275, 665)
+        w_LoginForm.resize(1170, 579)
         font = QFont()
         font.setPointSize(12)
         w_LoginForm.setFont(font)
