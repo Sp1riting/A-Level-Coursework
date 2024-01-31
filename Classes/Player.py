@@ -15,6 +15,7 @@ class Player:
     turnsInJail = 0
     inJail = False
     bankrupt = False
+    GOOJFC = False
     
     def __init__(self, playerID, name):
         self.playerID = playerID
@@ -51,14 +52,25 @@ class Player:
         self.doublesCount = 0
         self.inJail = False
 
-    def playInJail(self, playerList, chanceCounter, randomList):
+    def playInJail(self, board, playerList, chanceCounter, randomList):
         self.doublesCount = 0
 
         if self.turnsInJail >= 3:
             print("Now that you have spent 3 turns in jail, you have been released and will roll again")
             self.leaveJail()
             self.playTurn(board, playerList, chanceCounter, randomList)
-            pass
+            return
+        
+        if self.GOOJFC:
+            choice = input("Do you want to use your get out of jail free card to exit jail? (y/n) ")
+            if choice == "y":
+                self.leaveJail()
+                self.GOOJFC = False
+                print("You used your get out of jail free card.")
+                diceRoll = self.rollDice()
+                self.movePlayer(diceRoll)
+                chanceCounter = self.checkPosition(board, playerList, diceRoll, chanceCounter, randomList)
+                return
 
         self.rollDice()
 
@@ -68,7 +80,7 @@ class Player:
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
             chanceCounter = self.checkPosition(board, playerList, diceRoll, chanceCounter, randomList)
-            pass
+            return
         
         bail = input("Would you like to pay the $50 bail? (y/n) ")
 
@@ -277,7 +289,7 @@ class Player:
 
     def playTurn(self, board, playerList, chanceCounter, randomList):
         if self.inJail:
-            self.playInJail(playerList, chanceCounter, randomList)
+            self.playInJail(board, playerList, chanceCounter, randomList)
         else:
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)

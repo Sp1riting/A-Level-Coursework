@@ -1,6 +1,6 @@
 def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList):
 
-    currentChance = randomList[chanceCounter % (16)]
+    currentChance = randomList[chanceCounter % 16]
 
     if currentChance == 0:
         print("Oh no, your friend is asking for a loan from you. Pay $50.")
@@ -81,7 +81,8 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList):
         self.addBalance(200)
 
     elif currentChance == 12:
-        print("")
+        print("Get out of jail free card (you can only hold one of these).")
+        self.GOOJFC = True
     
     elif currentChance == 13:
         print("")
