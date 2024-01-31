@@ -1,7 +1,7 @@
 ToDo:
 
 - Figure out a title for game (something to do with zoo?) Maybe cartel/syndicate/oligopoly
-- More chance cards need to be added
+- Remaining chance cards need to be written out
 - Add houses
 - Add get out of jail free card
 - Add double rent cost when a full colour set is owned

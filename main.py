@@ -7,7 +7,9 @@ from GameStart import board as board
 gameStart.defaultCardsAndBoard()
 valid = False
 gameEnded = False
-chanceCounter = random.randint(0,6)
+chanceCounter = 0
+randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+random.shuffle(randomList)
 
 while not valid:
     numberOfPlayers = int(input("Enter the number of players in the game (2 to 8 players) "))
@@ -63,48 +65,48 @@ while not gameEnded:
 
     if numberOfPlayers >=1 and not player1.bankrupt:
         print(f"{player1.name}'s turn has started. They have a balance of {player1.balance}")
-        chanceCounter = player1.playTurn(board, playerList, chanceCounter)
+        chanceCounter = player1.playTurn(board, playerList, chanceCounter, randomList)
         print(f"{player1.name}'s turn has ended")
         print("")
 
     if numberOfPlayers >=2 and not player2.bankrupt:
         print(f"{player2.name}'s turn has started. They have a balance of {player2.balance}")
-        chanceCounter = player2.playTurn(board, playerList, chanceCounter)
+        chanceCounter = player2.playTurn(board, playerList, chanceCounter, randomList)
         print(f"{player2.name}'s turn has ended")
         print("")
 
     if numberOfPlayers >=3 and not player3.bankrupt:
         print(f"{player3.name}'s turn has started. They have a balance of {player3.balance}")
-        chanceCounter = player3.playTurn(board, playerList, chanceCounter)
+        chanceCounter = player3.playTurn(board, playerList, chanceCounter, randomList)
         print(f"{player3.name}'s turn has ended")
         print("")
 
     if numberOfPlayers >=4 and not player4.bankrupt:
         print(f"{player4.name}'s turn has started. They have a balance of {player4.balance}")
-        chanceCounter = player4.playTurn(board, playerList, chanceCounter)
+        chanceCounter = player4.playTurn(board, playerList, chanceCounter, randomList)
         print(f"{player4.name}'s turn has ended")
         print("")
 
     if numberOfPlayers >=5 and not player5.bankrupt:
         print(f"{player5.name}'s turn has started. They have a balance of {player5.balance}")
-        chanceCounter = player5.playTurn(board, playerList, chanceCounter)
+        chanceCounter = player5.playTurn(board, playerList, chanceCounter, randomList)
         print(f"{player5.name}'s turn has ended")
         print("")
 
     if numberOfPlayers >=6 and not player6.bankrupt:
         print(f"{player6.name}'s turn has started. They have a balance of {player6.balance}")
-        chanceCounter = player6.playTurn(board, playerList, chanceCounter)
+        chanceCounter = player6.playTurn(board, playerList, chanceCounter, randomList)
         print(f"{player6.name}'s turn has ended")
         print("")
 
     if numberOfPlayers >=7 and not player7.bankrupt:
         print(f"{player7.name}'s turn has started. They have a balance of {player7.balance}")
-        chanceCounter = player7.playTurn(board, playerList, chanceCounter)
+        chanceCounter = player7.playTurn(board, playerList, chanceCounter, randomList)
         print(f"{player7.name}'s turn has ended")
         print("")
 
     if numberOfPlayers >=8 and not player8.bankrupt:
         print(f"{player8.name}'s turn has started. They have a balance of {player8.balance}")
-        chanceCounter = player8.playTurn(board, playerList, chanceCounter)
+        chanceCounter = player8.playTurn(board, playerList, chanceCounter, randomList)
         print(f"{player8.name}'s turn has ended")
         print("")

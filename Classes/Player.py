@@ -51,13 +51,13 @@ class Player:
         self.doublesCount = 0
         self.inJail = False
 
-    def playInJail(self, playerList, chanceCounter):
+    def playInJail(self, playerList, chanceCounter, randomList):
         self.doublesCount = 0
 
         if self.turnsInJail >= 3:
             print("Now that you have spent 3 turns in jail, you have been released and will roll again")
             self.leaveJail()
-            self.playTurn(board, playerList, chanceCounter)
+            self.playTurn(board, playerList, chanceCounter, randomList)
             pass
 
         self.rollDice()
@@ -67,7 +67,7 @@ class Player:
             self.leaveJail()
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
-            chanceCounter = self.checkPosition(board, playerList, diceRoll, chanceCounter)
+            chanceCounter = self.checkPosition(board, playerList, diceRoll, chanceCounter, randomList)
             pass
         
         bail = input("Would you like to pay the $50 bail? (y/n) ")
@@ -183,7 +183,7 @@ class Player:
                 board[i].purchaseCard(self)
 
 
-    def checkPosition(self, board, playerList, roll, chanceCounter):
+    def checkPosition(self, board, playerList, roll, chanceCounter, randomList):
         if self.currentPos >= 40:
             print(f"{self.name} passed Go, and collects $200.")
             self.addBalance(200)
@@ -216,7 +216,7 @@ class Player:
         
         elif boardProperty.cardName == 'Chance':
             print(f"{self.name} landed on Chance, and will draw a card.")
-            chanceCounter = chance.drawChance(self, board, playerList, roll, chanceCounter)
+            chanceCounter = chance.drawChance(self, board, playerList, roll, chanceCounter, randomList)
 
         else:
             if boardProperty.mortgaged:
@@ -275,14 +275,14 @@ class Player:
     #     print(f"{otherPlayer.name} has received ${cashReceived} and the following properties: {propertiesReceived}")
 
 
-    def playTurn(self, board, playerList, chanceCounter):
+    def playTurn(self, board, playerList, chanceCounter, randomList):
         if self.inJail:
-            self.playInJail(playerList, chanceCounter)
+            self.playInJail(playerList, chanceCounter, randomList)
         else:
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
-            chanceCounter = self.checkPosition(board, playerList, diceRoll, chanceCounter)
+            chanceCounter = self.checkPosition(board, playerList, diceRoll, chanceCounter, randomList)
         if self.doublesCount > 0:
-            self.playTurn(board, playerList, chanceCounter)
+            self.playTurn(board, playerList, chanceCounter, randomList)
         
         return chanceCounter

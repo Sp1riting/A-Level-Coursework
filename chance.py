@@ -1,6 +1,7 @@
-def drawChance(self, board, playerList, diceRoll, chanceCounter):
+def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList):
 
-    currentChance = chanceCounter % (7)
+    currentChance = randomList[chanceCounter % (16)]
+
     if currentChance == 0:
         print("Oh no, your friend is asking for a loan from you. Pay $50.")
         self.reduceBalance(50)
@@ -17,7 +18,7 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter):
     elif currentChance == 3:
         print("Ouch! You drove into a lampost and have to fix your car. Go back three spaces.")
         self.currentPos = (self.currentPos - 3) % 40
-        self.checkPosition(board, playerList, diceRoll, chanceCounter)
+        self.checkPosition(board, playerList, diceRoll, chanceCounter, randomList)
 
     elif currentChance == 4:
         print("Move directly to jail. You may not pass go, or collect $200.")
@@ -48,9 +49,48 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter):
             print(f"{self.name} passed Go, and collects $200.")
             self.addBalance(200)
             self.advanceToSquare(board, playerList, diceRoll, True, 12)
+    
+    elif currentChance == 7:
+        print(f"Advance to {board[39].cardName}")
+        self.advanceToSquare(board, playerList, diceRoll, False, 39)
+    
+    elif currentChance == 8:
+        print(f"Advance to {board[24].cardName}. If you pass go, collect $200.")
+        if (self.currentPos % 40) < 24:
+            self.advanceToSquare(board, playerList, diceRoll, False, 24)
+        else:
+            print(f"{self.name} passed Go, and collects $200.")
+            self.addBalance(200)
+            self.advanceToSquare(board, playerList, diceRoll, False, 24)
+    
+    elif currentChance == 9:
+        print(f"Advance to {board[11].cardName}. If you pass go, collect $200.")
+        if (self.currentPos % 40) < 11:
+            self.advanceToSquare(board, playerList, diceRoll, False, 11)
+        else:
+            print(f"{self.name} passed Go, and collects $200.")
+            self.addBalance(200)
+            self.advanceToSquare(board, playerList, diceRoll, False, 11)
+    
+    elif currentChance == 10:
+        print("You've been caugth speeding around the board. Pay a fine of $20.")
+        self.reduceBalance(20)
+    
+    elif currentChance == 11:
+        print("There was a bank error and you are being compensated. Collect $200.")
+        self.addBalance(200)
 
-        
-
+    elif currentChance == 12:
+        print("")
+    
+    elif currentChance == 13:
+        print("")
+    
+    elif currentChance == 14:
+        print("")
+    
+    elif currentChance == 15:
+        print("")
 
     
     chanceCounter += 1
