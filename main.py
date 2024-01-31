@@ -1,3 +1,4 @@
+import random
 import GameStart as gameStart
 import Classes.card as Cards
 import Classes.player as Players
@@ -6,7 +7,7 @@ from GameStart import board as board
 gameStart.defaultCardsAndBoard()
 valid = False
 gameEnded = False
-chanceCounter = 0
+chanceCounter = random.randint(0,6)
 
 while not valid:
     numberOfPlayers = int(input("Enter the number of players in the game (2 to 8 players) "))

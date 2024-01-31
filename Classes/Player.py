@@ -58,6 +58,7 @@ class Player:
             print("Now that you have spent 3 turns in jail, you have been released and will roll again")
             self.leaveJail()
             self.playTurn(board, playerList, chanceCounter)
+            pass
 
         self.rollDice()
 
@@ -67,6 +68,7 @@ class Player:
             diceRoll = self.rollDice()
             self.movePlayer(diceRoll)
             chanceCounter = self.checkPosition(board, playerList, diceRoll, chanceCounter)
+            pass
         
         bail = input("Would you like to pay the $50 bail? (y/n) ")
 
@@ -94,8 +96,12 @@ class Player:
         if self.balance < amount:
             bankruptCheck = self.checkBankruptcy(amount)
             if not bankruptCheck:
-                sell = input("Do you want to sell houses and properties to avoid going bankrupt? (y/n)") 
-                #Add option to sell/mortgage houses and properties.
+                sell = input("Do you want to sell houses and properties to avoid going bankrupt? (y/n)")
+                if sell == "y":
+                    pass
+                    #Add option to sell/mortgage houses and properties.
+                else:
+                    self.bankruptPlayer()
             else:
                 self.bankruptPlayer()
         else:
@@ -140,7 +146,7 @@ class Player:
                 return person
 
 
-    def payRent(self, card, playerList, roll):
+    def payRent(self, card, playerList, roll, isDoubled):
         cardOwner = self.findOwner(card, playerList)
         if card.cardSet == "Travel Square":
             if cardOwner.travelSquaresOwned == 1:
@@ -158,9 +164,23 @@ class Player:
                 rent = roll * 10
         else:
             rent = card.rentAmounts[card.housesBuilt]
+        if isDoubled:
+            rent *= 2
         print(f"{self.name} is paying ${rent} to {cardOwner.name} for rent.")
         self.reduceBalance(rent)
         cardOwner.addBalance(rent)
+    
+    def advanceToSquare(self, board, playerList, diceRoll, isDoubled, i):
+        print(f"{self.name} landed on {board[i].cardName}")
+        self.currentPos = i
+        if board[i].mortgaged:
+            print(f"{self.name} landed on a mortgaged property.")
+        elif board[i].ownerID != "0":
+            self.payRent(board[i], playerList, diceRoll, isDoubled)
+        else:
+            question = input(f"Do you want to buy the property? It costs ${board[i].cost} (y/n) ")
+            if question == 'y':
+                board[i].purchaseCard(self)
 
 
     def checkPosition(self, board, playerList, roll, chanceCounter):
@@ -208,7 +228,7 @@ class Player:
                 else:
 
                     print(f"{self.name} landed on {boardProperty.cardName}, a property owned by player{boardProperty.ownerID}")
-                    self.payRent(boardProperty, playerList, roll)
+                    self.payRent(boardProperty, playerList, roll, False)
 
             else:
                 print(f"{self.name} landed on {boardProperty.cardName}")
