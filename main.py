@@ -8,8 +8,7 @@ gameStart.defaultCardsAndBoard()
 valid = False
 gameEnded = False
 chanceCounter = 0
-#randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-randomList = [12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12]
+randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 random.shuffle(randomList)
 
 while not valid:

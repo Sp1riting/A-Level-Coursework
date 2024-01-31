@@ -73,7 +73,7 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList):
             self.advanceToSquare(board, playerList, diceRoll, False, 11)
     
     elif currentChance == 10:
-        print("You've been caugth speeding around the board. Pay a fine of $20.")
+        print("You've been caught speeding around the board. Pay a fine of $20.")
         self.reduceBalance(20)
     
     elif currentChance == 11:
@@ -85,13 +85,16 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList):
         self.GOOJFC = True
     
     elif currentChance == 13:
-        print("")
+        print("You sprained your wrist driving too hard and have to pay $100 of hospital fees.")
+        self.reduceBalance(100)
     
     elif currentChance == 14:
-        print("")
+        print("It's your birthday! Collect $20.")
+        self.addBalance(20)
     
     elif currentChance == 15:
-        print("")
+        print("You broke down. Pay $100 for repairs.")
+        self.reduceBalance(100)
 
     
     chanceCounter += 1
