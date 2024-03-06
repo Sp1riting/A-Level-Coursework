@@ -131,6 +131,8 @@ class Player:
             for card in self.cardsOwned:
                 card.owner = "Bank"
                 card.ownerID = "0"
+                card.mortgaged = False
+                card.housesBuilt = 0
         
         print(f"Unfortunately, {self.name} is now bankrupt! It's game over for them!")
     
@@ -249,42 +251,6 @@ class Player:
                     boardProperty.purchaseCard(self)
         
         return chanceCounter
-        
-        
-    # def trade(self, playerReference, playerList, board):
-
-    #     for player in playerList:
-    #         if player.name == playerReference:
-    #             otherPlayer = player
-
-    #     cashGiven = int(input("How much cash are you giving away? "))
-    #     propertiesToOffer = input("Enter the properties do you want to offer separated by commas\n").split(',')
-
-    #     cashReceived = int(input(f"How much cash is {otherPlayer.name} giving you?"))
-    #     propertiesReceived = input(f"Which properties is {otherPlayer.name} giving you?\n").split(',')
-
-    #     if propertiesToOffer[0] == '':
-    #         pass
-    #     else:
-    #         for card in propertiesToOffer:
-    #             cardObject = Cards.locateCard(card, board)
-    #             otherPlayer.ownedCards.append(cardObject)
-
-    #     self.reduceBalance(cashGiven)
-    #     otherPlayer.addBalance(cashGiven)
-
-    #     if propertiesReceived[0] == '':
-    #         pass
-    #     else:
-    #         for card in propertiesReceived:
-    #             cardObject = Cards.locateCard(card, board)
-    #             self.ownedCards.append(cardObject)
-
-    #     otherPlayer.reduceBalance(cashReceived)
-    #     self.addBalance(cashReceived)
-
-    #     print(f"{self.name} has given ${cashGiven} and the following properties: {propertiesToOffer}")
-    #     print(f"{otherPlayer.name} has received ${cashReceived} and the following properties: {propertiesReceived}")
 
 
     def playTurn(self, board, playerList, chanceCounter, randomList):

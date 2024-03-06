@@ -24,7 +24,7 @@ def defaultCardsAndBoard():
 
     lBlue1 = Cards.Card(100, "Phoenix Heights", "Light Blue", 50, 0, 50, [6, 30, 90, 270, 400, 550])
     lBlue2 = Cards.Card(100, "Pigeon Street", "Light Blue", 50, 0, 50, [6, 30, 90, 270, 400, 550])
-    lBlue3 = Cards.Card(120, "Polar Bear Park", "Light Blue", 50, 0, 60, [4, 20, 60, 180, 320, 450])
+    lBlue3 = Cards.Card(120, "Polar Bear Park", "Light Blue", 50, 0, 60, [8, 40, 100, 300, 450, 600])
 
     pink1 = Cards.Card(140, "Monkey Mall", "Pink", 100, 0, 70, [10, 50, 150, 450, 625, 750])
     pink2 = Cards.Card(140, "Hedgehog Lane", "Pink", 100, 0, 70, [10, 50, 150, 450, 625, 750])
