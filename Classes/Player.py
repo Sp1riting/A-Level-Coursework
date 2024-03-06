@@ -141,11 +141,10 @@ class Player:
         worth = 0
 
         for card in self.ownedCards:
-            if card.mortgaged:
-                worth -= card.mortgageCost
-                worth += card.cost
-            else:
-                worth += card.cost
+            if not card.mortgaged:
+                worth += card.mortgageCost
+            if card.housesBuilt != "N/A":
+                worth += card.housesBuilt * card.houseCost
 
         if (self.balance + worth) < amount:
             self.bankruptPlayer()

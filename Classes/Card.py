@@ -19,7 +19,7 @@ class Card:
                 player.travelSquaresOwned -= 1
             elif self.cardSet == "Utility":
                 player.utilitiesOwned -= 1
-            player.addBalance(self.mortgagecost)
+            player.addBalance(self.mortgageCost)
             self.mortgaged = True
             player.ownedCards.remove(self.cardName)
         else:
