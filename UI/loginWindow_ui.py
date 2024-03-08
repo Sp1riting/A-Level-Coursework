@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QFormLayout, QGridLayout,
     QGroupBox, QLabel, QLineEdit, QPushButton,
     QSizePolicy, QSpacerItem, QWidget)
-import Icons_rc
+#import Icons_rc
 
 class Ui_w_LoginForm(object):
     def setupUi(self, w_LoginForm):
