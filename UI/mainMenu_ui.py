@@ -32,7 +32,7 @@ class Ui_Dialog(object):
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout.addItem(self.verticalSpacer, 5, 0, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer, 7, 0, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -49,6 +49,10 @@ class Ui_Dialog(object):
 
         self.horizontalLayout.addWidget(self.menuPlayButton)
 
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_6)
+
         self.menuReturnButton = QPushButton(Dialog)
         self.menuReturnButton.setObjectName(u"menuReturnButton")
         self.menuReturnButton.setMinimumSize(QSize(300, 100))
@@ -61,7 +65,7 @@ class Ui_Dialog(object):
         self.horizontalLayout.addItem(self.horizontalSpacer_2)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout, 4, 0, 1, 1)
+        self.gridLayout.addLayout(self.horizontalLayout, 6, 0, 1, 1)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -77,6 +81,10 @@ class Ui_Dialog(object):
 
         self.horizontalLayout_2.addWidget(self.menuHowToPlayButton)
 
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_5)
+
         self.menuStatisticsButton = QPushButton(Dialog)
         self.menuStatisticsButton.setObjectName(u"menuStatisticsButton")
         self.menuStatisticsButton.setMinimumSize(QSize(300, 100))
@@ -89,7 +97,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout_2, 3, 0, 1, 1)
+        self.gridLayout.addLayout(self.horizontalLayout_2, 4, 0, 1, 1)
 
         self.menuTitleLabel = QLabel(Dialog)
         self.menuTitleLabel.setObjectName(u"menuTitleLabel")
@@ -101,9 +109,21 @@ class Ui_Dialog(object):
 
         self.gridLayout.addWidget(self.menuTitleLabel, 1, 0, 1, 1)
 
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_5, 2, 0, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_4, 8, 0, 1, 1)
+
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout.addItem(self.verticalSpacer_3, 2, 0, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer_3, 3, 0, 1, 1)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_6, 5, 0, 1, 1)
 
 
         self.retranslateUi(Dialog)

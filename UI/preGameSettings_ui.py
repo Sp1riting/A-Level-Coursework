@@ -25,6 +25,9 @@ class Ui_Dialog(object):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
         Dialog.resize(846, 570)
+        font = QFont()
+        font.setPointSize(12)
+        Dialog.setFont(font)
         self.gridLayout = QGridLayout(Dialog)
         self.gridLayout.setObjectName(u"gridLayout")
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
@@ -41,16 +44,17 @@ class Ui_Dialog(object):
 
         self.preGameTitleLabel = QLabel(Dialog)
         self.preGameTitleLabel.setObjectName(u"preGameTitleLabel")
-        font = QFont()
-        font.setPointSize(24)
-        font.setBold(False)
-        self.preGameTitleLabel.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(24)
+        font1.setBold(False)
+        self.preGameTitleLabel.setFont(font1)
         self.preGameTitleLabel.setAlignment(Qt.AlignCenter)
 
         self.gridLayout.addWidget(self.preGameTitleLabel, 0, 0, 1, 1)
 
         self.preGameErrorLabel = QLabel(Dialog)
         self.preGameErrorLabel.setObjectName(u"preGameErrorLabel")
+        self.preGameErrorLabel.setFont(font)
 
         self.gridLayout.addWidget(self.preGameErrorLabel, 4, 0, 1, 1)
 
@@ -67,16 +71,16 @@ class Ui_Dialog(object):
         self.preGamePlayButton = QPushButton(Dialog)
         self.preGamePlayButton.setObjectName(u"preGamePlayButton")
         self.preGamePlayButton.setMinimumSize(QSize(200, 75))
-        font1 = QFont()
-        font1.setPointSize(16)
-        self.preGamePlayButton.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(16)
+        self.preGamePlayButton.setFont(font2)
 
         self.horizontalLayout.addWidget(self.preGamePlayButton)
 
         self.preGameReturnButton = QPushButton(Dialog)
         self.preGameReturnButton.setObjectName(u"preGameReturnButton")
         self.preGameReturnButton.setMinimumSize(QSize(200, 75))
-        self.preGameReturnButton.setFont(font1)
+        self.preGameReturnButton.setFont(font2)
 
         self.horizontalLayout.addWidget(self.preGameReturnButton)
 
@@ -99,33 +103,31 @@ class Ui_Dialog(object):
         self.formLayout.setObjectName(u"formLayout")
         self.startingBalanceLabel = QLabel(self.groupBox)
         self.startingBalanceLabel.setObjectName(u"startingBalanceLabel")
-        font2 = QFont()
-        font2.setPointSize(12)
-        self.startingBalanceLabel.setFont(font2)
+        self.startingBalanceLabel.setFont(font)
 
         self.formLayout.setWidget(0, QFormLayout.LabelRole, self.startingBalanceLabel)
 
         self.moneyFromGoLabel = QLabel(self.groupBox)
         self.moneyFromGoLabel.setObjectName(u"moneyFromGoLabel")
-        self.moneyFromGoLabel.setFont(font2)
+        self.moneyFromGoLabel.setFont(font)
 
         self.formLayout.setWidget(1, QFormLayout.LabelRole, self.moneyFromGoLabel)
 
         self.numberOfPlayersLabel = QLabel(self.groupBox)
         self.numberOfPlayersLabel.setObjectName(u"numberOfPlayersLabel")
-        self.numberOfPlayersLabel.setFont(font2)
+        self.numberOfPlayersLabel.setFont(font)
 
         self.formLayout.setWidget(2, QFormLayout.LabelRole, self.numberOfPlayersLabel)
 
         self.rentFromJailLabel = QLabel(self.groupBox)
         self.rentFromJailLabel.setObjectName(u"rentFromJailLabel")
-        self.rentFromJailLabel.setFont(font2)
+        self.rentFromJailLabel.setFont(font)
 
         self.formLayout.setWidget(4, QFormLayout.LabelRole, self.rentFromJailLabel)
 
         self.fastBankruptcyLabel = QLabel(self.groupBox)
         self.fastBankruptcyLabel.setObjectName(u"fastBankruptcyLabel")
-        self.fastBankruptcyLabel.setFont(font2)
+        self.fastBankruptcyLabel.setFont(font)
 
         self.formLayout.setWidget(3, QFormLayout.LabelRole, self.fastBankruptcyLabel)
 
@@ -154,8 +156,11 @@ class Ui_Dialog(object):
 
         self.fastBankruptcyCheckBox = QCheckBox(self.groupBox)
         self.fastBankruptcyCheckBox.setObjectName(u"fastBankruptcyCheckBox")
-        self.fastBankruptcyCheckBox.setFont(font2)
+        font3 = QFont()
+        font3.setPointSize(8)
+        self.fastBankruptcyCheckBox.setFont(font3)
         self.fastBankruptcyCheckBox.setLayoutDirection(Qt.RightToLeft)
+        self.fastBankruptcyCheckBox.setAutoFillBackground(False)
         self.fastBankruptcyCheckBox.setIconSize(QSize(30, 30))
         self.fastBankruptcyCheckBox.setChecked(False)
 
@@ -163,7 +168,7 @@ class Ui_Dialog(object):
 
         self.rentFromJailCheckBox = QCheckBox(self.groupBox)
         self.rentFromJailCheckBox.setObjectName(u"rentFromJailCheckBox")
-        self.rentFromJailCheckBox.setFont(font2)
+        self.rentFromJailCheckBox.setFont(font)
         self.rentFromJailCheckBox.setLayoutDirection(Qt.RightToLeft)
 
         self.formLayout.setWidget(4, QFormLayout.FieldRole, self.rentFromJailCheckBox)
