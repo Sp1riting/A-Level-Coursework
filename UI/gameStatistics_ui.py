@@ -23,7 +23,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(855, 405)
+        Dialog.resize(726, 377)
         self.gridLayout_2 = QGridLayout(Dialog)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout = QGridLayout()
@@ -165,7 +165,7 @@ class Ui_Dialog(object):
 
         self.gridLayout_2.addLayout(self.gameStatsHorizontalLayout, 0, 0, 1, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 47, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 28, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.gridLayout_2.addItem(self.verticalSpacer, 1, 0, 1, 1)
 

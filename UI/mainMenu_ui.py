@@ -23,9 +23,17 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(718, 379)
+        Dialog.resize(842, 342)
         self.gridLayout = QGridLayout(Dialog)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_2, 0, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer, 5, 0, 1, 1)
+
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
@@ -53,7 +61,7 @@ class Ui_Dialog(object):
         self.horizontalLayout.addItem(self.horizontalSpacer_2)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout, 2, 0, 1, 1)
+        self.gridLayout.addLayout(self.horizontalLayout, 4, 0, 1, 1)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -81,7 +89,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
+        self.gridLayout.addLayout(self.horizontalLayout_2, 3, 0, 1, 1)
 
         self.menuTitleLabel = QLabel(Dialog)
         self.menuTitleLabel.setObjectName(u"menuTitleLabel")
@@ -91,7 +99,11 @@ class Ui_Dialog(object):
         self.menuTitleLabel.setFont(font1)
         self.menuTitleLabel.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.menuTitleLabel, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.menuTitleLabel, 1, 0, 1, 1)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_3, 2, 0, 1, 1)
 
 
         self.retranslateUi(Dialog)
