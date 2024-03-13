@@ -23,55 +23,55 @@ class Ui_CreateAccountWindow(object):
     def setupUi(self, CreateAccountWindow):
         if not CreateAccountWindow.objectName():
             CreateAccountWindow.setObjectName(u"CreateAccountWindow")
-        CreateAccountWindow.resize(789, 449)
+        CreateAccountWindow.resize(720, 382)
         self.verticalLayout = QVBoxLayout(CreateAccountWindow)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.label = QLabel(CreateAccountWindow)
-        self.label.setObjectName(u"label")
+        self.accountTitleLabel = QLabel(CreateAccountWindow)
+        self.accountTitleLabel.setObjectName(u"accountTitleLabel")
         font = QFont()
         font.setPointSize(29)
-        self.label.setFont(font)
-        self.label.setAlignment(Qt.AlignCenter)
+        self.accountTitleLabel.setFont(font)
+        self.accountTitleLabel.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.label)
+        self.verticalLayout.addWidget(self.accountTitleLabel)
 
         self.formLayout = QFormLayout()
         self.formLayout.setObjectName(u"formLayout")
-        self.label_2 = QLabel(CreateAccountWindow)
-        self.label_2.setObjectName(u"label_2")
+        self.accountUsernameLabel = QLabel(CreateAccountWindow)
+        self.accountUsernameLabel.setObjectName(u"accountUsernameLabel")
         font1 = QFont()
         font1.setPointSize(16)
-        self.label_2.setFont(font1)
+        self.accountUsernameLabel.setFont(font1)
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_2)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.accountUsernameLabel)
 
-        self.usernameInput = QLineEdit(CreateAccountWindow)
-        self.usernameInput.setObjectName(u"usernameInput")
-        self.usernameInput.setMinimumSize(QSize(0, 40))
+        self.accountUsernameInput = QLineEdit(CreateAccountWindow)
+        self.accountUsernameInput.setObjectName(u"accountUsernameInput")
+        self.accountUsernameInput.setMinimumSize(QSize(0, 40))
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.usernameInput)
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.accountUsernameInput)
 
-        self.label_3 = QLabel(CreateAccountWindow)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font1)
+        self.accountPasswordLabel = QLabel(CreateAccountWindow)
+        self.accountPasswordLabel.setObjectName(u"accountPasswordLabel")
+        self.accountPasswordLabel.setFont(font1)
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_3)
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.accountPasswordLabel)
 
-        self.passwordInput = QLineEdit(CreateAccountWindow)
-        self.passwordInput.setObjectName(u"passwordInput")
-        self.passwordInput.setMinimumSize(QSize(0, 40))
-        self.passwordInput.setEchoMode(QLineEdit.Password)
+        self.accountPasswordInput = QLineEdit(CreateAccountWindow)
+        self.accountPasswordInput.setObjectName(u"accountPasswordInput")
+        self.accountPasswordInput.setMinimumSize(QSize(0, 40))
+        self.accountPasswordInput.setEchoMode(QLineEdit.Password)
 
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.passwordInput)
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.accountPasswordInput)
 
 
         self.verticalLayout.addLayout(self.formLayout)
 
-        self.errorLabel = QLabel(CreateAccountWindow)
-        self.errorLabel.setObjectName(u"errorLabel")
-        self.errorLabel.setAlignment(Qt.AlignCenter)
+        self.createErrorLabel = QLabel(CreateAccountWindow)
+        self.createErrorLabel.setObjectName(u"createErrorLabel")
+        self.createErrorLabel.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.errorLabel)
+        self.verticalLayout.addWidget(self.createErrorLabel)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -79,21 +79,21 @@ class Ui_CreateAccountWindow(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.createButton = QPushButton(CreateAccountWindow)
-        self.createButton.setObjectName(u"createButton")
-        self.createButton.setMinimumSize(QSize(300, 50))
+        self.createAcountButton = QPushButton(CreateAccountWindow)
+        self.createAcountButton.setObjectName(u"createAcountButton")
+        self.createAcountButton.setMinimumSize(QSize(300, 50))
         font2 = QFont()
         font2.setPointSize(12)
-        self.createButton.setFont(font2)
+        self.createAcountButton.setFont(font2)
 
-        self.horizontalLayout.addWidget(self.createButton)
+        self.horizontalLayout.addWidget(self.createAcountButton)
 
-        self.returnButton = QPushButton(CreateAccountWindow)
-        self.returnButton.setObjectName(u"returnButton")
-        self.returnButton.setMinimumSize(QSize(300, 50))
-        self.returnButton.setFont(font2)
+        self.createReturnButton = QPushButton(CreateAccountWindow)
+        self.createReturnButton.setObjectName(u"createReturnButton")
+        self.createReturnButton.setMinimumSize(QSize(300, 50))
+        self.createReturnButton.setFont(font2)
 
-        self.horizontalLayout.addWidget(self.returnButton)
+        self.horizontalLayout.addWidget(self.createReturnButton)
 
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -110,11 +110,11 @@ class Ui_CreateAccountWindow(object):
 
     def retranslateUi(self, CreateAccountWindow):
         CreateAccountWindow.setWindowTitle(QCoreApplication.translate("CreateAccountWindow", u"Create New Account", None))
-        self.label.setText(QCoreApplication.translate("CreateAccountWindow", u"Create New Account", None))
-        self.label_2.setText(QCoreApplication.translate("CreateAccountWindow", u"Username:", None))
-        self.label_3.setText(QCoreApplication.translate("CreateAccountWindow", u"Password:", None))
-        self.errorLabel.setText("")
-        self.createButton.setText(QCoreApplication.translate("CreateAccountWindow", u"Create", None))
-        self.returnButton.setText(QCoreApplication.translate("CreateAccountWindow", u"Return", None))
+        self.accountTitleLabel.setText(QCoreApplication.translate("CreateAccountWindow", u"Create New Account", None))
+        self.accountUsernameLabel.setText(QCoreApplication.translate("CreateAccountWindow", u"Username:", None))
+        self.accountPasswordLabel.setText(QCoreApplication.translate("CreateAccountWindow", u"Password:", None))
+        self.createErrorLabel.setText("")
+        self.createAcountButton.setText(QCoreApplication.translate("CreateAccountWindow", u"Create", None))
+        self.createReturnButton.setText(QCoreApplication.translate("CreateAccountWindow", u"Return", None))
     # retranslateUi
 

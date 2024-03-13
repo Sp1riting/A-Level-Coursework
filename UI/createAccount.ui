@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>789</width>
-    <height>449</height>
+    <width>720</width>
+    <height>382</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="accountTitleLabel">
      <property name="font">
       <font>
        <pointsize>29</pointsize>
@@ -32,7 +32,7 @@
    <item>
     <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="accountUsernameLabel">
        <property name="font">
         <font>
          <pointsize>16</pointsize>
@@ -44,7 +44,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="usernameInput">
+      <widget class="QLineEdit" name="accountUsernameInput">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -54,7 +54,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="accountPasswordLabel">
        <property name="font">
         <font>
          <pointsize>16</pointsize>
@@ -66,7 +66,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="passwordInput">
+      <widget class="QLineEdit" name="accountPasswordInput">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -81,7 +81,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="errorLabel">
+    <widget class="QLabel" name="createErrorLabel">
      <property name="text">
       <string/>
      </property>
@@ -106,7 +106,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="createButton">
+      <widget class="QPushButton" name="createAcountButton">
        <property name="minimumSize">
         <size>
          <width>300</width>
@@ -124,7 +124,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="returnButton">
+      <widget class="QPushButton" name="createReturnButton">
        <property name="minimumSize">
         <size>
          <width>300</width>

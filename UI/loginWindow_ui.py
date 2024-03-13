@@ -23,7 +23,7 @@ class Ui_CreateAccountWindow(object):
     def setupUi(self, CreateAccountWindow):
         if not CreateAccountWindow.objectName():
             CreateAccountWindow.setObjectName(u"CreateAccountWindow")
-        CreateAccountWindow.resize(753, 399)
+        CreateAccountWindow.resize(718, 380)
         self.verticalLayout = QVBoxLayout(CreateAccountWindow)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.loginTitleLabel = QLabel(CreateAccountWindow)
