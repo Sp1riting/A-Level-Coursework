@@ -15,88 +15,107 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QFormLayout, QGridLayout,
-    QGroupBox, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QSpacerItem, QWidget)
-#import Icons_rc
+from PySide6.QtWidgets import (QApplication, QDialog, QFormLayout, QHBoxLayout,
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QSpacerItem, QVBoxLayout, QWidget)
 
-class Ui_w_LoginForm(object):
-    def setupUi(self, w_LoginForm):
-        if not w_LoginForm.objectName():
-            w_LoginForm.setObjectName(u"w_LoginForm")
-        w_LoginForm.resize(1170, 579)
+class Ui_CreateAccountWindow(object):
+    def setupUi(self, CreateAccountWindow):
+        if not CreateAccountWindow.objectName():
+            CreateAccountWindow.setObjectName(u"CreateAccountWindow")
+        CreateAccountWindow.resize(753, 399)
+        self.verticalLayout = QVBoxLayout(CreateAccountWindow)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.loginTitleLabel = QLabel(CreateAccountWindow)
+        self.loginTitleLabel.setObjectName(u"loginTitleLabel")
         font = QFont()
-        font.setPointSize(12)
-        w_LoginForm.setFont(font)
-        w_LoginForm.setStyleSheet(u"background-color: rgb(0, 170, 255);")
-        self.gridLayout = QGridLayout(w_LoginForm)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.groupBox = QGroupBox(w_LoginForm)
-        self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setAlignment(Qt.AlignCenter)
-        self.formLayout = QFormLayout(self.groupBox)
+        font.setPointSize(29)
+        self.loginTitleLabel.setFont(font)
+        self.loginTitleLabel.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.loginTitleLabel)
+
+        self.formLayout = QFormLayout()
         self.formLayout.setObjectName(u"formLayout")
-        self.label_2 = QLabel(self.groupBox)
-        self.label_2.setObjectName(u"label_2")
+        self.usernameLabel = QLabel(CreateAccountWindow)
+        self.usernameLabel.setObjectName(u"usernameLabel")
+        font1 = QFont()
+        font1.setPointSize(16)
+        self.usernameLabel.setFont(font1)
 
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_2)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.usernameLabel)
 
-        self.le_UserID = QLineEdit(self.groupBox)
-        self.le_UserID.setObjectName(u"le_UserID")
+        self.loginUsernameInput = QLineEdit(CreateAccountWindow)
+        self.loginUsernameInput.setObjectName(u"loginUsernameInput")
+        self.loginUsernameInput.setMinimumSize(QSize(0, 40))
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.le_UserID)
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.loginUsernameInput)
 
-        self.label = QLabel(self.groupBox)
-        self.label.setObjectName(u"label")
+        self.passwordLabel = QLabel(CreateAccountWindow)
+        self.passwordLabel.setObjectName(u"passwordLabel")
+        self.passwordLabel.setFont(font1)
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label)
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.passwordLabel)
 
-        self.le_Password = QLineEdit(self.groupBox)
-        self.le_Password.setObjectName(u"le_Password")
+        self.loginPasswordInput = QLineEdit(CreateAccountWindow)
+        self.loginPasswordInput.setObjectName(u"loginPasswordInput")
+        self.loginPasswordInput.setMinimumSize(QSize(0, 40))
+        self.loginPasswordInput.setSizeIncrement(QSize(0, 0))
+        self.loginPasswordInput.setEchoMode(QLineEdit.Password)
 
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.le_Password)
-
-        self.verticalSpacer = QSpacerItem(20, 1000, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.formLayout.setItem(2, QFormLayout.FieldRole, self.verticalSpacer)
-
-
-        self.gridLayout.addWidget(self.groupBox, 0, 0, 1, 2)
-
-        self.pb_Cancel = QPushButton(w_LoginForm)
-        self.pb_Cancel.setObjectName(u"pb_Cancel")
-
-        self.gridLayout.addWidget(self.pb_Cancel, 3, 1, 1, 1)
-
-        self.pb_Ok = QPushButton(w_LoginForm)
-        self.pb_Ok.setObjectName(u"pb_Ok")
-
-        self.gridLayout.addWidget(self.pb_Ok, 3, 0, 1, 1)
-
-        self.lbl_Message = QLabel(w_LoginForm)
-        self.lbl_Message.setObjectName(u"lbl_Message")
-
-        self.gridLayout.addWidget(self.lbl_Message, 4, 0, 1, 1)
-
-        self.label_4 = QLabel(w_LoginForm)
-        self.label_4.setObjectName(u"label_4")
-
-        self.gridLayout.addWidget(self.label_4, 4, 1, 1, 1)
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.loginPasswordInput)
 
 
-        self.retranslateUi(w_LoginForm)
+        self.verticalLayout.addLayout(self.formLayout)
 
-        QMetaObject.connectSlotsByName(w_LoginForm)
+        self.loginErrorLabel = QLabel(CreateAccountWindow)
+        self.loginErrorLabel.setObjectName(u"loginErrorLabel")
+        self.loginErrorLabel.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.loginErrorLabel)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
+
+        self.loginButton = QPushButton(CreateAccountWindow)
+        self.loginButton.setObjectName(u"loginButton")
+        self.loginButton.setMinimumSize(QSize(300, 50))
+        font2 = QFont()
+        font2.setPointSize(12)
+        self.loginButton.setFont(font2)
+
+        self.horizontalLayout.addWidget(self.loginButton)
+
+        self.loginReturnButton = QPushButton(CreateAccountWindow)
+        self.loginReturnButton.setObjectName(u"loginReturnButton")
+        self.loginReturnButton.setMinimumSize(QSize(300, 50))
+        self.loginReturnButton.setFont(font2)
+
+        self.horizontalLayout.addWidget(self.loginReturnButton)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_2)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
+
+        self.retranslateUi(CreateAccountWindow)
+
+        QMetaObject.connectSlotsByName(CreateAccountWindow)
     # setupUi
 
-    def retranslateUi(self, w_LoginForm):
-        w_LoginForm.setWindowTitle(QCoreApplication.translate("w_LoginForm", u"Login Screen", None))
-        self.groupBox.setTitle(QCoreApplication.translate("w_LoginForm", u"Welcome! Please Login", None))
-        self.label_2.setText(QCoreApplication.translate("w_LoginForm", u"User ID:", None))
-        self.label.setText(QCoreApplication.translate("w_LoginForm", u"Password:", None))
-        self.pb_Cancel.setText(QCoreApplication.translate("w_LoginForm", u"Cancel", None))
-        self.pb_Ok.setText(QCoreApplication.translate("w_LoginForm", u"Ok", None))
-        self.lbl_Message.setText(QCoreApplication.translate("w_LoginForm", u"Message", None))
-        self.label_4.setText(QCoreApplication.translate("w_LoginForm", u"TextLabel", None))
+    def retranslateUi(self, CreateAccountWindow):
+        CreateAccountWindow.setWindowTitle(QCoreApplication.translate("CreateAccountWindow", u"Create New Account", None))
+        self.loginTitleLabel.setText(QCoreApplication.translate("CreateAccountWindow", u"Welcome! Please Login", None))
+        self.usernameLabel.setText(QCoreApplication.translate("CreateAccountWindow", u"Username:", None))
+        self.passwordLabel.setText(QCoreApplication.translate("CreateAccountWindow", u"Password:", None))
+        self.loginErrorLabel.setText("")
+        self.loginButton.setText(QCoreApplication.translate("CreateAccountWindow", u"Login", None))
+        self.loginReturnButton.setText(QCoreApplication.translate("CreateAccountWindow", u"Return", None))
     # retranslateUi
 

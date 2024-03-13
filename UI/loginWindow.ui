@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>670</width>
-    <height>397</height>
+    <width>753</width>
+    <height>399</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,7 +44,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="usernameInput">
+      <widget class="QLineEdit" name="loginUsernameInput">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -66,7 +66,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="passwordInput">
+      <widget class="QLineEdit" name="loginPasswordInput">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -87,7 +87,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="errorLabel">
+    <widget class="QLabel" name="loginErrorLabel">
      <property name="text">
       <string/>
      </property>
