@@ -23,12 +23,53 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(713, 403)
-        self.gridLayout_2 = QGridLayout(Dialog)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        Dialog.resize(472, 409)
+        self.gridLayout = QGridLayout(Dialog)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.howToPlayHorizontalLayout = QHBoxLayout()
+        self.howToPlayHorizontalLayout.setObjectName(u"howToPlayHorizontalLayout")
+        self.howToPlayHorizontalLayout.setSizeConstraint(QLayout.SetFixedSize)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+
+        self.howToPlayHorizontalLayout.addItem(self.horizontalSpacer)
+
+        self.howToPlayTitleLabel = QLabel(Dialog)
+        self.howToPlayTitleLabel.setObjectName(u"howToPlayTitleLabel")
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.howToPlayTitleLabel.sizePolicy().hasHeightForWidth())
+        self.howToPlayTitleLabel.setSizePolicy(sizePolicy)
+        self.howToPlayTitleLabel.setMaximumSize(QSize(300, 50))
+        font = QFont()
+        font.setPointSize(24)
+        self.howToPlayTitleLabel.setFont(font)
+        self.howToPlayTitleLabel.setLayoutDirection(Qt.LeftToRight)
+
+        self.howToPlayHorizontalLayout.addWidget(self.howToPlayTitleLabel)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+
+        self.howToPlayHorizontalLayout.addItem(self.horizontalSpacer_2)
+
+        self.howToPlayReturnButton = QPushButton(Dialog)
+        self.howToPlayReturnButton.setObjectName(u"howToPlayReturnButton")
+        sizePolicy.setHeightForWidth(self.howToPlayReturnButton.sizePolicy().hasHeightForWidth())
+        self.howToPlayReturnButton.setSizePolicy(sizePolicy)
+        self.howToPlayReturnButton.setMinimumSize(QSize(200, 50))
+        self.howToPlayReturnButton.setMaximumSize(QSize(200, 60))
+        font1 = QFont()
+        font1.setPointSize(16)
+        self.howToPlayReturnButton.setFont(font1)
+
+        self.howToPlayHorizontalLayout.addWidget(self.howToPlayReturnButton)
+
+
+        self.gridLayout.addLayout(self.howToPlayHorizontalLayout, 0, 0, 1, 1)
+
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
-        self.gridLayout_2.addItem(self.verticalSpacer, 1, 0, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer, 1, 0, 1, 1)
 
         self.howToPlayInfo = QLabel(Dialog)
         self.howToPlayInfo.setObjectName(u"howToPlayInfo")
@@ -39,48 +80,7 @@ class Ui_Dialog(object):
         self.howToPlayInfo.setFrameShape(QFrame.Box)
         self.howToPlayInfo.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
-        self.gridLayout_2.addWidget(self.howToPlayInfo, 2, 0, 1, 1)
-
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setSizeConstraint(QLayout.SetMinAndMaxSize)
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
-        self.howToPlayTitleLabel = QLabel(Dialog)
-        self.howToPlayTitleLabel.setObjectName(u"howToPlayTitleLabel")
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.howToPlayTitleLabel.sizePolicy().hasHeightForWidth())
-        self.howToPlayTitleLabel.setSizePolicy(sizePolicy)
-        self.howToPlayTitleLabel.setMaximumSize(QSize(300, 100))
-        font = QFont()
-        font.setPointSize(24)
-        self.howToPlayTitleLabel.setFont(font)
-        self.howToPlayTitleLabel.setLayoutDirection(Qt.LeftToRight)
-
-        self.horizontalLayout.addWidget(self.howToPlayTitleLabel)
-
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer_2)
-
-        self.howToPlayReturnButton = QPushButton(Dialog)
-        self.howToPlayReturnButton.setObjectName(u"howToPlayReturnButton")
-        sizePolicy.setHeightForWidth(self.howToPlayReturnButton.sizePolicy().hasHeightForWidth())
-        self.howToPlayReturnButton.setSizePolicy(sizePolicy)
-        self.howToPlayReturnButton.setMinimumSize(QSize(200, 75))
-        self.howToPlayReturnButton.setMaximumSize(QSize(200, 100))
-        font1 = QFont()
-        font1.setPointSize(16)
-        self.howToPlayReturnButton.setFont(font1)
-
-        self.horizontalLayout.addWidget(self.howToPlayReturnButton)
-
-
-        self.gridLayout_2.addLayout(self.horizontalLayout, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.howToPlayInfo, 2, 0, 1, 1)
 
 
         self.retranslateUi(Dialog)
@@ -90,8 +90,8 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
-        self.howToPlayInfo.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
         self.howToPlayTitleLabel.setText(QCoreApplication.translate("Dialog", u"How To Play", None))
         self.howToPlayReturnButton.setText(QCoreApplication.translate("Dialog", u"Return", None))
+        self.howToPlayInfo.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
     # retranslateUi
 
