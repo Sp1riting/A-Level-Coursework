@@ -23,13 +23,13 @@ class Ui_CreateAccountWindow(object):
     def setupUi(self, CreateAccountWindow):
         if not CreateAccountWindow.objectName():
             CreateAccountWindow.setObjectName(u"CreateAccountWindow")
-        CreateAccountWindow.resize(1069, 694)
+        CreateAccountWindow.resize(789, 449)
         self.verticalLayout = QVBoxLayout(CreateAccountWindow)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.label = QLabel(CreateAccountWindow)
         self.label.setObjectName(u"label")
         font = QFont()
-        font.setPointSize(20)
+        font.setPointSize(29)
         self.label.setFont(font)
         self.label.setAlignment(Qt.AlignCenter)
 
@@ -47,6 +47,7 @@ class Ui_CreateAccountWindow(object):
 
         self.usernameInput = QLineEdit(CreateAccountWindow)
         self.usernameInput.setObjectName(u"usernameInput")
+        self.usernameInput.setMinimumSize(QSize(0, 40))
 
         self.formLayout.setWidget(0, QFormLayout.FieldRole, self.usernameInput)
 
@@ -58,6 +59,7 @@ class Ui_CreateAccountWindow(object):
 
         self.passwordInput = QLineEdit(CreateAccountWindow)
         self.passwordInput.setObjectName(u"passwordInput")
+        self.passwordInput.setMinimumSize(QSize(0, 40))
         self.passwordInput.setEchoMode(QLineEdit.Password)
 
         self.formLayout.setWidget(1, QFormLayout.FieldRole, self.passwordInput)
@@ -79,11 +81,17 @@ class Ui_CreateAccountWindow(object):
 
         self.createButton = QPushButton(CreateAccountWindow)
         self.createButton.setObjectName(u"createButton")
+        self.createButton.setMinimumSize(QSize(300, 50))
+        font2 = QFont()
+        font2.setPointSize(12)
+        self.createButton.setFont(font2)
 
         self.horizontalLayout.addWidget(self.createButton)
 
         self.returnButton = QPushButton(CreateAccountWindow)
         self.returnButton.setObjectName(u"returnButton")
+        self.returnButton.setMinimumSize(QSize(300, 50))
+        self.returnButton.setFont(font2)
 
         self.horizontalLayout.addWidget(self.returnButton)
 
