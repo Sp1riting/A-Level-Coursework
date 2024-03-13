@@ -17,13 +17,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QLayout, QPushButton,
-    QSizePolicy, QSpacerItem, QWidget)
+    QScrollArea, QSizePolicy, QSpacerItem, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(472, 409)
+        Dialog.resize(811, 421)
         self.gridLayout = QGridLayout(Dialog)
         self.gridLayout.setObjectName(u"gridLayout")
         self.howToPlayHorizontalLayout = QHBoxLayout()
@@ -71,16 +71,32 @@ class Ui_Dialog(object):
 
         self.gridLayout.addItem(self.verticalSpacer, 1, 0, 1, 1)
 
-        self.howToPlayInfo = QLabel(Dialog)
+        self.scrollArea = QScrollArea(Dialog)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 787, 291))
+        self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.howToPlayInfo = QLabel(self.scrollAreaWidgetContents)
         self.howToPlayInfo.setObjectName(u"howToPlayInfo")
         self.howToPlayInfo.setMinimumSize(QSize(0, 250))
         self.howToPlayInfo.setSizeIncrement(QSize(1000, 1000))
         self.howToPlayInfo.setBaseSize(QSize(500, 500))
+        font2 = QFont()
+        font2.setPointSize(10)
+        self.howToPlayInfo.setFont(font2)
         self.howToPlayInfo.setAutoFillBackground(False)
         self.howToPlayInfo.setFrameShape(QFrame.Box)
         self.howToPlayInfo.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.howToPlayInfo.setWordWrap(True)
 
-        self.gridLayout.addWidget(self.howToPlayInfo, 2, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.howToPlayInfo, 0, 0, 1, 1)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.gridLayout.addWidget(self.scrollArea, 2, 0, 1, 1)
 
 
         self.retranslateUi(Dialog)
@@ -92,6 +108,7 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.howToPlayTitleLabel.setText(QCoreApplication.translate("Dialog", u"How To Play", None))
         self.howToPlayReturnButton.setText(QCoreApplication.translate("Dialog", u"Return", None))
-        self.howToPlayInfo.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
+        self.howToPlayInfo.setText(QCoreApplication.translate("Dialog", u"Explain how the game is played here example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text e"
+                        "xample text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text example text ", None))
     # retranslateUi
 
