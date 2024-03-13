@@ -34,12 +34,12 @@
        <property name="minimumSize">
         <size>
          <width>300</width>
-         <height>50</height>
+         <height>100</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>20</pointsize>
         </font>
        </property>
        <property name="text">
@@ -52,12 +52,12 @@
        <property name="minimumSize">
         <size>
          <width>300</width>
-         <height>50</height>
+         <height>100</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>20</pointsize>
         </font>
        </property>
        <property name="text">
@@ -97,15 +97,18 @@
      </item>
      <item>
       <widget class="QPushButton" name="menuHowToPlayButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="minimumSize">
         <size>
          <width>300</width>
-         <height>50</height>
+         <height>100</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>20</pointsize>
         </font>
        </property>
        <property name="text">
@@ -118,12 +121,12 @@
        <property name="minimumSize">
         <size>
          <width>300</width>
-         <height>50</height>
+         <height>100</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>20</pointsize>
         </font>
        </property>
        <property name="text">

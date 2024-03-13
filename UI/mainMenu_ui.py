@@ -34,16 +34,16 @@ class Ui_Dialog(object):
 
         self.menuPlayButton = QPushButton(Dialog)
         self.menuPlayButton.setObjectName(u"menuPlayButton")
-        self.menuPlayButton.setMinimumSize(QSize(300, 50))
+        self.menuPlayButton.setMinimumSize(QSize(300, 100))
         font = QFont()
-        font.setPointSize(12)
+        font.setPointSize(20)
         self.menuPlayButton.setFont(font)
 
         self.horizontalLayout.addWidget(self.menuPlayButton)
 
         self.menuReturnButton = QPushButton(Dialog)
         self.menuReturnButton.setObjectName(u"menuReturnButton")
-        self.menuReturnButton.setMinimumSize(QSize(300, 50))
+        self.menuReturnButton.setMinimumSize(QSize(300, 100))
         self.menuReturnButton.setFont(font)
 
         self.horizontalLayout.addWidget(self.menuReturnButton)
@@ -63,14 +63,15 @@ class Ui_Dialog(object):
 
         self.menuHowToPlayButton = QPushButton(Dialog)
         self.menuHowToPlayButton.setObjectName(u"menuHowToPlayButton")
-        self.menuHowToPlayButton.setMinimumSize(QSize(300, 50))
+        self.menuHowToPlayButton.setEnabled(True)
+        self.menuHowToPlayButton.setMinimumSize(QSize(300, 100))
         self.menuHowToPlayButton.setFont(font)
 
         self.horizontalLayout_2.addWidget(self.menuHowToPlayButton)
 
         self.menuStatisticsButton = QPushButton(Dialog)
         self.menuStatisticsButton.setObjectName(u"menuStatisticsButton")
-        self.menuStatisticsButton.setMinimumSize(QSize(300, 50))
+        self.menuStatisticsButton.setMinimumSize(QSize(300, 100))
         self.menuStatisticsButton.setFont(font)
 
         self.horizontalLayout_2.addWidget(self.menuStatisticsButton)
