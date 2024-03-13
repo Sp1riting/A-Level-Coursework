@@ -238,13 +238,40 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QSpinBox" name="startingBalanceSpinBox"/>
+         <widget class="QSpinBox" name="startingBalanceSpinBox">
+          <property name="maximum">
+           <number>10000</number>
+          </property>
+          <property name="singleStep">
+           <number>1000</number>
+          </property>
+          <property name="value">
+           <number>1500</number>
+          </property>
+         </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QSpinBox" name="moneyFromGoSpinBox"/>
+         <widget class="QSpinBox" name="moneyFromGoSpinBox">
+          <property name="maximum">
+           <number>2000</number>
+          </property>
+          <property name="singleStep">
+           <number>100</number>
+          </property>
+          <property name="value">
+           <number>200</number>
+          </property>
+         </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QSpinBox" name="numberOfPlayersSpinBox"/>
+         <widget class="QSpinBox" name="numberOfPlayersSpinBox">
+          <property name="maximum">
+           <number>8</number>
+          </property>
+          <property name="value">
+           <number>4</number>
+          </property>
+         </widget>
         </item>
         <item row="3" column="1">
          <widget class="QCheckBox" name="fastBankruptcyCheckBox">

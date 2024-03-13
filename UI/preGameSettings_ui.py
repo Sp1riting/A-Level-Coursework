@@ -131,16 +131,24 @@ class Ui_Dialog(object):
 
         self.startingBalanceSpinBox = QSpinBox(self.groupBox)
         self.startingBalanceSpinBox.setObjectName(u"startingBalanceSpinBox")
+        self.startingBalanceSpinBox.setMaximum(10000)
+        self.startingBalanceSpinBox.setSingleStep(1000)
+        self.startingBalanceSpinBox.setValue(1500)
 
         self.formLayout.setWidget(0, QFormLayout.FieldRole, self.startingBalanceSpinBox)
 
         self.moneyFromGoSpinBox = QSpinBox(self.groupBox)
         self.moneyFromGoSpinBox.setObjectName(u"moneyFromGoSpinBox")
+        self.moneyFromGoSpinBox.setMaximum(2000)
+        self.moneyFromGoSpinBox.setSingleStep(100)
+        self.moneyFromGoSpinBox.setValue(200)
 
         self.formLayout.setWidget(1, QFormLayout.FieldRole, self.moneyFromGoSpinBox)
 
         self.numberOfPlayersSpinBox = QSpinBox(self.groupBox)
         self.numberOfPlayersSpinBox.setObjectName(u"numberOfPlayersSpinBox")
+        self.numberOfPlayersSpinBox.setMaximum(8)
+        self.numberOfPlayersSpinBox.setValue(4)
 
         self.formLayout.setWidget(2, QFormLayout.FieldRole, self.numberOfPlayersSpinBox)
 
