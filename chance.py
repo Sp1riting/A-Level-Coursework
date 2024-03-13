@@ -1,6 +1,6 @@
 def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail):
 
-    currentChance = randomList[chanceCounter % 16]
+    currentChance = randomList[chanceCounter % len(randomList)]
 
     if currentChance == 0:
         print("Oh no, your friend is asking for a loan from you. Pay £50.")
@@ -95,6 +95,10 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList, mon
     elif currentChance == 15:
         print("You broke down. Pay £100 for repairs.")
         self.reduceBalance(100)
+
+    elif currentChance == 16:
+        print("The tax man is hungry. Pay £15 for each house you own.")
+        self.reducebalance(self.housesOwned * 15)
 
     
     chanceCounter += 1
