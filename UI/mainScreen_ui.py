@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(400, 300)
+        MainWindow.resize(858, 396)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -32,15 +32,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addItem(self.verticalSpacer)
 
-        self.label = QLabel(self.centralwidget)
-        self.label.setObjectName(u"label")
+        self.initialTitleLabel = QLabel(self.centralwidget)
+        self.initialTitleLabel.setObjectName(u"initialTitleLabel")
         font = QFont()
-        font.setPointSize(20)
+        font.setPointSize(40)
         font.setBold(True)
-        self.label.setFont(font)
-        self.label.setAlignment(Qt.AlignCenter)
+        self.initialTitleLabel.setFont(font)
+        self.initialTitleLabel.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.label)
+        self.verticalLayout.addWidget(self.initialTitleLabel)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -52,15 +52,21 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.loginButton = QPushButton(self.centralwidget)
-        self.loginButton.setObjectName(u"loginButton")
+        self.openLoginButton = QPushButton(self.centralwidget)
+        self.openLoginButton.setObjectName(u"openLoginButton")
+        self.openLoginButton.setMinimumSize(QSize(300, 50))
+        font1 = QFont()
+        font1.setPointSize(12)
+        self.openLoginButton.setFont(font1)
 
-        self.horizontalLayout.addWidget(self.loginButton)
+        self.horizontalLayout.addWidget(self.openLoginButton)
 
-        self.createAccountButton = QPushButton(self.centralwidget)
-        self.createAccountButton.setObjectName(u"createAccountButton")
+        self.openCreateAccountButton = QPushButton(self.centralwidget)
+        self.openCreateAccountButton.setObjectName(u"openCreateAccountButton")
+        self.openCreateAccountButton.setMinimumSize(QSize(300, 50))
+        self.openCreateAccountButton.setFont(font1)
 
-        self.horizontalLayout.addWidget(self.createAccountButton)
+        self.horizontalLayout.addWidget(self.openCreateAccountButton)
 
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -82,8 +88,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Zooopoly", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Zooopoly", None))
-        self.loginButton.setText(QCoreApplication.translate("MainWindow", u"Login", None))
-        self.createAccountButton.setText(QCoreApplication.translate("MainWindow", u"Create new account", None))
+        self.initialTitleLabel.setText(QCoreApplication.translate("MainWindow", u"Zooopoly", None))
+        self.openLoginButton.setText(QCoreApplication.translate("MainWindow", u"Login", None))
+        self.openCreateAccountButton.setText(QCoreApplication.translate("MainWindow", u"Create new account", None))
     # retranslateUi
 

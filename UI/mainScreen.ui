@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>858</width>
+    <height>396</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,10 +29,10 @@
      </spacer>
     </item>
     <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="initialTitleLabel">
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <pointsize>40</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
@@ -74,14 +74,36 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="loginButton">
+       <widget class="QPushButton" name="openLoginButton">
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Login</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="createAccountButton">
+       <widget class="QPushButton" name="openCreateAccountButton">
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Create new account</string>
         </property>
