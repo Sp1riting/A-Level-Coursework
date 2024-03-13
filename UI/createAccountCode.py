@@ -18,11 +18,11 @@ class CreateAccountWindow(QDialog):
     def __init__(self):
         super(CreateAccountWindow, self).__init__()
         loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\createAccount.ui', self)
-        self.createButton.clicked.connect(self.create_account)
+        self.createButton.clicked.connect(self.createAccount)
         self.returnButton.clicked.connect(self.close)
 
     @pyqtSlot()
-    def create_account(self):
+    def createAccount(self):
         username = self.usernameInput.text()
         password = self.passwordInput.text()
 
@@ -31,15 +31,15 @@ class CreateAccountWindow(QDialog):
             return
 
         c.execute("SELECT * FROM users WHERE username=?", (username,))
-        existing_user = c.fetchone()
-        if existing_user:
+        existingUser = c.fetchone()
+        if existingUser:
             self.errorLabel.setText("Username already exists")
             return
 
-        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        hashedPword = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
         try:
-            c.execute("INSERT INTO users VALUES (?, ?)", (username, hashed_password.decode('utf-8')))
+            c.execute("INSERT INTO users VALUES (?, ?)", (username, hashedPword.decode('utf-8')))
             conn.commit()
             QMessageBox.information(self, "Success", "Account created successfully")
             self.close()

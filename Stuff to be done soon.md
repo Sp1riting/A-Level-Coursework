@@ -1,5 +1,5 @@
 ToDo:
-Once main thing left to do in the main game: checking if a full colour set is owned
+Two main things left to do in the main game: checking if a full colour set is owned, keep track of the game statistics.
 Other than that, UI and database need to be started
 
 
