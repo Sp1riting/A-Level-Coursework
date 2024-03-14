@@ -18,12 +18,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QGroupBox,
     QHBoxLayout, QLabel, QLayout, QPushButton,
     QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+import Icons_rc
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(1806, 1165)
+        Dialog.resize(1291, 1263)
         font = QFont()
         font.setPointSize(12)
         Dialog.setFont(font)
@@ -34,16 +35,37 @@ class Ui_Dialog(object):
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setSizeConstraint(QLayout.SetMaximumSize)
+        self.label = QLabel(Dialog)
+        self.label.setObjectName(u"label")
+
+        self.gridLayout.addWidget(self.label, 1, 1, 1, 1)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_4, 1, 0, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_4, 0, 1, 1, 1)
+
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_6, 1, 2, 1, 1)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_5, 2, 1, 1, 1)
+
 
         self.horizontalLayout_2.addLayout(self.gridLayout)
 
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
-
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setSizeConstraint(QLayout.SetFixedSize)
+        self.verticalLayout_2.setSizeConstraint(QLayout.SetMinimumSize)
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer_2)
+
         self.currentPlayerLabel = QLabel(Dialog)
         self.currentPlayerLabel.setObjectName(u"currentPlayerLabel")
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
@@ -52,12 +74,16 @@ class Ui_Dialog(object):
         sizePolicy.setHeightForWidth(self.currentPlayerLabel.sizePolicy().hasHeightForWidth())
         self.currentPlayerLabel.setSizePolicy(sizePolicy)
         font1 = QFont()
-        font1.setPointSize(16)
-        font1.setBold(True)
+        font1.setPointSize(20)
+        font1.setBold(False)
         self.currentPlayerLabel.setFont(font1)
         self.currentPlayerLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_2.addWidget(self.currentPlayerLabel)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer)
 
         self.playerInfoBox = QGroupBox(Dialog)
         self.playerInfoBox.setObjectName(u"playerInfoBox")
@@ -66,94 +92,170 @@ class Ui_Dialog(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.playerInfoBox.sizePolicy().hasHeightForWidth())
         self.playerInfoBox.setSizePolicy(sizePolicy1)
-        self.playerInfoBox.setFont(font)
+        font2 = QFont()
+        font2.setPointSize(16)
+        self.playerInfoBox.setFont(font2)
         self.verticalLayout = QVBoxLayout(self.playerInfoBox)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.player1NameLabel = QLabel(self.playerInfoBox)
         self.player1NameLabel.setObjectName(u"player1NameLabel")
-        font2 = QFont()
-        font2.setStrikeOut(False)
-        self.player1NameLabel.setFont(font2)
+        palette = QPalette()
+        brush = QBrush(QColor(170, 0, 0, 255))
+        brush.setStyle(Qt.SolidPattern)
+        palette.setBrush(QPalette.Active, QPalette.WindowText, brush)
+        palette.setBrush(QPalette.Active, QPalette.Text, brush)
+        palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
+        palette.setBrush(QPalette.Inactive, QPalette.Text, brush)
+        brush1 = QBrush(QColor(120, 120, 120, 255))
+        brush1.setStyle(Qt.SolidPattern)
+        palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush1)
+        palette.setBrush(QPalette.Disabled, QPalette.Text, brush1)
+        self.player1NameLabel.setPalette(palette)
+        font3 = QFont()
+        font3.setStrikeOut(False)
+        self.player1NameLabel.setFont(font3)
+        self.player1NameLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player1NameLabel)
 
         self.player1BalanceLabel = QLabel(self.playerInfoBox)
         self.player1BalanceLabel.setObjectName(u"player1BalanceLabel")
+        self.player1BalanceLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player1BalanceLabel)
 
         self.player2NameLabel = QLabel(self.playerInfoBox)
         self.player2NameLabel.setObjectName(u"player2NameLabel")
+        palette1 = QPalette()
+        brush2 = QBrush(QColor(0, 170, 0, 255))
+        brush2.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.WindowText, brush2)
+        palette1.setBrush(QPalette.Inactive, QPalette.WindowText, brush2)
+        palette1.setBrush(QPalette.Disabled, QPalette.WindowText, brush1)
+        self.player2NameLabel.setPalette(palette1)
+        self.player2NameLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player2NameLabel)
 
         self.player2BalanceLabel = QLabel(self.playerInfoBox)
         self.player2BalanceLabel.setObjectName(u"player2BalanceLabel")
+        self.player2BalanceLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player2BalanceLabel)
 
         self.player3NameLabel = QLabel(self.playerInfoBox)
         self.player3NameLabel.setObjectName(u"player3NameLabel")
+        palette2 = QPalette()
+        brush3 = QBrush(QColor(0, 0, 255, 255))
+        brush3.setStyle(Qt.SolidPattern)
+        palette2.setBrush(QPalette.Active, QPalette.WindowText, brush3)
+        palette2.setBrush(QPalette.Inactive, QPalette.WindowText, brush3)
+        palette2.setBrush(QPalette.Disabled, QPalette.WindowText, brush1)
+        self.player3NameLabel.setPalette(palette2)
+        self.player3NameLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player3NameLabel)
 
         self.player3BalanceLabel = QLabel(self.playerInfoBox)
         self.player3BalanceLabel.setObjectName(u"player3BalanceLabel")
+        self.player3BalanceLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player3BalanceLabel)
 
         self.player4NameLabel = QLabel(self.playerInfoBox)
         self.player4NameLabel.setObjectName(u"player4NameLabel")
+        palette3 = QPalette()
+        brush4 = QBrush(QColor(255, 170, 0, 255))
+        brush4.setStyle(Qt.SolidPattern)
+        palette3.setBrush(QPalette.Active, QPalette.WindowText, brush4)
+        palette3.setBrush(QPalette.Inactive, QPalette.WindowText, brush4)
+        palette3.setBrush(QPalette.Disabled, QPalette.WindowText, brush1)
+        self.player4NameLabel.setPalette(palette3)
+        self.player4NameLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player4NameLabel)
 
         self.player4BalanceLabel = QLabel(self.playerInfoBox)
         self.player4BalanceLabel.setObjectName(u"player4BalanceLabel")
+        self.player4BalanceLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player4BalanceLabel)
 
         self.player5NameLabel = QLabel(self.playerInfoBox)
         self.player5NameLabel.setObjectName(u"player5NameLabel")
+        palette4 = QPalette()
+        brush5 = QBrush(QColor(85, 170, 255, 255))
+        brush5.setStyle(Qt.SolidPattern)
+        palette4.setBrush(QPalette.Active, QPalette.WindowText, brush5)
+        palette4.setBrush(QPalette.Inactive, QPalette.WindowText, brush5)
+        palette4.setBrush(QPalette.Disabled, QPalette.WindowText, brush1)
+        self.player5NameLabel.setPalette(palette4)
+        self.player5NameLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player5NameLabel)
 
         self.player5BalanceLabel = QLabel(self.playerInfoBox)
         self.player5BalanceLabel.setObjectName(u"player5BalanceLabel")
+        self.player5BalanceLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player5BalanceLabel)
 
         self.player6NameLabel = QLabel(self.playerInfoBox)
         self.player6NameLabel.setObjectName(u"player6NameLabel")
+        palette5 = QPalette()
+        brush6 = QBrush(QColor(85, 0, 0, 255))
+        brush6.setStyle(Qt.SolidPattern)
+        palette5.setBrush(QPalette.Active, QPalette.WindowText, brush6)
+        palette5.setBrush(QPalette.Inactive, QPalette.WindowText, brush6)
+        palette5.setBrush(QPalette.Disabled, QPalette.WindowText, brush1)
+        self.player6NameLabel.setPalette(palette5)
+        self.player6NameLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player6NameLabel)
 
         self.player6BalanceLabel = QLabel(self.playerInfoBox)
         self.player6BalanceLabel.setObjectName(u"player6BalanceLabel")
+        self.player6BalanceLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player6BalanceLabel)
 
         self.player7NameLabel = QLabel(self.playerInfoBox)
         self.player7NameLabel.setObjectName(u"player7NameLabel")
+        palette6 = QPalette()
+        brush7 = QBrush(QColor(170, 85, 255, 255))
+        brush7.setStyle(Qt.SolidPattern)
+        palette6.setBrush(QPalette.Active, QPalette.WindowText, brush7)
+        palette6.setBrush(QPalette.Inactive, QPalette.WindowText, brush7)
+        palette6.setBrush(QPalette.Disabled, QPalette.WindowText, brush1)
+        self.player7NameLabel.setPalette(palette6)
+        self.player7NameLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player7NameLabel)
 
         self.player7BalanceLabel = QLabel(self.playerInfoBox)
         self.player7BalanceLabel.setObjectName(u"player7BalanceLabel")
+        self.player7BalanceLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player7BalanceLabel)
 
         self.player8NameLabel = QLabel(self.playerInfoBox)
         self.player8NameLabel.setObjectName(u"player8NameLabel")
+        self.player8NameLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player8NameLabel)
 
         self.player8BalanceLabel = QLabel(self.playerInfoBox)
         self.player8BalanceLabel.setObjectName(u"player8BalanceLabel")
+        self.player8BalanceLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.player8BalanceLabel)
 
 
         self.verticalLayout_2.addWidget(self.playerInfoBox)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer_3)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_2)
@@ -161,51 +263,49 @@ class Ui_Dialog(object):
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
 
-        self.verticalSpacer = QSpacerItem(20, 468, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_3.addItem(self.verticalSpacer)
-
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.pushButton = QPushButton(Dialog)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(125, 75))
-        font3 = QFont()
-        font3.setPointSize(16)
-        self.pushButton.setFont(font3)
+        self.tradeButton = QPushButton(Dialog)
+        self.tradeButton.setObjectName(u"tradeButton")
+        self.tradeButton.setMinimumSize(QSize(125, 75))
+        self.tradeButton.setFont(font2)
 
-        self.horizontalLayout.addWidget(self.pushButton)
+        self.horizontalLayout.addWidget(self.tradeButton)
 
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer_3)
 
-        self.pushButton_2 = QPushButton(Dialog)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(175, 75))
-        self.pushButton_2.setFont(font3)
+        self.mortgageButton = QPushButton(Dialog)
+        self.mortgageButton.setObjectName(u"mortgageButton")
+        self.mortgageButton.setMinimumSize(QSize(175, 75))
+        self.mortgageButton.setFont(font2)
 
-        self.horizontalLayout.addWidget(self.pushButton_2)
+        self.horizontalLayout.addWidget(self.mortgageButton)
 
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer_2)
 
-        self.pushButton_3 = QPushButton(Dialog)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(150, 75))
-        self.pushButton_3.setFont(font3)
+        self.housesButton = QPushButton(Dialog)
+        self.housesButton.setObjectName(u"housesButton")
+        self.housesButton.setMinimumSize(QSize(150, 75))
+        self.housesButton.setFont(font2)
 
-        self.horizontalLayout.addWidget(self.pushButton_3)
+        self.horizontalLayout.addWidget(self.housesButton)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.label = QLabel(Dialog)
-        self.label.setObjectName(u"label")
+        self.transactionLabel = QLabel(Dialog)
+        self.transactionLabel.setObjectName(u"transactionLabel")
 
-        self.horizontalLayout.addWidget(self.label)
+        self.horizontalLayout.addWidget(self.transactionLabel)
+
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_5)
 
 
         self.verticalLayout_3.addLayout(self.horizontalLayout)
@@ -218,27 +318,28 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><img src=\":/newPrefix/gameBoard.png\"/></p></body></html>", None))
         self.currentPlayerLabel.setText(QCoreApplication.translate("Dialog", u"player1", None))
         self.playerInfoBox.setTitle(QCoreApplication.translate("Dialog", u"Players", None))
         self.player1NameLabel.setText(QCoreApplication.translate("Dialog", u"player1", None))
-        self.player1BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a3balance", None))
+        self.player1BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a30", None))
         self.player2NameLabel.setText(QCoreApplication.translate("Dialog", u"player2", None))
-        self.player2BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a3balance", None))
+        self.player2BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a30", None))
         self.player3NameLabel.setText(QCoreApplication.translate("Dialog", u"player3", None))
-        self.player3BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a3balance", None))
+        self.player3BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a30", None))
         self.player4NameLabel.setText(QCoreApplication.translate("Dialog", u"player4", None))
-        self.player4BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a3balance", None))
+        self.player4BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a30", None))
         self.player5NameLabel.setText(QCoreApplication.translate("Dialog", u"player5", None))
-        self.player5BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a3balance", None))
+        self.player5BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a30", None))
         self.player6NameLabel.setText(QCoreApplication.translate("Dialog", u"player6", None))
-        self.player6BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a3balance", None))
+        self.player6BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a30", None))
         self.player7NameLabel.setText(QCoreApplication.translate("Dialog", u"player7", None))
-        self.player7BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a3balance", None))
+        self.player7BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a30", None))
         self.player8NameLabel.setText(QCoreApplication.translate("Dialog", u"player8", None))
-        self.player8BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a3balance", None))
-        self.pushButton.setText(QCoreApplication.translate("Dialog", u"Trade", None))
-        self.pushButton_2.setText(QCoreApplication.translate("Dialog", u"Mortgage", None))
-        self.pushButton_3.setText(QCoreApplication.translate("Dialog", u"Houses", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Transaction Message Here", None))
+        self.player8BalanceLabel.setText(QCoreApplication.translate("Dialog", u"\u00a30", None))
+        self.tradeButton.setText(QCoreApplication.translate("Dialog", u"Trade", None))
+        self.mortgageButton.setText(QCoreApplication.translate("Dialog", u"Mortgage", None))
+        self.housesButton.setText(QCoreApplication.translate("Dialog", u"Houses", None))
+        self.transactionLabel.setText(QCoreApplication.translate("Dialog", u"Transaction Message Here", None))
     # retranslateUi
 
