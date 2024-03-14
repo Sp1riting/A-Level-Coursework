@@ -1,3 +1,5 @@
 <RCC>
-  <qresource prefix="Main"/>
+  <qresource prefix="newPrefix">
+    <file>gameBoard.png</file>
+  </qresource>
 </RCC>
