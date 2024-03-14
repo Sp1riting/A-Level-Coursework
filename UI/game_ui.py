@@ -17,14 +17,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDialog, QGridLayout, QGroupBox,
     QHBoxLayout, QLabel, QLayout, QPushButton,
-    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+    QSizePolicy, QSpacerItem, QStackedWidget, QVBoxLayout,
+    QWidget)
 import Icons_rc
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(1291, 1263)
+        Dialog.resize(1305, 1277)
         font = QFont()
         font.setPointSize(12)
         Dialog.setFont(font)
@@ -32,29 +33,29 @@ class Ui_Dialog(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setSizeConstraint(QLayout.SetFixedSize)
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setSizeConstraint(QLayout.SetMaximumSize)
-        self.label = QLabel(Dialog)
+        self.stackedWidget = QStackedWidget(Dialog)
+        self.stackedWidget.setObjectName(u"stackedWidget")
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.stackedWidget.sizePolicy().hasHeightForWidth())
+        self.stackedWidget.setSizePolicy(sizePolicy)
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.label = QLabel(self.page)
         self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(10, 0, 1122, 1153))
+        self.label.setMaximumSize(QSize(16777214, 16777215))
+        self.stackedWidget.addWidget(self.page)
+        self.page_2 = QWidget()
+        self.page_2.setObjectName(u"page_2")
+        self.stackedWidget.addWidget(self.page_2)
 
-        self.gridLayout.addWidget(self.label, 1, 1, 1, 1)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_4, 1, 0, 1, 1)
-
-        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer_4, 0, 1, 1, 1)
-
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_6, 1, 2, 1, 1)
-
-        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer_5, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.stackedWidget, 0, 0, 1, 1)
 
 
         self.horizontalLayout_2.addLayout(self.gridLayout)
@@ -62,38 +63,38 @@ class Ui_Dialog(object):
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setSizeConstraint(QLayout.SetMinimumSize)
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_2 = QSpacerItem(20, 75, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
         self.verticalLayout_2.addItem(self.verticalSpacer_2)
 
         self.currentPlayerLabel = QLabel(Dialog)
         self.currentPlayerLabel.setObjectName(u"currentPlayerLabel")
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.currentPlayerLabel.sizePolicy().hasHeightForWidth())
-        self.currentPlayerLabel.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.currentPlayerLabel.sizePolicy().hasHeightForWidth())
+        self.currentPlayerLabel.setSizePolicy(sizePolicy1)
         font1 = QFont()
-        font1.setPointSize(20)
+        font1.setPointSize(24)
         font1.setBold(False)
         self.currentPlayerLabel.setFont(font1)
         self.currentPlayerLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_2.addWidget(self.currentPlayerLabel)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 75, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
         self.verticalLayout_2.addItem(self.verticalSpacer)
 
         self.playerInfoBox = QGroupBox(Dialog)
         self.playerInfoBox.setObjectName(u"playerInfoBox")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.MinimumExpanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.playerInfoBox.sizePolicy().hasHeightForWidth())
-        self.playerInfoBox.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.MinimumExpanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.playerInfoBox.sizePolicy().hasHeightForWidth())
+        self.playerInfoBox.setSizePolicy(sizePolicy2)
         font2 = QFont()
-        font2.setPointSize(16)
+        font2.setPointSize(20)
         self.playerInfoBox.setFont(font2)
         self.verticalLayout = QVBoxLayout(self.playerInfoBox)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -253,7 +254,7 @@ class Ui_Dialog(object):
 
         self.verticalLayout_2.addWidget(self.playerInfoBox)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_3 = QSpacerItem(20, 90, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
         self.verticalLayout_2.addItem(self.verticalSpacer_3)
 
@@ -265,6 +266,10 @@ class Ui_Dialog(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_7)
+
         self.tradeButton = QPushButton(Dialog)
         self.tradeButton.setObjectName(u"tradeButton")
         self.tradeButton.setMinimumSize(QSize(125, 75))
@@ -300,6 +305,8 @@ class Ui_Dialog(object):
 
         self.transactionLabel = QLabel(Dialog)
         self.transactionLabel.setObjectName(u"transactionLabel")
+        self.transactionLabel.setMinimumSize(QSize(670, 0))
+        self.transactionLabel.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout.addWidget(self.transactionLabel)
 
