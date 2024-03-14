@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1305</width>
+    <width>1320</width>
     <height>1277</height>
    </rect>
   </property>
@@ -30,35 +30,368 @@
         <enum>QLayout::SetMaximumSize</enum>
        </property>
        <item row="0" column="0">
-        <widget class="QStackedWidget" name="stackedWidget">
+        <widget class="QGroupBox" name="groupBox">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <widget class="QWidget" name="page">
-          <widget class="QLabel" name="label">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>0</y>
-             <width>1122</width>
-             <height>1153</height>
-            </rect>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777214</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/gameBoard.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
+         <property name="title">
+          <string/>
+         </property>
+         <widget class="QLabel" name="boardImageLabel">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1151</width>
+            <height>1161</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/gameBoard.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
          </widget>
-         <widget class="QWidget" name="page_2"/>
+         <widget class="QPushButton" name="endTurnButton">
+          <property name="geometry">
+           <rect>
+            <x>330</x>
+            <y>540</y>
+            <width>231</width>
+            <height>121</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>End Turn</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="bankruptButton">
+          <property name="geometry">
+           <rect>
+            <x>610</x>
+            <y>540</y>
+            <width>221</width>
+            <height>121</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>24</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Bankrupt</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="displayLabel">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>880</y>
+            <width>731</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Display Message Here</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice1Outline">
+          <property name="geometry">
+           <rect>
+            <x>380</x>
+            <y>690</y>
+            <width>161</width>
+            <height>161</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice2Outline">
+          <property name="geometry">
+           <rect>
+            <x>630</x>
+            <y>690</y>
+            <width>161</width>
+            <height>161</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice1dot1">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>670</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice1dot4">
+          <property name="geometry">
+           <rect>
+            <x>440</x>
+            <y>720</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice1dot6">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>770</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice1dot7">
+          <property name="geometry">
+           <rect>
+            <x>490</x>
+            <y>770</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice1dot2">
+          <property name="geometry">
+           <rect>
+            <x>490</x>
+            <y>670</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice1dot5">
+          <property name="geometry">
+           <rect>
+            <x>490</x>
+            <y>720</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice1dot3">
+          <property name="geometry">
+           <rect>
+            <x>390</x>
+            <y>720</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice2dot5">
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>720</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice2dot3">
+          <property name="geometry">
+           <rect>
+            <x>640</x>
+            <y>720</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice2dot7">
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>770</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice2dot6">
+          <property name="geometry">
+           <rect>
+            <x>640</x>
+            <y>770</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice2dot1">
+          <property name="geometry">
+           <rect>
+            <x>640</x>
+            <y>670</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice2dot2">
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>670</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="dice2dot4">
+          <property name="geometry">
+           <rect>
+            <x>690</x>
+            <y>720</y>
+            <width>41</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>50</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>•</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -605,7 +938,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>90</height>
+           <height>110</height>
           </size>
          </property>
         </spacer>
@@ -744,6 +1077,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
