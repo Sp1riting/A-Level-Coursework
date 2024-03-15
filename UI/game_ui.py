@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QGridLayout,
     QGroupBox, QHBoxLayout, QLCDNumber, QLabel,
     QLayout, QPushButton, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+    QTextBrowser, QVBoxLayout, QWidget)
 import Icons_rc
 
 class Ui_Dialog(object):
@@ -670,6 +670,9 @@ class Ui_Dialog(object):
         self.rr2mortgaged.setObjectName(u"rr2mortgaged")
         self.rr2mortgaged.setGeometry(QRect(170, 540, 21, 31))
         self.rr2mortgaged.setFont(font4)
+        self.chanceCardTextBrowser = QTextBrowser(self.groupBox)
+        self.chanceCardTextBrowser.setObjectName(u"chanceCardTextBrowser")
+        self.chanceCardTextBrowser.setGeometry(QRect(370, 230, 421, 161))
 
         self.gridLayout.addWidget(self.groupBox, 0, 0, 1, 1)
 
@@ -1017,6 +1020,11 @@ class Ui_Dialog(object):
         self.dBlue2mortgaged.setText(QCoreApplication.translate("Dialog", u"M", None))
         self.u1mortgaged.setText(QCoreApplication.translate("Dialog", u"M", None))
         self.rr2mortgaged.setText(QCoreApplication.translate("Dialog", u"M", None))
+        self.chanceCardTextBrowser.setHtml(QCoreApplication.translate("Dialog", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Chance card text will appear here</p></body></html>", None))
         self.currentPlayerLabel.setText(QCoreApplication.translate("Dialog", u"player1", None))
         self.playerInfoBox.setTitle(QCoreApplication.translate("Dialog", u"Players", None))
         self.player1NameLabel.setText(QCoreApplication.translate("Dialog", u"player1", None))
