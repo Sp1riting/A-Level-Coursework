@@ -16,7 +16,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QGroupBox,
-    QPushButton, QSizePolicy, QWidget)
+    QLabel, QPushButton, QSizePolicy, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -26,6 +26,7 @@ class Ui_Dialog(object):
         self.groupBox = QGroupBox(Dialog)
         self.groupBox.setObjectName(u"groupBox")
         self.groupBox.setGeometry(QRect(50, 50, 271, 151))
+        self.groupBox.setAlignment(Qt.AlignCenter)
         self.mortgageSelectionComboBox = QComboBox(self.groupBox)
         self.mortgageSelectionComboBox.addItem("")
         self.mortgageSelectionComboBox.setObjectName(u"mortgageSelectionComboBox")
@@ -47,6 +48,7 @@ class Ui_Dialog(object):
         self.groupBox_2 = QGroupBox(Dialog)
         self.groupBox_2.setObjectName(u"groupBox_2")
         self.groupBox_2.setGeometry(QRect(340, 50, 271, 151))
+        self.groupBox_2.setAlignment(Qt.AlignCenter)
         self.buyHouseSelectionComboBox = QComboBox(self.groupBox_2)
         self.buyHouseSelectionComboBox.addItem("")
         self.buyHouseSelectionComboBox.setObjectName(u"buyHouseSelectionComboBox")
@@ -63,6 +65,34 @@ class Ui_Dialog(object):
         self.sellHouseButton.setObjectName(u"sellHouseButton")
         self.sellHouseButton.setGeometry(QRect(150, 90, 111, 41))
         self.sellHouseButton.setFont(font)
+        self.groupBox_3 = QGroupBox(Dialog)
+        self.groupBox_3.setObjectName(u"groupBox_3")
+        self.groupBox_3.setGeometry(QRect(70, 250, 331, 341))
+        font1 = QFont()
+        font1.setPointSize(12)
+        self.groupBox_3.setFont(font1)
+        self.groupBox_3.setAlignment(Qt.AlignCenter)
+        self.label = QLabel(self.groupBox_3)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(120, 10, 91, 41))
+        font2 = QFont()
+        font2.setPointSize(20)
+        self.label.setFont(font2)
+        self.pushButton = QPushButton(self.groupBox_3)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(90, 70, 151, 51))
+        self.pushButton_2 = QPushButton(self.groupBox_3)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(20, 140, 291, 51))
+        self.pushButton_3 = QPushButton(self.groupBox_3)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setGeometry(QRect(70, 210, 191, 51))
+        self.label_2 = QLabel(self.groupBox_3)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(10, 280, 311, 61))
+        self.label_2.setFont(font)
+        self.label_2.setAlignment(Qt.AlignCenter)
+        self.label_2.setWordWrap(True)
 
         self.retranslateUi(Dialog)
 
@@ -89,5 +119,11 @@ class Ui_Dialog(object):
         self.sellHouseSelectionComboBox.setCurrentText(QCoreApplication.translate("Dialog", u"Select Property", None))
         self.buyHouseButton.setText(QCoreApplication.translate("Dialog", u"Buy House", None))
         self.sellHouseButton.setText(QCoreApplication.translate("Dialog", u"Sell House", None))
+        self.groupBox_3.setTitle("")
+        self.label.setText(QCoreApplication.translate("Dialog", u"In Jail", None))
+        self.pushButton.setText(QCoreApplication.translate("Dialog", u"Pay Bail (\u00a350)", None))
+        self.pushButton_2.setText(QCoreApplication.translate("Dialog", u"Use Get Out of Jail Free Card", None))
+        self.pushButton_3.setText(QCoreApplication.translate("Dialog", u"Roll for a Double", None))
+        self.label_2.setText(QCoreApplication.translate("Dialog", u"Display Message Here", None))
     # retranslateUi
 
