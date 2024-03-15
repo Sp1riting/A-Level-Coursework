@@ -98,6 +98,91 @@
     </property>
    </widget>
   </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>50</y>
+     <width>271</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Please select properties below</string>
+   </property>
+   <widget class="QComboBox" name="buyHouseSelectionComboBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="currentText">
+     <string>Select Property</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Select Property</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="sellHouseSelectionComboBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="currentText">
+     <string>Select Property</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Select Property</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="buyHouseButton">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>30</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Buy House</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sellHouseButton">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>90</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Sell House</string>
+    </property>
+   </widget>
+  </widget>
  </widget>
  <resources/>
  <connections/>
