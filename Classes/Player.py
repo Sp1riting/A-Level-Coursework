@@ -106,7 +106,7 @@ class Player:
 
     def reduceBalance(self, amount, playerList):
         if self.balance < amount:
-            bankruptCheck = self.checkBankruptcy(amount, playerList)
+            bankruptCheck = self.checkBankruptcy(amount)
             if not bankruptCheck:
                 sell = input("Do you want to sell houses and properties to avoid going bankrupt? (y/n)")
                 if sell == "y":
@@ -138,7 +138,7 @@ class Player:
 
     
 
-    def checkBankruptcy(self, amount, playerList):
+    def checkBankruptcy(self, amount):
         worth = 0
 
         for card in self.ownedCards:
@@ -148,7 +148,6 @@ class Player:
                 worth += card.housesBuilt * card.houseCost
 
         if (self.balance + worth) < amount:
-            self.bankruptPlayer(playerList)
             return True
         else:
             return False
