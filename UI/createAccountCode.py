@@ -39,7 +39,7 @@ class CreateAccountWindow(QDialog):
             self.createErrorLabel.setText("Please enter a username and password")
             return
 
-        database.execute("SELECT * FROM users WHERE username=?", (username),)
+        database.execute("SELECT * FROM users WHERE username=?", (username,))
         existingUser = database.fetchone()
         if existingUser:
             self.createErrorLabel.setText("Username already exists")
@@ -48,7 +48,7 @@ class CreateAccountWindow(QDialog):
         hashedPword = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
         try:
-            database.execute("INSERT INTO users VALUES (?, ?)", (username, hashedPword.decode('utf-8')))
+            database.execute("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (username, hashedPword.decode('utf-8'), 0, 0, 0, 0, 0, 0))
             conn.commit()
             QMessageBox.information(self, "Success", "Account created successfully")
             self.close()
