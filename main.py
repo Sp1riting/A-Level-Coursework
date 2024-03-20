@@ -114,7 +114,6 @@ def playGame(numberOfPlayers, startingBalance, moneyFromGo, fastBankruptcy, rent
             gameEnded = True
 
 
-
 valid = False
 
 while not valid:
