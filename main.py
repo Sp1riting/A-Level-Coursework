@@ -105,6 +105,13 @@ def playGame(numberOfPlayers, startingBalance, moneyFromGo, fastBankruptcy, rent
             chanceCounter = player8.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
             print(f"{player8.name}'s turn has ended")
             print("")
+        
+        counter = 0
+        for player in playerList:
+            if player.bankrupt:
+                counter += 1
+        if counter == len(playerList) - 1:
+            gameEnded = True
 
 
 
@@ -144,3 +151,4 @@ while not valid:
 
 
 playGame(numberOfPlayers, startingBalance, moneyFromGo, fastBankruptcy, rentFromJail)
+print("Game has ended")

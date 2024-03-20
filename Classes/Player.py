@@ -104,30 +104,30 @@ class Player:
         return self.balance
     
 
-    def reduceBalance(self, amount):
+    def reduceBalance(self, amount, playerList):
         if self.balance < amount:
-            bankruptCheck = self.checkBankruptcy(amount)
+            bankruptCheck = self.checkBankruptcy(amount, playerList)
             if not bankruptCheck:
                 sell = input("Do you want to sell houses and properties to avoid going bankrupt? (y/n)")
                 if sell == "y":
                     pass
                     #Add option to sell/mortgage houses and properties.
                 else:
-                    self.bankruptPlayer()
+                    self.bankruptPlayer(playerList)
             else:
-                self.bankruptPlayer()
+                self.bankruptPlayer(playerList)
         else:
             self.balance -= amount
             print(f"{self.name} now has £{self.balance}")
             return self.balance
     
 
-    def bankruptPlayer(self):
+    def bankruptPlayer(self, playerList):
         self.balance = 0
         self.travelSquaresOwned = 0
         self.bankrupt = True
         
-        if len(self.cardsOwned) > 0:
+        if len(self.ownedCards) > 0:
             for card in self.cardsOwned:
                 card.owner = "Bank"
                 card.ownerID = "0"
@@ -135,9 +135,10 @@ class Player:
                 card.housesBuilt = 0
         
         print(f"Unfortunately, {self.name} is now bankrupt! It's game over for them!")
+
     
 
-    def checkBankruptcy(self, amount):
+    def checkBankruptcy(self, amount, playerList):
         worth = 0
 
         for card in self.ownedCards:
@@ -147,7 +148,7 @@ class Player:
                 worth += card.housesBuilt * card.houseCost
 
         if (self.balance + worth) < amount:
-            self.bankruptPlayer()
+            self.bankruptPlayer(playerList)
             return True
         else:
             return False
@@ -180,7 +181,7 @@ class Player:
         if isDoubled:
             rent *= 2
         print(f"{self.name} is paying £{rent} to {cardOwner.name} for rent.")
-        self.reduceBalance(rent)
+        self.reduceBalance(rent, playerList)
         cardOwner.addBalance(rent)
     
     def advanceToSquare(self, board, playerList, diceRoll, isDoubled, i):
@@ -211,11 +212,11 @@ class Player:
 
         elif boardProperty.cardName == 'Luxury Tax':
             print(f"{self.name} landed on Luxury Tax and has been fined £75.")
-            self.reduceBalance(75)
+            self.reduceBalance(75, playerList)
 
         elif boardProperty.cardName == 'Income Tax':
             print(f"{self.name} landed on Income Tax and has been fined £200.")
-            self.reduceBalance(200)
+            self.reduceBalance(200, playerList)
 
         elif boardProperty.cardName == 'Go To Jail':
             print(f"{self.name} landed on Go to Jail and has been arrested!")

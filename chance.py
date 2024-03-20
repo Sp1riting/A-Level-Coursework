@@ -4,7 +4,7 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList, mon
 
     if currentChance == 0:
         print("Oh no, your friend is asking for a loan from you. Pay £50.")
-        self.reduceBalance(50)
+        self.reduceBalance(50, playerList)
 
     elif currentChance == 1:
         print(f"Move directly to Go! Collect £{moneyFromGo}.")
@@ -74,7 +74,7 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList, mon
     
     elif currentChance == 10:
         print("You've been caught speeding around the board. Pay a fine of £20.")
-        self.reduceBalance(20)
+        self.reduceBalance(20, playerList)
     
     elif currentChance == 11:
         print("There was a bank error and you are being compensated. Collect £200.")
@@ -86,7 +86,7 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList, mon
     
     elif currentChance == 13:
         print("You sprained your wrist driving too hard and have to pay £100 of hospital fees.")
-        self.reduceBalance(100)
+        self.reduceBalance(100, playerList)
     
     elif currentChance == 14:
         print("It's your birthday! Collect £20.")
@@ -94,11 +94,11 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList, mon
     
     elif currentChance == 15:
         print("You broke down. Pay £100 for repairs.")
-        self.reduceBalance(100)
+        self.reduceBalance(100, playerList)
 
     elif currentChance == 16:
         print("The tax man is hungry. Pay £15 for each house you own.")
-        self.reduceBalance(self.housesOwned * 15)
+        self.reduceBalance(self.housesOwned * 15, playerList)
 
     
     chanceCounter += 1
