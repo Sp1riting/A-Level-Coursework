@@ -79,14 +79,14 @@ class Ui_CreateAccountWindow(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.createAcountButton = QPushButton(CreateAccountWindow)
-        self.createAcountButton.setObjectName(u"createAcountButton")
-        self.createAcountButton.setMinimumSize(QSize(300, 50))
+        self.createAccountButton = QPushButton(CreateAccountWindow)
+        self.createAccountButton.setObjectName(u"createAccountButton")
+        self.createAccountButton.setMinimumSize(QSize(300, 50))
         font2 = QFont()
         font2.setPointSize(12)
-        self.createAcountButton.setFont(font2)
+        self.createAccountButton.setFont(font2)
 
-        self.horizontalLayout.addWidget(self.createAcountButton)
+        self.horizontalLayout.addWidget(self.createAccountButton)
 
         self.createReturnButton = QPushButton(CreateAccountWindow)
         self.createReturnButton.setObjectName(u"createReturnButton")
@@ -114,7 +114,7 @@ class Ui_CreateAccountWindow(object):
         self.accountUsernameLabel.setText(QCoreApplication.translate("CreateAccountWindow", u"Username:", None))
         self.accountPasswordLabel.setText(QCoreApplication.translate("CreateAccountWindow", u"Password:", None))
         self.createErrorLabel.setText("")
-        self.createAcountButton.setText(QCoreApplication.translate("CreateAccountWindow", u"Create", None))
+        self.createAccountButton.setText(QCoreApplication.translate("CreateAccountWindow", u"Create", None))
         self.createReturnButton.setText(QCoreApplication.translate("CreateAccountWindow", u"Return", None))
     # retranslateUi
 

@@ -7,10 +7,10 @@ import bcrypt
 
 # Connect to SQLite database
 conn = sqlite3.connect('users.db')
-c = conn.cursor()
+database = conn.cursor()
 
 # Create table if it doesn't exist
-c.execute('''CREATE TABLE IF NOT EXISTS users
+database.execute('''CREATE TABLE IF NOT EXISTS users
              (username TEXT PRIMARY KEY, password TEXT)''')
 conn.commit()
 
@@ -18,28 +18,28 @@ class CreateAccountWindow(QDialog):
     def __init__(self):
         super(CreateAccountWindow, self).__init__()
         loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\createAccount.ui', self)
-        self.createButton.clicked.connect(self.createAccount)
-        self.returnButton.clicked.connect(self.close)
+        self.createAccountButton.clicked.connect(self.createAccount)
+        self.createReturnButton.clicked.connect(self.close)
 
     @pyqtSlot()
     def createAccount(self):
-        username = self.usernameInput.text()
-        password = self.passwordInput.text()
+        username = self.accountUsernameInput.text()
+        password = self.accountPasswordInput.text()
 
         if not username or not password:
             self.errorLabel.setText("Please enter a username and password")
             return
 
-        c.execute("SELECT * FROM users WHERE username=?", (username,))
-        existingUser = c.fetchone()
+        database.execute("SELECT * FROM users WHERE username=?", (username,))
+        existingUser = database.fetchone()
         if existingUser:
-            self.errorLabel.setText("Username already exists")
+            self.createErrorLabel.setText("Username already exists")
             return
 
         hashedPword = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
         try:
-            c.execute("INSERT INTO users VALUES (?, ?)", (username, hashedPword.decode('utf-8')))
+            database.execute("INSERT INTO users VALUES (?, ?)", (username, hashedPword.decode('utf-8')))
             conn.commit()
             QMessageBox.information(self, "Success", "Account created successfully")
             self.close()

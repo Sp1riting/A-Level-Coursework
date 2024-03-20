@@ -106,7 +106,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="createAcountButton">
+      <widget class="QPushButton" name="createAccountButton">
        <property name="minimumSize">
         <size>
          <width>300</width>
