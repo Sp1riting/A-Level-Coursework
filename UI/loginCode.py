@@ -53,7 +53,7 @@ class LoginWindow(QDialog):
             self.loginErrorLabel.setText("Invalid username or password")
 
 
-if __name__ == '__main__':
+""" if __name__ == '__main__':
     app = QApplication(sys.argv)
     accountWindow = LoginWindow()
     accountWindow.showFullScreen()
@@ -61,4 +61,4 @@ if __name__ == '__main__':
     widget.addWidget(accountWindow)
     widget.show()
     
-    app.exec_()
+    app.exec_() """

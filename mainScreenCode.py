@@ -6,6 +6,7 @@ from PyQt5.QtCore import pyqtSlot
 import bcrypt
 
 from UI.loginCode import LoginWindow as loginWindow
+from UI.createAccountCode import CreateAccountWindow as createAccountWindow
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -15,10 +16,12 @@ class MainWindow(QMainWindow):
         self.openCreateAccountButton.clicked.connect(self.openCreateAccount)
 
     def openLogin(self):
-        pass
+        self._new_window = loginWindow()
+        self._new_window.show()
 
     def openCreateAccount(self):
-        pass
+        self._new_window = createAccountWindow()
+        self._new_window.show()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

@@ -55,7 +55,7 @@ class CreateAccountWindow(QDialog):
         except Exception as e:
             QMessageBox.critical(self, "Error", str(e))
 
-if __name__ == '__main__':
+""" if __name__ == '__main__':
     app = QApplication(sys.argv)
     accountWindow = CreateAccountWindow()
     accountWindow.showFullScreen()
@@ -63,4 +63,4 @@ if __name__ == '__main__':
     widget.addWidget(accountWindow)
     widget.show()
     
-    app.exec_()
+    app.exec_() """
