@@ -1,11 +1,13 @@
 import sys
 import sqlite3
-from PyQt5.QtWidgets import QApplication, QDialog, QMessageBox, QStackedWidget
+from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 from PyQt5.QtCore import pyqtSlot
 import bcrypt
 
-class MainWindow(QDialog):
+from UI.loginCode import LoginWindow as loginWindow
+
+class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\mainScreen.ui', self)
