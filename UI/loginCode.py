@@ -2,8 +2,9 @@ import sys
 import sqlite3
 from PyQt5.QtWidgets import QApplication, QDialog, QMessageBox, QStackedWidget
 from PyQt5.uic import loadUi
-from PyQt5.QtCore import pyqtSlot
 import bcrypt
+
+from mainMenuCode import MainMenuWindow as mainMenuWindow
 
 #Connect to the SQLite database
 conn = sqlite3.connect('users.db')
@@ -39,21 +40,23 @@ class LoginWindow(QDialog):
             self.loginErrorLabel.setText("Please enter a username and password")
             return
 
-        query = database.execute("SELECT * FROM users WHERE username=?",(username,))
+        query = database.execute("SELECT * FROM users WHERE username = ?",(username,))
         exists = query.fetchone()
 
         if exists:
             storedPassword = exists[1]
             if bcrypt.checkpw(password.encode('utf-8'), storedPassword.encode('utf-8')):
                 QMessageBox.information(self, "Success", "Login successful")
-                self.close()
+                self._new_window = mainMenuWindow
+                self._new_window.show(username)
+                self.close
             else:
                 self.loginErrorLabel.setText("Invalid username or password")
         else:
             self.loginErrorLabel.setText("Invalid username or password")
 
 
-""" if __name__ == '__main__':
+if __name__ == '__main__':
     app = QApplication(sys.argv)
     accountWindow = LoginWindow()
     accountWindow.showFullScreen()
@@ -61,4 +64,4 @@ class LoginWindow(QDialog):
     widget.addWidget(accountWindow)
     widget.show()
     
-    app.exec_() """
+    app.exec_()

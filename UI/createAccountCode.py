@@ -2,7 +2,6 @@ import sys
 import sqlite3
 from PyQt5.QtWidgets import QApplication, QDialog, QMessageBox, QStackedWidget
 from PyQt5.uic import loadUi
-from PyQt5.QtCore import pyqtSlot
 import bcrypt
 
 #Connect to the SQLite database
@@ -55,7 +54,7 @@ class CreateAccountWindow(QDialog):
         except Exception as e:
             QMessageBox.critical(self, "Error", str(e))
 
-""" if __name__ == '__main__':
+if __name__ == '__main__':
     app = QApplication(sys.argv)
     accountWindow = CreateAccountWindow()
     accountWindow.showFullScreen()
@@ -63,4 +62,4 @@ class CreateAccountWindow(QDialog):
     widget.addWidget(accountWindow)
     widget.show()
     
-    app.exec_() """
+    app.exec_()

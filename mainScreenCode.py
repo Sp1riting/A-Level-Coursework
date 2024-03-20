@@ -1,9 +1,6 @@
 import sys
-import sqlite3
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
-from PyQt5.QtCore import pyqtSlot
-import bcrypt
 
 from UI.loginCode import LoginWindow as loginWindow
 from UI.createAccountCode import CreateAccountWindow as createAccountWindow
