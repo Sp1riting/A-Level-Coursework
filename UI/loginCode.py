@@ -16,41 +16,33 @@ database.execute('''CREATE TABLE IF NOT EXISTS users
                  ''')
 conn.commit()
 
-class CreateAccountWindow(QDialog):
+class LoginWindow(QDialog):
     def __init__(self):
-        super(CreateAccountWindow, self).__init__()
-        loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\createAccount.ui', self)
-        self.createAccountButton.clicked.connect(self.createAccount)
-        self.createReturnButton.clicked.connect(self.close)
+        super(LoginWindow, self).__init__()
+        loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\login.ui', self)
+        self.loginButton.clicked.connect(self.login)
+        self.loginReturnButton.clicked.connect(self.close)
 
     @pyqtSlot()
-    def createAccount(self):
-        username = self.accountUsernameInput.text()
-        password = self.accountPasswordInput.text()
+    def login(self):
+        username = self.loginUsernameInput.text()
+        password = self.loginPasswordInput.text()
 
         if not username or not password:
-            self.createErrorLabel.setText("Please enter a username and password")
+            self.loginErrorLabel.setText("Please enter a username and password")
             return
 
         database.execute("SELECT * FROM users WHERE username=?", (username),)
         existingUser = database.fetchone()
         if existingUser:
-            self.createErrorLabel.setText("Username already exists")
+            self.loginErrorLabel.setText("Username already exists")
             return
 
         hashedPword = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-        try:
-            database.execute("INSERT INTO users VALUES (?, ?)", (username, hashedPword.decode('utf-8')))
-            conn.commit()
-            QMessageBox.information(self, "Success", "Account created successfully")
-            self.close()
-        except Exception as e:
-            QMessageBox.critical(self, "Error", str(e))
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    accountWindow = CreateAccountWindow()
+    accountWindow = LoginWindow()
     accountWindow.showFullScreen()
     widget = QStackedWidget()
     widget.addWidget(accountWindow)

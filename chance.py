@@ -98,7 +98,7 @@ def drawChance(self, board, playerList, diceRoll, chanceCounter, randomList, mon
 
     elif currentChance == 16:
         print("The tax man is hungry. Pay £15 for each house you own.")
-        self.reducebalance(self.housesOwned * 15)
+        self.reduceBalance(self.housesOwned * 15)
 
     
     chanceCounter += 1
