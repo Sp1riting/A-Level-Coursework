@@ -32,9 +32,11 @@ class LoginWindow(QDialog):
             self.loginErrorLabel.setText("Please enter a username and password")
             return
 
-        exists = database.execute("SELECT * FROM users WHERE username=?", (username,)).fetchone()
+        #exists = database.execute("SELECT * FROM users WHERE username=?", (username,)).fetchone()
+        query = database.execute("SELECT * FROM users WHERE username=?",(username,))
+        exists = query.fetchone()
         if exists:
-            storedPassword = exists(password)
+            storedPassword = exists[1]
             if bcrypt.checkpw(password.encode('utf-8'), storedPassword.encode('utf-8')):
                 QMessageBox.information(self, "Success", "Login successful")
                 self.close
