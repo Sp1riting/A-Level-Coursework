@@ -10,10 +10,18 @@ conn = sqlite3.connect('users.db')
 database = conn.cursor()
 
 #Create a new table if one doesn't exist
-database.execute('''CREATE TABLE IF NOT EXISTS users
-                (username TEXT PRIMARY KEY, password TEXT, 
-                rolledDoubles INTEGER, gamesPlayed INTEGER, propertiesBought INTEGER, moneyEarned INTEGER, rentPaid INTEGER, passedGo INTEGER)
-                 ''')
+database.execute('''CREATE TABLE IF NOT EXISTS
+                ("users" (
+                "username"	TEXT NOT NULL,
+                "password"	TEXT NOT NULL,
+                "rolledDoubles"	INTEGER NOT NULL DEFAULT 0,
+                "gamesPlayed"	INTEGER NOT NULL DEFAULT 0,
+                "propertiesBought"	NUMERIC NOT NULL DEFAULT 0,
+                "moneyEarned"	INTEGER NOT NULL DEFAULT 0,
+                "rentPaid"	INTEGER NOT NULL DEFAULT 0,
+                "passedGo"	INTEGER NOT NULL DEFAULT 0,
+	            PRIMARY KEY("username")
+                );)''')
 conn.commit()
 
 class CreateAccountWindow(QDialog):
@@ -23,7 +31,6 @@ class CreateAccountWindow(QDialog):
         self.createAccountButton.clicked.connect(self.createAccount)
         self.createReturnButton.clicked.connect(self.close)
 
-    @pyqtSlot()
     def createAccount(self):
         username = self.accountUsernameInput.text()
         password = self.accountPasswordInput.text()
