@@ -28,7 +28,7 @@ class MainMenuWindow(QDialog):
         self.close
     
     def preGame(self):
-        self._new_window = preGameSettingsWindow(self.username)
+        self._new_window = preGameSettingsWindow(self.username, False, False)
         self._new_window.show()
         self.close
 
