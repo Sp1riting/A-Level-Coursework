@@ -1,6 +1,6 @@
 ToDo:
 Two main things left to do in the main game: checking if a full colour set is owned, keep track of the game statistics.
-Other than that, UI and database need to be started
+Other than that, UI needs to be made for the main game
 
 Game things:
 - Add check for full colour set owned when buying houses
@@ -11,4 +11,3 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
-- Add text to the how to play menu

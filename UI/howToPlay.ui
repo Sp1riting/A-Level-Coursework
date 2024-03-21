@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>716</width>
-    <height>402</height>
+    <width>1423</width>
+    <height>833</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -136,8 +136,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>692</width>
-        <height>272</height>
+        <width>1399</width>
+        <height>703</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -163,7 +163,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <pointsize>12</pointsize>
           </font>
          </property>
          <property name="autoFillBackground">
@@ -173,7 +173,29 @@
           <enum>QFrame::Box</enum>
          </property>
          <property name="text">
-          <string/>
+          <string>- The program will act as the ‘bank’ in the traditional board games, in charge of transferring funds and properties between the players of the game.
+- The objective of the game is to become the wealthiest player, bankrupting all other opponents through means of buying, renting, and selling of property.
+- Players are all given the same amount of money at the start of the game and are all placed on the starting tile on a board with 40 tiles.
+- The board’s shape is square, with 10 tiles on each side, with space in the centre of the board to display various objects.
+- The board’s layout contains 22 coloured properties, 4 railroads, 2 utilities, 6 ‘chance/community chest’ spaces, 2 tax spaces, 1 starting tile, 1 ‘free parking’ space, 1 go to jail space and 1 in jail/visiting space.
+	o The coloured properties are distributed in colour groups of 2 or 3, each with specified rents and names. Each coloured property has indicators on the top of them to show the number of houses owned on that property.
+	o Railroads are placed in the midpoints of each side of the board, with rents depending on the number of railroads owned by a player.
+	o Utilities are placed close to opposite sides of the board, with rents being a multiple of a user’s roll, with this multiplicative value depending on the number of utilities owned by a player. (Rento does not contain utilities, but the created 	  solution to the problem will.)
+- The names of the properties are named to follow an animal theme, with their names and costs being displayed on the tile if they are purchasable. the colour of the player who owns that property and whether that property is mortgaged or not is indicated on each property.
+- Players will use random dice rolls to determine the number of squares they will move forwards each turn. They can click the dice at the start of their turns, as well as choose to mortgage properties, trade or buy houses.
+- If players get a certain number of doubles in succession, they will be sent to jail.
+- Multiple players are able to reside on one tile at a time.
+- Each time a player passes or lands on the starting tile, they gain fixed amounts of money, specified in the pre-game settings menu.
+- Depending on the tile reached, players will perform a variety of actions, such as purchasing property, paying rent, paying taxes and drawing ‘chance’ cards.
+	o When landing on unowned properties, players may buy the property at its indicated price, and will subsequently own it, entitling them to tax if others land on their property.
+	o When landing on properties owned by others, the owner of the property collects rent as specified by the property. Rent can be increased through the purchasing of houses and or hotels, once a player has all of the properties from a colour group.
+	o When landing on ‘chance’ tiles, a random card is given to the player which can either reward them or set them back.
+	o Tax spaces require the user to pay fixed amounts of money to the bank.
+	o The ‘go to jail’ space will send the user to jail, where the user can be held for several turns, still being able to collect rent if the setting is enabled, and purchase houses and/or hotels.
+	o The free parking tile acts as a resting place for users, with users able to receive rewards for landing on it depending on the rules of the specific game.
+- Houses and/or hotels can be purchased once a user has completed a colour set, with fixed pricings, in order to increase the rent amount to known values. They can also be sold by the users.
+- Properties can be mortgaged by a user to the bank at the start or end of a player's turn. No rent is collected by a mortgaged property, and the owner of the mortgaged card may pay the bank to lift the mortgage.
+- Players lose and are declared bankrupt when they owe more than they can pay either to another player, or to the bank. Assets of the bankrupted player are transferred to the player (or bank) who bankrupts another player.</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
