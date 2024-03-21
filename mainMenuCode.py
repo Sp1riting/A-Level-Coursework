@@ -15,11 +15,11 @@ class MainMenuWindow(QDialog):
         self.menuHowToPlayButton.clicked.connect(self.howToPlay)
         self.menuStatisticsButton.clicked.connect(self.statistics)
         self.menuPlayButton.clicked.connect(self.preGame)
-        self.menuReturnButoon.clicked.connect(self.close)
+        self.menuReturnButton.clicked.connect(self.close)
 
     def howToPlay(self):
-        self._new_window = howToPlayWindow
-        self._new_window.show
+        self._new_window = howToPlayWindow()
+        self._new_window.show()
         self.close
 
     def statistics(self):
