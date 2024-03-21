@@ -114,7 +114,7 @@ def playGame(numberOfPlayers, startingBalance, moneyFromGo, fastBankruptcy, rent
             gameEnded = True
 
 
-valid = False
+""" valid = False
 
 while not valid:
     valid = True
@@ -146,8 +146,8 @@ while not valid:
     if valid == False and input("Do you want to go with the default values? You can reenter settings if not (y/n) ") == 'y':
         numberOfPlayers = 4
         startingBalance = 1500
-        moneyFromGo = 200
+        moneyFromGo = 200 """
 
 
-playGame(numberOfPlayers, startingBalance, moneyFromGo, fastBankruptcy, rentFromJail)
-print("Game has ended")
+""" playGame(numberOfPlayers, startingBalance, moneyFromGo, fastBankruptcy, rentFromJail)
+print("Game has ended") """

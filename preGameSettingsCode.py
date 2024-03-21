@@ -12,18 +12,13 @@ class PreGameSettingsWindow(QDialog):
         self.preGameReturnButton.clicked.connect(self.close)
     
     def game(self, username):
-        
-        self._new_window = gameWindow(username)
+        startingBalance = self.startingBalanceSpinBox.value()
+        moneyFromGo = self.moneyFromGoSpinBox.value()
+        numberOfPlayers = self.numberOfPlayersSpinBox.value()
+        fastBankruptcy = self.fastBankruptcyCheckBox.checked()
+        rentFromJail = self.rentFromJailCheckBox.checked()
+        self._new_window = gameWindow(username, startingBalance, moneyFromGo, numberOfPlayers, fastBankruptcy, rentFromJail)
         self._new_window.show()
         self.close
 
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    accountWindow = PreGameSettingsWindow()
-    accountWindow.showFullScreen()
-    widget = QStackedWidget()
-    widget.addWidget(accountWindow)
-    widget.show()
-    
-    app.exec_()

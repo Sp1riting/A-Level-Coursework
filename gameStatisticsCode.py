@@ -20,16 +20,7 @@ class GameStatisticsWindow(QDialog):
         self.moneyEarnedValue = instance[5]
         self.rentPaidValue = instance[6]
         self.passedGoValue = instance[7]
-        
+
         self.gameStatsReturnButton.clicked.connect(self.close)
 
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    accountWindow = GameStatisticsWindow()
-    accountWindow.showFullScreen()
-    widget = QStackedWidget()
-    widget.addWidget(accountWindow)
-    widget.show()
-    
-    app.exec_()

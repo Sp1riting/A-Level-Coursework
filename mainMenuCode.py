@@ -33,12 +33,3 @@ class MainMenuWindow(QDialog):
         self.close
 
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    accountWindow = MainMenuWindow()
-    accountWindow.showFullScreen()
-    widget = QStackedWidget()
-    widget.addWidget(accountWindow)
-    widget.show()
-    
-    app.exec_()
