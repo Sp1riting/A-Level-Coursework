@@ -12,8 +12,9 @@ class PreGameSettingsWindow(QDialog):
         self.preGameReturnButton.clicked.connect(self.close)
     
     def game(self, username):
-        self._new_window = gameWindow
-        self._new_window.show(username)
+        
+        self._new_window = gameWindow(username)
+        self._new_window.show()
         self.close
 
 

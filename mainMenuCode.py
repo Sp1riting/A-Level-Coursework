@@ -11,8 +11,9 @@ class MainMenuWindow(QDialog):
     def __init__(self, username):
         super(MainMenuWindow, self).__init__()
         loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\mainMenu.ui', self)
+        self.username = username
         self.menuHowToPlayButton.clicked.connect(self.howToPlay)
-        self.menuStatisticsButton.clicked.connect(self.statistics(username))
+        self.menuStatisticsButton.clicked.connect(self.statistics)
         self.menuPlayButton.clicked.connect(self.preGame)
         self.menuReturnButoon.clicked.connect(self.close)
 
@@ -21,14 +22,14 @@ class MainMenuWindow(QDialog):
         self._new_window.show
         self.close
 
-    def statistics(self, username):
-        self._new_window = statisticsWindow
-        self._new_window.show(username)
+    def statistics(self):
+        self._new_window = statisticsWindow(self.username)
+        self._new_window.show()
         self.close
     
-    def preGame(self, username):
-        self._new_window = preGameSettingsWindow
-        self._new_window.show(username)
+    def preGame(self):
+        self._new_window = preGameSettingsWindow(self.username)
+        self._new_window.show()
         self.close
 
 

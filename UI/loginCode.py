@@ -47,8 +47,8 @@ class LoginWindow(QDialog):
             storedPassword = exists[1]
             if bcrypt.checkpw(password.encode('utf-8'), storedPassword.encode('utf-8')):
                 QMessageBox.information(self, "Success", "Login successful")
-                self._new_window = mainMenuWindow
-                self._new_window.show(username)
+                self._new_window = mainMenuWindow(username)
+                self._new_window.show()
                 self.close
             else:
                 self.loginErrorLabel.setText("Invalid username or password")
