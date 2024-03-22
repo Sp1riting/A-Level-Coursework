@@ -19,7 +19,7 @@ class PreGameSettingsWindow(QDialog):
         numberOfPlayers = self.numberOfPlayersSpinBox.value()
         playerNames = []
 
-        for i in range (1, numberOfPlayers):
+        for i in range (1, numberOfPlayers + 1):
             (userInput, entered) = QInputDialog.getText(self,"Get text",f"Enter the name of player number {i}",QLineEdit.Normal,f"player{i}")
             if entered:
                 playerNames.append(userInput)
