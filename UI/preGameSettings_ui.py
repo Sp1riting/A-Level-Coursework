@@ -149,6 +149,7 @@ class Ui_Dialog(object):
 
         self.numberOfPlayersSpinBox = QSpinBox(self.groupBox)
         self.numberOfPlayersSpinBox.setObjectName(u"numberOfPlayersSpinBox")
+        self.numberOfPlayersSpinBox.setMinimum(2)
         self.numberOfPlayersSpinBox.setMaximum(8)
         self.numberOfPlayersSpinBox.setValue(4)
 
