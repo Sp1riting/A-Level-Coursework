@@ -13,7 +13,7 @@ class Card:
         self.mortgageCost = mortgageCost
         self.rentAmounts = rentAmounts
     
-    def mortgage(self, player):
+    def mortgage(self, GameWindow, player):
         if self.housesBuilt == 0:
             if self.cardSet == "TravelSquare":
                 player.travelSquaresOwned -= 1
@@ -26,7 +26,7 @@ class Card:
             print("Sell all houses on this property before mortgaging")
     
     
-    def unmortgage(self, player):
+    def unmortgage(self, GameWindow, player):
         if self.cost > player.balance:
             print("You do not have enough to unmortgage this card")
         else:
@@ -34,12 +34,12 @@ class Card:
                 player.travelSquaresOwned += 1
             elif self.cardSet == "Utility":
                 player.utilitiesOwned += 1
-            player.reduceBalance(self.cost)
+            player.reduceBalance(GameWindow, self.cost)
             self.mortgaged = False
             player.ownedCards.append(self.cardName)
 
 
-    def purchaseHouse(self, player):
+    def purchaseHouse(self, GameWindow, player):
         if self.cardSet == "Travel Square" or self.cardSet == "Utility":
             print("This property cannot gain houses")
         else:
@@ -49,18 +49,18 @@ class Card:
                 print("You have already built the maximum number of houses on this property")
             else:
                 self.housesBuilt += 1
-                player.reduceBalance(self.houseCost)
+                player.reduceBalance(GameWindow, self.houseCost)
     
 
-    def sellHouse(self, player):
+    def sellHouse(self, GameWindow, player):
         if self.housesBuilt == 0 or self.housesBuilt == "N/A":
             print("You cannot sell houses from this property")
         else:
             self.housesBuilt -= 1
-            player.addBalance(self.houseCost / 2)
+            player.addBalance(GameWindow, self.houseCost / 2)
                 
 
-    def purchaseCard(self, player):
+    def purchaseCard(self, GameWindow, player):
         if self.cost > player.balance:
             print("You do not have enough to purchase this card")
         else:
@@ -68,7 +68,7 @@ class Card:
                 player.travelSquaresOwned += 1
             elif self.cardSet == "Utility":
                 player.utilitiesOwned += 1
-            player.reduceBalance(self.cost)
+            player.reduceBalance(GameWindow, self.cost)
             self.owner = player.name
             self.ownerID = str(player.playerID)
             player.ownedCards.append(self.cardName)

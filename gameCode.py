@@ -188,36 +188,36 @@ class GameWindow(QDialog):
         while not gameEnded:
             if numberOfPlayers >=1 and not player1.bankrupt:
                 self.currentPlayerLabel.setText(playerNames[0])
-                chanceCounter = player1.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+                chanceCounter = player1.playTurn(self, board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
 
             if numberOfPlayers >=2 and not player2.bankrupt:
                 self.currentPlayerLabel.setText(playerNames[1])
-                chanceCounter = player2.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+                chanceCounter = player2.playTurn(self, board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
                 
 
             if numberOfPlayers >=3 and not player3.bankrupt:
                 self.currentPlayerLabel.setText(playerNames[2])
-                chanceCounter = player3.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+                chanceCounter = player3.playTurn(self, board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
           
             if numberOfPlayers >=4 and not player4.bankrupt:
                 self.currentPlayerLabel.setText(playerNames[3])
-                chanceCounter = player4.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+                chanceCounter = player4.playTurn(self, board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
 
             if numberOfPlayers >=5 and not player5.bankrupt:
                 self.currentPlayerLabel.setText(playerNames[4])
-                chanceCounter = player5.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+                chanceCounter = player5.playTurn(self, board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
 
             if numberOfPlayers >=6 and not player6.bankrupt:
                 self.currentPlayerLabel.setText(playerNames[5])
-                chanceCounter = player6.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+                chanceCounter = player6.playTurn(self, board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
 
             if numberOfPlayers >=7 and not player7.bankrupt:
                 self.currentPlayerLabel.setText(playerNames[6])
-                chanceCounter = player7.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+                chanceCounter = player7.playTurn(self, board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
 
             if numberOfPlayers >=8 and not player8.bankrupt:
                 self.currentPlayerLabel.setText(playerNames[7])
-                chanceCounter = player8.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+                chanceCounter = player8.playTurn(self, board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
             
             counter = 0
             for player in playerList:
