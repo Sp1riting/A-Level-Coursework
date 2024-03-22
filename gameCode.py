@@ -10,4 +10,5 @@ class GameWindow(QDialog):
         loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\game.ui', self)
         self.chanceCardTextBrowser.hide()
         self.boardImageLabel.setPixmap(QPixmap("C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\gameBoard.png"))
+        
 

@@ -18,7 +18,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QGroupBox" name="groupBox">
+  <widget class="QGroupBox" name="mortgageGroupBox">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -106,7 +106,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QGroupBox" name="groupBox_2">
+  <widget class="QGroupBox" name="housesGroupBox">
    <property name="geometry">
     <rect>
      <x>340</x>
@@ -194,7 +194,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QGroupBox" name="groupBox_3">
+  <widget class="QGroupBox" name="inJailGroupBox">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -214,7 +214,7 @@
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="inJailMainLabel">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -232,7 +232,7 @@
      <string>In Jail</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="payBailPushButton">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -245,7 +245,7 @@
      <string>Pay Bail (£50)</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="GOOJFCpushButton">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -258,7 +258,7 @@
      <string>Use Get Out of Jail Free Card</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="rollDoublePushButton">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -271,7 +271,7 @@
      <string>Roll for a Double</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="inJailMessageLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -382,9 +382,9 @@
       </spacer>
      </item>
      <item row="1" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="normalCardVerticalLayout">
        <item>
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="normalCardNameLabel">
          <property name="font">
           <font>
            <pointsize>16</pointsize>
@@ -399,9 +399,9 @@
         </widget>
        </item>
        <item>
-        <layout class="QFormLayout" name="formLayout">
+        <layout class="QFormLayout" name="normalCardBasicFormLayout">
          <item row="0" column="0">
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="normalCardColourSetLabel">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -413,7 +413,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="normalCardColourDisplayLabel">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -428,7 +428,7 @@
           </widget>
          </item>
          <item row="1" column="0">
-          <widget class="QLabel" name="label_6">
+          <widget class="QLabel" name="normalCardCostLabel">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -440,7 +440,7 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLabel" name="label_7">
+          <widget class="QLabel" name="normalCardCostDisplayLabel">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -455,7 +455,7 @@
           </widget>
          </item>
          <item row="2" column="0">
-          <widget class="QLabel" name="label_8">
+          <widget class="QLabel" name="normalCardHouseCostLabel">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -467,7 +467,7 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLabel" name="label_9">
+          <widget class="QLabel" name="normalCardHouseCostDisplayLabel">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -484,7 +484,7 @@
         </layout>
        </item>
        <item>
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="normalCardRentLabel">
          <property name="font">
           <font>
            <pointsize>14</pointsize>
@@ -499,9 +499,9 @@
         </widget>
        </item>
        <item>
-        <layout class="QFormLayout" name="formLayout_2">
+        <layout class="QFormLayout" name="normalcardRentFormLayout">
          <item row="0" column="0">
-          <widget class="QLabel" name="label_11">
+          <widget class="QLabel" name="normalCardBaseRentLabel">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -513,7 +513,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLabel" name="label_12">
+          <widget class="QLabel" name="normalCardBaseAmountLabel">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -528,7 +528,7 @@
           </widget>
          </item>
          <item row="1" column="0">
-          <widget class="QLabel" name="label_17">
+          <widget class="QLabel" name="normalCardOneLabel">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -555,7 +555,7 @@
           </widget>
          </item>
          <item row="2" column="0">
-          <widget class="QLabel" name="label_18">
+          <widget class="QLabel" name="normalCardTwoLabel">
            <property name="font">
             <font>
              <pointsize>12</pointsize>
