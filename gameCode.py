@@ -41,6 +41,10 @@ class GameWindow(QDialog):
         self.utilityFrame.hide()
         self.travelSquareFrame.hide()
 
+        self.displayLabel.setText("")
+        self.transactionLabel.setText("")
+        self.currentPlayerLabel.setText("")
+
         playerList = []
 
         if len(playerNames) >= 1:
@@ -114,5 +118,28 @@ class GameWindow(QDialog):
         else:
             self.player8NameLabel.hide()
             self.player8BalanceLabel.hide()
+
+        self.brown1mortgaged.hide()
+        self.brown2mortgaged.hide()
+        self.lBlue1mortgaged.hide()
+        self.lBlue2mortgaged.hide()
+        self.lBlue3mortgaged.hide()
+        self.pink1mortgaged.hide()
+        self.pink2mortgaged.hide()
+        self.pink3mortgaged.hide()
+        self.orange1mortgaged.hide()
+        self.orange2mortgaged.hide()
+        self.orange3mortgaged.hide()
+        self.red1mortgaged.hide()
+        self.red2mortgaged.hide()
+        self.red3mortgaged.hide()
+        self.yellow1mortgaged.hide()
+        self.yellow2mortgaged.hide()
+        self.yellow3mortgaged.hide()
+        self.green1mortgaged.hide()
+        self.green2mortgaged.hide()
+        self.green3mortgaged.hide()
+        self.dBlue1mortgaged.hide()
+        self.dBlue2mortgaged.hide()
 
 
