@@ -141,6 +141,12 @@ class GameWindow(QDialog):
         self.green3mortgaged.hide()
         self.dBlue1mortgaged.hide()
         self.dBlue2mortgaged.hide()
+        self.rr1mortgaged.hide()
+        self.rr2mortgaged.hide()
+        self.rr3mortgaged.hide()
+        self.rr4mortgaged.hide()
+        self.u1mortgaged.hide()
+        self.u2mortgaged.hide()
 
         self.brown1ownership.hide()
         self.brown2ownership.hide()
