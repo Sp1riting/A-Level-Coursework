@@ -185,16 +185,4 @@ class GameWindow(QDialog):
         randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
         random.shuffle(randomList)
 
-        while not gameEnded:
-            for i in range (1,8):
-                if numberOfPlayers >= i and not playerList[i].bankrupt:
-                    self.currentPlayerLabel.setText(playerNames[i-1])
-                    chanceCounter = playerList[i].playTurn(self, board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
-
-            
-            counter = 0
-            for player in playerList:
-                if player.bankrupt:
-                    counter += 1
-            if counter == numberOfPlayers - 1:
-                gameEnded = True
+        
