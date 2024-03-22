@@ -2034,7 +2034,7 @@
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-         <widget class="QLabel" name="dBlue2">
+         <widget class="QLabel" name="dBlue2ownership">
           <property name="geometry">
            <rect>
             <x>970</x>
@@ -4273,7 +4273,7 @@ p, li { white-space: pre-wrap; }
           </font>
          </property>
          <property name="text">
-          <string>player1</string>
+          <string>player</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
