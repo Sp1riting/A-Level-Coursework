@@ -17,8 +17,16 @@ class PreGameSettingsWindow(QDialog):
         startingBalance = self.startingBalanceSpinBox.value()
         moneyFromGo = self.moneyFromGoSpinBox.value()
         numberOfPlayers = self.numberOfPlayersSpinBox.value()
+        playerNames = []
 
-        self._new_window = gameWindow(username, startingBalance, moneyFromGo, numberOfPlayers, fastBankruptcy, rentFromJail)
+        for i in range (1, numberOfPlayers):
+            (userInput, entered) = QInputDialog.getText(self,"Get text",f"Enter the name of player number {i}",QLineEdit.Normal,f"player{i}")
+            if entered:
+                playerNames.append(userInput)
+            else:
+                playerNames.append(f"player{i}")
+
+        self._new_window = gameWindow(username, startingBalance, moneyFromGo, numberOfPlayers, fastBankruptcy, rentFromJail, playerNames)
         self._new_window.show()
         self.close
     
