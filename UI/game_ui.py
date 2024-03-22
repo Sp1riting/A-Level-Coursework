@@ -26,7 +26,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(1320, 1277)
+        Dialog.resize(1320, 1255)
         font = QFont()
         font.setPointSize(12)
         Dialog.setFont(font)
@@ -1438,9 +1438,20 @@ class Ui_Dialog(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_4)
+
+        self.rollDiceButton = QPushButton(Dialog)
+        self.rollDiceButton.setObjectName(u"rollDiceButton")
+        self.rollDiceButton.setMinimumSize(QSize(175, 75))
+        self.rollDiceButton.setFont(font7)
+
+        self.horizontalLayout.addWidget(self.rollDiceButton)
+
         self.transactionLabel = QLabel(Dialog)
         self.transactionLabel.setObjectName(u"transactionLabel")
-        self.transactionLabel.setMinimumSize(QSize(670, 0))
+        self.transactionLabel.setMinimumSize(QSize(450, 0))
         self.transactionLabel.setAlignment(Qt.AlignCenter)
         self.transactionLabel.setWordWrap(True)
 
@@ -1638,6 +1649,7 @@ class Ui_Dialog(object):
         self.tradeButton.setText(QCoreApplication.translate("Dialog", u"Trade", None))
         self.mortgageButton.setText(QCoreApplication.translate("Dialog", u"Mortgage", None))
         self.housesButton.setText(QCoreApplication.translate("Dialog", u"Houses", None))
+        self.rollDiceButton.setText(QCoreApplication.translate("Dialog", u"Roll Dice", None))
         self.transactionLabel.setText(QCoreApplication.translate("Dialog", u"Transaction Message Here", None))
     # retranslateUi
 

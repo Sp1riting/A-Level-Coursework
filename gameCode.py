@@ -177,4 +177,4 @@ class GameWindow(QDialog):
         self.u1ownership.hide()
         self.u2ownership.hide()
 
-
+        self.
