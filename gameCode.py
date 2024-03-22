@@ -1,9 +1,11 @@
+import random
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QPixmap
 import main as main
 import Classes.player as Players
+from GameStart import board as board
 
 class GameWindow(QDialog):
     def __init__(self, username, startingBalance, moneyFromGo, numberOfPlayers, fastBankruptcy, rentFromJail, playerNames):
@@ -14,6 +16,7 @@ class GameWindow(QDialog):
         self.chanceCardTextBrowser.hide()
         self.endTurnButton.hide()
         self.bankruptButton.hide()
+        self.rollDiceButton.hide()
 
         self.dice1Outline.hide()
         self.dice1dot1.hide()
@@ -47,7 +50,7 @@ class GameWindow(QDialog):
 
         playerList = []
 
-        if len(playerNames) >= 1:
+        if numberOfPlayers >= 1:
             self.player1NameLabel.setText(playerNames[0])
             self.player1BalanceLabel.setText(f"£{startingBalance}")
             player1 = Players.Player(1, playerNames[0], startingBalance)
@@ -56,7 +59,7 @@ class GameWindow(QDialog):
             self.player1NameLabel.hide()
             self.player1BalanceLabel.hide()
         
-        if len(playerNames) >= 2:
+        if numberOfPlayers >= 2:
             self.player2NameLabel.setText(playerNames[1])
             self.player2BalanceLabel.setText(f"£{startingBalance}")
             player2 = Players.Player(2, playerNames[1], startingBalance)
@@ -65,7 +68,7 @@ class GameWindow(QDialog):
             self.player2NameLabel.hide()
             self.player2BalanceLabel.hide()
 
-        if len(playerNames) >= 3:
+        if numberOfPlayers >= 3:
             self.player3NameLabel.setText(playerNames[2])
             self.player3BalanceLabel.setText(f"£{startingBalance}")
             player3 = Players.Player(3, playerNames[2], startingBalance)
@@ -74,7 +77,7 @@ class GameWindow(QDialog):
             self.player3NameLabel.hide()
             self.player3BalanceLabel.hide()
 
-        if len(playerNames) >= 4:
+        if numberOfPlayers >= 4:
             self.player4NameLabel.setText(playerNames[3])
             self.player4BalanceLabel.setText(f"£{startingBalance}")
             player4 = Players.Player(4, playerNames[3], startingBalance)
@@ -83,7 +86,7 @@ class GameWindow(QDialog):
             self.player4NameLabel.hide()
             self.player4BalanceLabel.hide()
 
-        if len(playerNames) >= 5:
+        if numberOfPlayers >= 5:
             self.player5NameLabel.setText(playerNames[4])
             self.player5BalanceLabel.setText(f"£{startingBalance}")
             player5 = Players.Player(5, playerNames[4], startingBalance)
@@ -92,7 +95,7 @@ class GameWindow(QDialog):
             self.player5NameLabel.hide()
             self.player5BalanceLabel.hide()
 
-        if len(playerNames) >= 6:
+        if numberOfPlayers >= 6:
             self.player6NameLabel.setText(playerNames[5])
             self.player6BalanceLabel.setText(f"£{startingBalance}")
             player6 = Players.Player(6, playerNames[5], startingBalance)
@@ -101,7 +104,7 @@ class GameWindow(QDialog):
             self.player6NameLabel.hide()
             self.player6BalanceLabel.hide()
 
-        if len(playerNames) >= 7:
+        if numberOfPlayers >= 7:
             self.player7NameLabel.setText(playerNames[6])
             self.player7BalanceLabel.setText(f"£{startingBalance}")
             player7 = Players.Player(7, playerNames[6], startingBalance)
@@ -110,7 +113,7 @@ class GameWindow(QDialog):
             self.player7NameLabel.hide()
             self.player7BalanceLabel.hide()
 
-        if len(playerNames) >= 8:
+        if numberOfPlayers >= 8:
             self.player8NameLabel.setText(playerNames[7])
             self.player8BalanceLabel.setText(f"£{startingBalance}")
             player8 = Players.Player(8, playerNames[7], startingBalance)
@@ -177,4 +180,48 @@ class GameWindow(QDialog):
         self.u1ownership.hide()
         self.u2ownership.hide()
 
-        self.
+        gameEnded = False
+        chanceCounter = 0
+        randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+        random.shuffle(randomList)
+
+        while not gameEnded:
+            if numberOfPlayers >=1 and not player1.bankrupt:
+                self.currentPlayerLabel.setText(playerNames[0])
+                chanceCounter = player1.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+
+            if numberOfPlayers >=2 and not player2.bankrupt:
+                self.currentPlayerLabel.setText(playerNames[1])
+                chanceCounter = player2.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+                
+
+            if numberOfPlayers >=3 and not player3.bankrupt:
+                self.currentPlayerLabel.setText(playerNames[2])
+                chanceCounter = player3.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+          
+            if numberOfPlayers >=4 and not player4.bankrupt:
+                self.currentPlayerLabel.setText(playerNames[3])
+                chanceCounter = player4.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+
+            if numberOfPlayers >=5 and not player5.bankrupt:
+                self.currentPlayerLabel.setText(playerNames[4])
+                chanceCounter = player5.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+
+            if numberOfPlayers >=6 and not player6.bankrupt:
+                self.currentPlayerLabel.setText(playerNames[5])
+                chanceCounter = player6.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+
+            if numberOfPlayers >=7 and not player7.bankrupt:
+                self.currentPlayerLabel.setText(playerNames[6])
+                chanceCounter = player7.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+
+            if numberOfPlayers >=8 and not player8.bankrupt:
+                self.currentPlayerLabel.setText(playerNames[7])
+                chanceCounter = player8.playTurn(board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+            
+            counter = 0
+            for player in playerList:
+                if player.bankrupt:
+                    counter += 1
+            if counter == numberOfPlayers - 1:
+                gameEnded = True
