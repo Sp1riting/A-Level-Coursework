@@ -3041,14 +3041,19 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Chance card text will appear here&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
-         <widget class="QGroupBox" name="groupBox_2">
+         <widget class="QGroupBox" name="mortgageGroupBox">
           <property name="geometry">
            <rect>
-            <x>450</x>
-            <y>700</y>
+            <x>460</x>
+            <y>630</y>
             <width>271</width>
             <height>151</height>
            </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
           </property>
           <property name="title">
            <string>Please select properties below</string>
@@ -3056,7 +3061,7 @@ p, li { white-space: pre-wrap; }
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
-          <widget class="QComboBox" name="mortgageSelectionComboBox_2">
+          <widget class="QComboBox" name="mortgageSelectionComboBox_4">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3074,7 +3079,7 @@ p, li { white-space: pre-wrap; }
             </property>
            </item>
           </widget>
-          <widget class="QComboBox" name="unmortgageSelectionComboBox_2">
+          <widget class="QComboBox" name="unmortgageSelectionComboBox_4">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3092,7 +3097,7 @@ p, li { white-space: pre-wrap; }
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="mortgageItemButton_2">
+          <widget class="QPushButton" name="mortgageItemButton_4">
            <property name="geometry">
             <rect>
              <x>150</x>
@@ -3110,7 +3115,7 @@ p, li { white-space: pre-wrap; }
             <string>Mortgage</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="unmortgageItemButton_2">
+          <widget class="QPushButton" name="unmortgageItemButton_4">
            <property name="geometry">
             <rect>
              <x>150</x>
@@ -3128,99 +3133,104 @@ p, li { white-space: pre-wrap; }
             <string>Unmortgage</string>
            </property>
           </widget>
-          <widget class="QGroupBox" name="groupBox_3">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>271</width>
-             <height>151</height>
-            </rect>
-           </property>
-           <property name="title">
-            <string>Please select properties below</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <widget class="QComboBox" name="buyHouseSelectionComboBox">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>30</y>
-              <width>131</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="currentText">
-             <string>Select Property</string>
-            </property>
-            <item>
-             <property name="text">
-              <string>Select Property</string>
-             </property>
-            </item>
-           </widget>
-           <widget class="QComboBox" name="sellHouseSelectionComboBox">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>90</y>
-              <width>131</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="currentText">
-             <string>Select Property</string>
-            </property>
-            <item>
-             <property name="text">
-              <string>Select Property</string>
-             </property>
-            </item>
-           </widget>
-           <widget class="QPushButton" name="buyHouseButton">
-            <property name="geometry">
-             <rect>
-              <x>150</x>
-              <y>30</y>
-              <width>111</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Buy House</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="sellHouseButton">
-            <property name="geometry">
-             <rect>
-              <x>150</x>
-              <y>90</y>
-              <width>111</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Sell House</string>
-            </property>
-           </widget>
-          </widget>
          </widget>
-         <widget class="QGroupBox" name="groupBox_4">
+         <widget class="QGroupBox" name="housesGroupBox">
           <property name="geometry">
            <rect>
-            <x>410</x>
+            <x>460</x>
+            <y>630</y>
+            <width>271</width>
+            <height>151</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Please select properties below</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <widget class="QComboBox" name="buyHouseSelectionComboBox_2">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>30</y>
+             <width>131</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="currentText">
+            <string>Select Property</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Select Property</string>
+            </property>
+           </item>
+          </widget>
+          <widget class="QComboBox" name="sellHouseSelectionComboBox_2">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>90</y>
+             <width>131</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="currentText">
+            <string>Select Property</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Select Property</string>
+            </property>
+           </item>
+          </widget>
+          <widget class="QPushButton" name="buyHouseButton_2">
+           <property name="geometry">
+            <rect>
+             <x>150</x>
+             <y>30</y>
+             <width>111</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Buy House</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="sellHouseButton_2">
+           <property name="geometry">
+            <rect>
+             <x>150</x>
+             <y>90</y>
+             <width>111</width>
+             <height>41</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Sell House</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QGroupBox" name="inJailGroupBox">
+          <property name="geometry">
+           <rect>
+            <x>440</x>
             <y>530</y>
             <width>331</width>
             <height>341</height>
@@ -3237,7 +3247,7 @@ p, li { white-space: pre-wrap; }
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="inJailMainLabel">
            <property name="geometry">
             <rect>
              <x>120</x>
@@ -3255,7 +3265,7 @@ p, li { white-space: pre-wrap; }
             <string>In Jail</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="payBailPushButton">
            <property name="geometry">
             <rect>
              <x>90</x>
@@ -3268,7 +3278,7 @@ p, li { white-space: pre-wrap; }
             <string>Pay Bail (£50)</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="GOOJFCpushButton">
            <property name="geometry">
             <rect>
              <x>20</x>
@@ -3281,7 +3291,7 @@ p, li { white-space: pre-wrap; }
             <string>Use Get Out of Jail Free Card</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="rollDoublePushButton">
            <property name="geometry">
             <rect>
              <x>70</x>
@@ -3294,7 +3304,7 @@ p, li { white-space: pre-wrap; }
             <string>Roll for a Double</string>
            </property>
           </widget>
-          <widget class="QLabel" name="label_2">
+          <widget class="QLabel" name="inJailMessageLabel">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3319,11 +3329,11 @@ p, li { white-space: pre-wrap; }
            </property>
           </widget>
          </widget>
-         <widget class="QFrame" name="frame">
+         <widget class="QFrame" name="normalCardFrame">
           <property name="geometry">
            <rect>
-            <x>430</x>
-            <y>370</y>
+            <x>440</x>
+            <y>400</y>
             <width>321</width>
             <height>501</height>
            </rect>
@@ -3334,7 +3344,7 @@ p, li { white-space: pre-wrap; }
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QWidget" name="gridLayoutWidget">
+          <widget class="QWidget" name="gridLayoutWidget_2">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3343,9 +3353,9 @@ p, li { white-space: pre-wrap; }
              <height>495</height>
             </rect>
            </property>
-           <layout class="QGridLayout" name="gridLayout_2">
+           <layout class="QGridLayout" name="gridLayout_5">
             <item row="2" column="0">
-             <spacer name="verticalSpacer_4">
+             <spacer name="verticalSpacer_10">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
@@ -3361,9 +3371,9 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item row="3" column="0">
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
               <item>
-               <widget class="QPushButton" name="pushButton_4">
+               <widget class="QPushButton" name="normalCardPurchaseButton">
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -3375,7 +3385,7 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_5">
+               <widget class="QPushButton" name="normalCardNoPurchaseButton">
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -3389,7 +3399,7 @@ p, li { white-space: pre-wrap; }
              </layout>
             </item>
             <item row="4" column="0">
-             <spacer name="verticalSpacer_5">
+             <spacer name="verticalSpacer_11">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
@@ -3405,9 +3415,9 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item row="1" column="0">
-             <layout class="QVBoxLayout" name="verticalLayout_4">
+             <layout class="QVBoxLayout" name="normalCardVerticalLayout">
               <item>
-               <widget class="QLabel" name="label_3">
+               <widget class="QLabel" name="normalCardNameLabel">
                 <property name="font">
                  <font>
                   <pointsize>16</pointsize>
@@ -3422,9 +3432,9 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item>
-               <layout class="QFormLayout" name="formLayout">
+               <layout class="QFormLayout" name="normalCardBasicFormLayout">
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_4">
+                 <widget class="QLabel" name="normalCardColourSetLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3436,7 +3446,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLabel" name="label_5">
+                 <widget class="QLabel" name="normalCardColourDisplayLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3451,7 +3461,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLabel" name="label_6">
+                 <widget class="QLabel" name="normalCardCostLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3463,7 +3473,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QLabel" name="label_7">
+                 <widget class="QLabel" name="normalCardCostDisplayLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3478,7 +3488,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="2" column="0">
-                 <widget class="QLabel" name="label_8">
+                 <widget class="QLabel" name="normalCardHouseCostLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3490,7 +3500,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="2" column="1">
-                 <widget class="QLabel" name="label_9">
+                 <widget class="QLabel" name="normalCardHouseCostDisplayLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3507,7 +3517,7 @@ p, li { white-space: pre-wrap; }
                </layout>
               </item>
               <item>
-               <widget class="QLabel" name="label_10">
+               <widget class="QLabel" name="normalCardRentLabel">
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -3522,9 +3532,9 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item>
-               <layout class="QFormLayout" name="formLayout_2">
+               <layout class="QFormLayout" name="normalcardRentFormLayout">
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_11">
+                 <widget class="QLabel" name="normalCardBaseRentLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3536,7 +3546,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLabel" name="label_12">
+                 <widget class="QLabel" name="normalCardBaseAmountLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3551,7 +3561,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLabel" name="label_17">
+                 <widget class="QLabel" name="normalCardOneLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3563,7 +3573,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QLabel" name="label_13">
+                 <widget class="QLabel" name="normalCardOneAmountLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3578,7 +3588,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="2" column="0">
-                 <widget class="QLabel" name="label_18">
+                 <widget class="QLabel" name="normalCardTwoLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3590,7 +3600,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="2" column="1">
-                 <widget class="QLabel" name="label_15">
+                 <widget class="QLabel" name="normalCardTwoAmountLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3605,7 +3615,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="3" column="0">
-                 <widget class="QLabel" name="label_19">
+                 <widget class="QLabel" name="normalCardThreeLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3617,7 +3627,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="3" column="1">
-                 <widget class="QLabel" name="label_14">
+                 <widget class="QLabel" name="normalCardThreeAmountLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3632,7 +3642,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="4" column="0">
-                 <widget class="QLabel" name="label_21">
+                 <widget class="QLabel" name="normalCardFourLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3644,7 +3654,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="4" column="1">
-                 <widget class="QLabel" name="label_20">
+                 <widget class="QLabel" name="normalCardFourAmountLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3659,7 +3669,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="5" column="0">
-                 <widget class="QLabel" name="label_22">
+                 <widget class="QLabel" name="normalCardFiveLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3671,7 +3681,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="5" column="1">
-                 <widget class="QLabel" name="label_16">
+                 <widget class="QLabel" name="normalCardFiveAmountLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -3692,303 +3702,11 @@ p, li { white-space: pre-wrap; }
            </layout>
           </widget>
          </widget>
-         <widget class="QFrame" name="frame_3">
+         <widget class="QFrame" name="utilityFrame">
           <property name="geometry">
            <rect>
-            <x>420</x>
-            <y>450</y>
-            <width>321</width>
-            <height>411</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::Box</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QWidget" name="gridLayoutWidget_3">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>0</y>
-             <width>301</width>
-             <height>401</height>
-            </rect>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_3">
-            <item row="2" column="0">
-             <spacer name="verticalSpacer_6">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Fixed</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="3" column="0">
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
-              <item>
-               <widget class="QPushButton" name="pushButton_8">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Purchase</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton_9">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Don't Purchase</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item row="4" column="0">
-             <spacer name="verticalSpacer_7">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Fixed</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>10</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="1" column="0">
-             <layout class="QVBoxLayout" name="verticalLayout_5">
-              <item>
-               <widget class="QLabel" name="label_43">
-                <property name="font">
-                 <font>
-                  <pointsize>16</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Card Name Here</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QFormLayout" name="formLayout_5">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_44">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Card Set:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QLabel" name="label_45">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Travel Square</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_46">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Cost:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLabel" name="label_47">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>£200</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_50">
-                <property name="font">
-                 <font>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Rent Amounts</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QFormLayout" name="formLayout_6">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_53">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>With 1 Card:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QLabel" name="label_54">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>£25</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_55">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>With 2 Cards:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLabel" name="label_56">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>£50</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="label_57">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>With 3 Cards:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QLabel" name="label_58">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>£100</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="label_59">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>With 4 Cards:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="1">
-                 <widget class="QLabel" name="label_60">
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>£200</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-         <widget class="QFrame" name="frame_4">
-          <property name="geometry">
-           <rect>
-            <x>420</x>
-            <y>490</y>
+            <x>430</x>
+            <y>520</y>
             <width>351</width>
             <height>351</height>
            </rect>
@@ -3999,7 +3717,7 @@ p, li { white-space: pre-wrap; }
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QWidget" name="gridLayoutWidget_4">
+          <widget class="QWidget" name="gridLayoutWidget_5">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -4008,9 +3726,9 @@ p, li { white-space: pre-wrap; }
              <height>341</height>
             </rect>
            </property>
-           <layout class="QGridLayout" name="gridLayout_4">
+           <layout class="QGridLayout" name="gridLayout_6">
             <item row="2" column="0">
-             <spacer name="verticalSpacer_8">
+             <spacer name="verticalSpacer_12">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
@@ -4026,9 +3744,9 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item row="3" column="0">
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
               <item>
-               <widget class="QPushButton" name="pushButton_10">
+               <widget class="QPushButton" name="utilityPurchaseButton">
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -4040,7 +3758,7 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_11">
+               <widget class="QPushButton" name="utilityNoPurchaseButton">
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -4054,7 +3772,7 @@ p, li { white-space: pre-wrap; }
              </layout>
             </item>
             <item row="4" column="0">
-             <spacer name="verticalSpacer_9">
+             <spacer name="verticalSpacer_13">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
@@ -4070,9 +3788,9 @@ p, li { white-space: pre-wrap; }
              </spacer>
             </item>
             <item row="1" column="0">
-             <layout class="QVBoxLayout" name="verticalLayout_6">
+             <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
-               <widget class="QLabel" name="label_48">
+               <widget class="QLabel" name="utilityNameLabel">
                 <property name="font">
                  <font>
                   <pointsize>16</pointsize>
@@ -4087,9 +3805,9 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item>
-               <layout class="QFormLayout" name="formLayout_7">
+               <layout class="QFormLayout" name="formLayout_9">
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_49">
+                 <widget class="QLabel" name="label_67">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -4101,7 +3819,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLabel" name="label_51">
+                 <widget class="QLabel" name="label_68">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -4116,7 +3834,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLabel" name="label_52">
+                 <widget class="QLabel" name="label_69">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -4128,7 +3846,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QLabel" name="label_61">
+                 <widget class="QLabel" name="label_70">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -4145,7 +3863,7 @@ p, li { white-space: pre-wrap; }
                </layout>
               </item>
               <item>
-               <widget class="QLabel" name="label_62">
+               <widget class="QLabel" name="label_71">
                 <property name="font">
                  <font>
                   <pointsize>14</pointsize>
@@ -4160,9 +3878,9 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item>
-               <layout class="QFormLayout" name="formLayout_8">
+               <layout class="QFormLayout" name="formLayout_10">
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_63">
+                 <widget class="QLabel" name="label_72">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -4174,7 +3892,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLabel" name="label_64">
+                 <widget class="QLabel" name="label_73">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -4189,7 +3907,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLabel" name="label_65">
+                 <widget class="QLabel" name="label_74">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -4201,7 +3919,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QLabel" name="label_66">
+                 <widget class="QLabel" name="label_75">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -4209,6 +3927,298 @@ p, li { white-space: pre-wrap; }
                   </property>
                   <property name="text">
                    <string>10 * Current Dice Roll</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QFrame" name="travelSquareFrame">
+          <property name="geometry">
+           <rect>
+            <x>440</x>
+            <y>470</y>
+            <width>321</width>
+            <height>411</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QWidget" name="gridLayoutWidget_6">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>0</y>
+             <width>301</width>
+             <height>401</height>
+            </rect>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_7">
+            <item row="2" column="0">
+             <spacer name="verticalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="3" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <item>
+               <widget class="QPushButton" name="travelSquarePurchaseButton">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Purchase</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="travelSquareNoPurchaseButton">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Don't Purchase</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="4" column="0">
+             <spacer name="verticalSpacer_15">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>10</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="QLabel" name="travelSquareNameLabel">
+                <property name="font">
+                 <font>
+                  <pointsize>16</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Card Name Here</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QFormLayout" name="formLayout_11">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_76">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Card Set:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="label_77">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Travel Square</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_78">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Cost:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="label_79">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>£200</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_80">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Rent Amounts</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QFormLayout" name="formLayout_12">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_81">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>With 1 Card:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="label_82">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>£25</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_83">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>With 2 Cards:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="label_84">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>£50</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_85">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>With 3 Cards:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QLabel" name="label_86">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>£100</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_87">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>With 4 Cards:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QLabel" name="label_88">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>£200</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
