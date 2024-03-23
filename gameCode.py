@@ -54,7 +54,7 @@ class GameWindow(QDialog):
 
             self.player1NameLabel.setText(playerNames[0])
             self.player1BalanceLabel.setText(f"£{startingBalance}")
-            player1 = Players.Player(1, playerNames[0], startingBalance, self.player1token, "a80000")
+            player1 = Players.Player(1, playerNames[0], startingBalance, self.player1token, "a80000", self.player1NameLabel, self.player1BalanceLabel)
             playerList.append(player1)
         else:
             self.player1NameLabel.hide()
@@ -63,7 +63,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 2:
             self.player2NameLabel.setText(playerNames[1])
             self.player2BalanceLabel.setText(f"£{startingBalance}")
-            player2 = Players.Player(2, playerNames[1], startingBalance, self.player2token, "73ba23")
+            player2 = Players.Player(2, playerNames[1], startingBalance, self.player2token, "73ba23", self.player2NameLabel, self.player2BalanceLabel)
             playerList.append(player2)
         else:
             self.player2NameLabel.hide()
@@ -72,7 +72,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 3:
             self.player3NameLabel.setText(playerNames[2])
             self.player3BalanceLabel.setText(f"£{startingBalance}")
-            player3 = Players.Player(3, playerNames[2], startingBalance, self.player3token, "003eeb")
+            player3 = Players.Player(3, playerNames[2], startingBalance, self.player3token, "003eeb", self.player3NameLabel, self.player3BalanceLabel)
             playerList.append(player3)
         else:
             self.player3NameLabel.hide()
@@ -81,7 +81,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 4:
             self.player4NameLabel.setText(playerNames[3])
             self.player4BalanceLabel.setText(f"£{startingBalance}")
-            player4 = Players.Player(4, playerNames[3], startingBalance, self.player4token, "ffb300")
+            player4 = Players.Player(4, playerNames[3], startingBalance, self.player4token, "ffb300", self.player4NameLabel, self.player4BalanceLabel)
             playerList.append(player4)
         else:
             self.player4NameLabel.hide()
@@ -90,7 +90,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 5:
             self.player5NameLabel.setText(playerNames[4])
             self.player5BalanceLabel.setText(f"£{startingBalance}")
-            player5 = Players.Player(5, playerNames[4], startingBalance, self.player5token, "00d6e1")
+            player5 = Players.Player(5, playerNames[4], startingBalance, self.player5token, "00d6e1", self.player5NameLabel, self.player5BalanceLabel)
             playerList.append(player5)
         else:
             self.player5NameLabel.hide()
@@ -99,7 +99,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 6:
             self.player6NameLabel.setText(playerNames[5])
             self.player6BalanceLabel.setText(f"£{startingBalance}")
-            player6 = Players.Player(6, playerNames[5], startingBalance, self.player6token, "6a533f")
+            player6 = Players.Player(6, playerNames[5], startingBalance, self.player6token, "6a533f", self.player6NameLabel, self.player6BalanceLabel)
             playerList.append(player6)
         else:
             self.player6NameLabel.hide()
@@ -108,7 +108,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 7:
             self.player7NameLabel.setText(playerNames[6])
             self.player7BalanceLabel.setText(f"£{startingBalance}")
-            player7 = Players.Player(7, playerNames[6], startingBalance, self.player7token, "ad17cb")
+            player7 = Players.Player(7, playerNames[6], startingBalance, self.player7token, "ad17cb", self.player7NameLabel, self.player7BalanceLabel)
             playerList.append(player7)
         else:
             self.player7NameLabel.hide()
@@ -117,7 +117,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 8:
             self.player8NameLabel.setText(playerNames[7])
             self.player8BalanceLabel.setText(f"£{startingBalance}")
-            player8 = Players.Player(8, playerNames[7], startingBalance, self.player8token, "000000")
+            player8 = Players.Player(8, playerNames[7], startingBalance, self.player8token, "000000", self.player8NameLabel, self.player8BalanceLabel)
             playerList.append(player8)
         else:
             self.player8NameLabel.hide()
@@ -266,14 +266,28 @@ class GameWindow(QDialog):
         self.currentPlayerLabel.setText(playerNames[0])
 
         if currentPlayer.inJail:
+            self.rollDiceButton.isEnabled = False
             self.inJailGroupBox.show()
-            self.GOOJFCpushButton.clicked.connect(self.GOOJFCpressed(currentPlayer))
+            self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(currentPlayer))
+            self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
     
 
     def GOOJFCpressed(self, currentPlayer):
         if currentPlayer.GOOJFC:
             self.transactionLabel.setText(f"{currentPlayer.name} used their get out of jail free card.")
             currentPlayer.leaveJail(self)
+            currentPlayer.GOOJFC = False
+            self.rollDiceButton.isEnabled = True
+        else:
+            self.inJailMessageLabel.setText("You do not have a get out of jail free card.")
+    
+    def payBailPressed(self, currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
+        if currentPlayer.balance >= 50:
+            self.transactionLabel.setText(f"{currentPlayer.name} paid £50 to get out of jail.")
+            currentPlayer.reduceBalance(self, 50, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators)
+            currentPlayer.leaveJail(self)
+            self.rollDiceButton.isEnabled = True
+            
 
 
         
