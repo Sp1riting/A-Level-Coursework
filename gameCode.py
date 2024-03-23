@@ -51,10 +51,10 @@ class GameWindow(QDialog):
         playerList = []
 
         if numberOfPlayers >= 1:
-            
+
             self.player1NameLabel.setText(playerNames[0])
             self.player1BalanceLabel.setText(f"£{startingBalance}")
-            player1 = Players.Player(1, playerNames[0], startingBalance)
+            player1 = Players.Player(1, playerNames[0], startingBalance, self.player1token, "#a80000")
             playerList.append(player1)
         else:
             self.player1NameLabel.hide()
@@ -123,63 +123,140 @@ class GameWindow(QDialog):
             self.player8NameLabel.hide()
             self.player8BalanceLabel.hide()
 
-        self.brown1mortgaged.hide()
-        self.brown2mortgaged.hide()
-        self.lBlue1mortgaged.hide()
-        self.lBlue2mortgaged.hide()
-        self.lBlue3mortgaged.hide()
-        self.pink1mortgaged.hide()
-        self.pink2mortgaged.hide()
-        self.pink3mortgaged.hide()
-        self.orange1mortgaged.hide()
-        self.orange2mortgaged.hide()
-        self.orange3mortgaged.hide()
-        self.red1mortgaged.hide()
-        self.red2mortgaged.hide()
-        self.red3mortgaged.hide()
-        self.yellow1mortgaged.hide()
-        self.yellow2mortgaged.hide()
-        self.yellow3mortgaged.hide()
-        self.green1mortgaged.hide()
-        self.green2mortgaged.hide()
-        self.green3mortgaged.hide()
-        self.dBlue1mortgaged.hide()
-        self.dBlue2mortgaged.hide()
-        self.rr1mortgaged.hide()
-        self.rr2mortgaged.hide()
-        self.rr3mortgaged.hide()
-        self.rr4mortgaged.hide()
-        self.u1mortgaged.hide()
-        self.u2mortgaged.hide()
+        mortgageIndicators = ["N/A", 
+                              self.brown1mortgaged, 
+                              "N/A", 
+                              self.brown2mortgaged, 
+                              "N/A", 
+                              self.rr1mortgaged, 
+                              self.lBlue1mortgaged, 
+                              "N/A", 
+                              self.lBlue2mortgaged, 
+                              self.lBlue3mortgaged, 
+                              "N/A", 
+                              self.pink1mortgaged, 
+                              self.u1mortgaged, 
+                              self.pink2mortgaged, 
+                              self.pink3mortgaged,
+                              self.rr2mortgaged,
+                              self.orange1mortgaged,
+                              "N/A",
+                              self.orange2mortgaged,
+                              self.orange3mortgaged,
+                              "N/A",
+                              self.red1mortgaged,
+                              "N/A",
+                              self.red2mortgaged,
+                              self.red3mortgaged,
+                              self.rr3mortgaged,
+                              self.yellow1mortgaged,
+                              self.yellow2mortgaged,
+                              self.u2mortgaged,
+                              self.yellow3mortgaged,
+                              "N/A",
+                              self.green1mortgaged,
+                              self.green2mortgaged,
+                              "N/A",
+                              self.green3mortgaged,
+                              self.rr4mortgaged,
+                              "N/A",
+                              self.dBlue1mortgaged,
+                              "N/A",
+                              self.dBlue2mortgaged
+                              ]
 
-        self.brown1ownership.hide()
-        self.brown2ownership.hide()
-        self.lBlue1ownership.hide()
-        self.lBlue2ownership.hide()
-        self.lBlue3ownership.hide()
-        self.pink1ownership.hide()
-        self.pink2ownership.hide()
-        self.pink3ownership.hide()
-        self.orange1ownership.hide()
-        self.orange2ownership.hide()
-        self.orange3ownership.hide()
-        self.red1ownership.hide()
-        self.red2ownership.hide()
-        self.red3ownership.hide()
-        self.yellow1ownership.hide()
-        self.yellow2ownership.hide()
-        self.yellow3ownership.hide()
-        self.green1ownership.hide()
-        self.green2ownership.hide()
-        self.green3ownership.hide()
-        self.dBlue1ownership.hide()
-        self.dBlue2ownership.hide()
-        self.rr1ownership.hide()
-        self.rr2ownership.hide()
-        self.rr3ownership.hide()
-        self.rr4ownership.hide()
-        self.u1ownership.hide()
-        self.u2ownership.hide()
+        for i in mortgageIndicators:
+            if not mortgageIndicators[i] == "N/A":
+                mortgageIndicators[i].hide()
+        
+        ownershipIndicators = ["N/A", 
+                              self.brown1ownership, 
+                              "N/A", 
+                              self.brown2ownership, 
+                              "N/A", 
+                              self.rr1ownership, 
+                              self.lBlue1ownership, 
+                              "N/A", 
+                              self.lBlue2ownership, 
+                              self.lBlue3ownership, 
+                              "N/A", 
+                              self.pink1ownership, 
+                              self.u1ownership, 
+                              self.pink2ownership, 
+                              self.pink3ownership,
+                              self.rr2ownership,
+                              self.orange1ownership,
+                              "N/A",
+                              self.orange2ownership,
+                              self.orange3ownership,
+                              "N/A",
+                              self.red1ownership,
+                              "N/A",
+                              self.red2ownership,
+                              self.red3ownership,
+                              self.rr3ownership,
+                              self.yellow1ownership,
+                              self.yellow2ownership,
+                              self.u2ownership,
+                              self.yellow3ownership,
+                              "N/A",
+                              self.green1ownership,
+                              self.green2ownership,
+                              "N/A",
+                              self.green3ownership,
+                              self.rr4ownership,
+                              "N/A",
+                              self.dBlue1ownership,
+                              "N/A",
+                              self.dBlue2ownership
+                              ]
+
+        for i in ownershipIndicators:
+            if not ownershipIndicators[i] == "N/A":
+                ownershipIndicators[i].hide()
+
+        houseIndicators = ["N/A", 
+                              self.brown1lcdNumber, 
+                              "N/A", 
+                              self.brown2lcdNumber, 
+                              "N/A", 
+                              "N/A",
+                              self.lBlue1lcdNumber, 
+                              "N/A", 
+                              self.lBlue2lcdNumber, 
+                              self.lBlue3lcdNumber, 
+                              "N/A", 
+                              self.pink1lcdNumber, 
+                              "N/A",
+                              self.pink2lcdNumber, 
+                              self.pink3lcdNumber,
+                              "N/A",
+                              self.orange1lcdNumber,
+                              "N/A",
+                              self.orange2lcdNumber,
+                              self.orange3lcdNumber,
+                              "N/A",
+                              self.red1lcdNumber,
+                              "N/A",
+                              self.red2lcdNumber,
+                              self.red3lcdNumber,
+                              "N/A",
+                              self.yellow1lcdNumber,
+                              self.yellow2lcdNumber,
+                              "N/A",
+                              self.yellow3lcdNumber,
+                              "N/A",
+                              self.green1lcdNumber,
+                              self.green2lcdNumber,
+                              "N/A",
+                              self.green3lcdNumber,
+                              "N/A",
+                              "N/A",
+                              self.dBlue1lcdNumber,
+                              "N/A",
+                              self.dBlue2lcdNumber
+                              ]
+
 
         gameEnded = False
         chanceCounter = 0
