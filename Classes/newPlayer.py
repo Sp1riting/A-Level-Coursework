@@ -84,5 +84,5 @@ class Player:
                 mortgageIndicators[position].hide()
                 ownershipIndicators[position].hide()
                 
-        
+        playerList.remove(self)
         GameWindow.displayLabel.setText(f"{self.name} is now bankrupt. It is game over for them!")
