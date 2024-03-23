@@ -259,7 +259,10 @@ class Player:
             diceRoll = self.rollDice(GameWindow)
             self.movePlayer(GameWindow, diceRoll)
             chanceCounter = self.checkPosition(GameWindow, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+        
         if self.doublesCount > 0:
             self.playTurn(GameWindow, board, playerList, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
-        
+        elif not GameWindow.bankruptButton.isEnabled():
+            GameWindow.endTurnButton.setEnabled(True)
+
         return chanceCounter

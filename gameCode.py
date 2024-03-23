@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.uic import loadUi
 from PyQt5.QtGui import QPixmap
 import main as main
-import Classes.player as Players
+import Classes.newPlayer as Players
 from GameStart import board as board
 
 class GameWindow(QDialog):
@@ -51,6 +51,7 @@ class GameWindow(QDialog):
         playerList = []
 
         if numberOfPlayers >= 1:
+            
             self.player1NameLabel.setText(playerNames[0])
             self.player1BalanceLabel.setText(f"£{startingBalance}")
             player1 = Players.Player(1, playerNames[0], startingBalance)
@@ -184,5 +185,19 @@ class GameWindow(QDialog):
         chanceCounter = 0
         randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
         random.shuffle(randomList)
+        currentPlayer = playerList[0]
+        self.currentPlayerLabel.setText(playerNames[0])
+
+        if currentPlayer.inJail:
+            self.inJailGroupBox.show()
+            self.GOOJFCpushButton.clicked.connect(self.GOOJFCpressed(currentPlayer))
+    
+
+    def GOOJFCpressed(self, currentPlayer):
+        if currentPlayer.GOOJFC:
+            self.transactionLabel.setText(f"{currentPlayer.name} used their get out of jail free card.")
+            currentPlayer.leaveJail(self)
+
 
         
+
