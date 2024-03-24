@@ -60,15 +60,15 @@ class Card:
             player.addBalance(GameWindow, self.houseCost / 2)
                 
 
-    def purchaseCard(self, GameWindow, player):
+    def purchaseCard(self, GameWindow, player, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
         if self.cost > player.balance:
-            print("You do not have enough to purchase this card")
+            GameWindow.displayLabel2.setText("You did not have enough to purchase this card")
         else:
             if self.cardSet == "Travel Square":
                 player.travelSquaresOwned += 1
             elif self.cardSet == "Utility":
                 player.utilitiesOwned += 1
-            player.reduceBalance(GameWindow, self.cost)
+            player.reduceBalance(self, GameWindow, self.cost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
             self.owner = player.name
             self.ownerID = str(player.playerID)
             player.ownedCards.append(self.cardName)

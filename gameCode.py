@@ -280,16 +280,35 @@ class GameWindow(QDialog):
         else:
             self.playTurnButton.show()
             self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter))
-            self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseNormalCard(currentPlayer, self.normalCardNameLabel, board))
-            self.travelSquareNoPurchaseButton.clicked.connect(self.noPurchaseNormalCard())
-            self.utilityPurchaseButton.clicked.connect()
-            self.utilityNoPurchaseButton.clicked.connect()
-            self.normalCardPurchaseButton.clicked.connect()
-            self.normalCardNoPurchaseButton.clicked.connect()
+            
+            self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseTravelSquare(currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
+            self.travelSquareNoPurchaseButton.clicked.connect(self.noPurchaseTravelSquare)
+            self.utilityPurchaseButton.clicked.connect(lambda:self.purchaseUtility(currentPlayer, self.utilityNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
+            self.utilityNoPurchaseButton.clicked.connect(self.noPurchaseUtility)
+            self.normalCardPurchaseButton.clicked.connect(lambda:self.purchaseNormalCard(currentPlayer, self.normalCardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
+            self.normalCardNoPurchaseButton.clicked.connect(self.noPurchaseNormalCard)
 
-    def purchaseNormalCard(self, currentPlayer, cardNameLabel, board):
+
+    def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
         card = Cards.locateCard(cardNameLabel.text(), board)
-        Cards.card.purchaseCard(self, currentPlayer)
+        Cards.card.purchaseCard(self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
+        self.travelSquareFrame.hide()
+
+    def noPurchaseTravelSquare(self):
+        self.travelSquareFrame.hide()
+
+    def purchaseUtility(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
+        card = Cards.locateCard(cardNameLabel.text(), board)
+        Cards.card.purchaseCard(self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
+        self.utilityFrame.hide()
+
+    def noPurchaseUtility(self):
+        self.utilityFrame.hide()
+
+    def purchaseNormalCard(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
+        card = Cards.locateCard(cardNameLabel.text(), board)
+        Cards.card.purchaseCard(self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
+        self.normalCardFrame.hide()
 
     def noPurchaseNormalCard(self):
         self.normalCardFrame.hide()
