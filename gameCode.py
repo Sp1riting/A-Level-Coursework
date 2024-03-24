@@ -333,7 +333,7 @@ class GameWindow(QDialog):
         self.currentPlayerLabel = currentPlayer.name
         self.displayLabel.setText(f"{currentPlayer.name}'s turn has now started.")
         self.endTurnButton.hide()
-        self.playTurnBurron.setEnabled(True)
+        self.playTurnButton.setEnabled(True)
 
     def GOOJFCpressed(self, currentPlayer):
         if currentPlayer.GOOJFC:
