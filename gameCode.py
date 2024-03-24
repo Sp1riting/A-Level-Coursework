@@ -329,6 +329,7 @@ class GameWindow(QDialog):
             self.endTurnButton.show()
             
     def endTurnPressed(self, gameValues, playerList):
+        self.displayLabel2.setText("")
         self.chanceCardTextBrowser.hide()
         gameValues.currentPlayer = playerList[(playerList.index(gameValues.currentPlayer) + 1) % len(playerList)]
         self.currentPlayerLabel.setText(gameValues.currentPlayer.name)
