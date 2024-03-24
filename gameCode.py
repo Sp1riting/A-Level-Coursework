@@ -261,9 +261,7 @@ class GameWindow(QDialog):
                               ]
 
 
-        gameEnded = False
-        randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-        gameValues = values(0, playerList[0], randomList)
+        gameValues = values(0, playerList[0], [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], False)
         self.currentPlayerLabel.setText(playerNames[0])
         self.playTurnButton.setEnabled(True)
 
@@ -376,7 +374,8 @@ class GameWindow(QDialog):
 
         
 class values:
-    def __init__(self, chanceCounter, currentPlayer, randomList):
+    def __init__(self, chanceCounter, currentPlayer, randomList, gameEnded):
         self.chanceCounter = chanceCounter
         self.currentPlayer = currentPlayer
         self.randomList = random.shuffle(randomList)
+        self.gameEnded = gameEnded
