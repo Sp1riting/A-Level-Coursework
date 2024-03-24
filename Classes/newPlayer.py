@@ -2,6 +2,8 @@ import random
 import Classes.card as Cards
 import chance as chance
 from GameStart import board as board
+from PyQt5.QtWidgets import *
+from PyQt5 import QtTest
 
 class Player:
 
@@ -27,22 +29,87 @@ class Player:
 
 
     def rollDice(self, GameWindow):
-        
+        GameWindow.dice1outline.show()
+        GameWindow.dice2outline.show()
 
         dice1 = random.randint(1, 6)
+
+        if dice1 == 1:
+            GameWindow.dice1dot4.show()
+        elif dice1 == 2:
+            GameWindow.dice1dot1.show()
+            GameWindow.dice1dot7.show()
+        elif dice1 == 3:
+            GameWindow.dice1dot1.show()
+            GameWindow.dice1dot4.show()
+            GameWindow.dice1dot7.show()
+        elif dice1 == 4:
+            GameWindow.dice1dot1.show()
+            GameWindow.dice1dot2.show()
+            GameWindow.dice1dot6.show()
+            GameWindow.dice1dot7.show()
+        elif dice1 == 5:
+            GameWindow.dice1dot1.show()
+            GameWindow.dice1dot2.show()
+            GameWindow.dice1dot4.show()
+            GameWindow.dice1dot6.show()
+            GameWindow.dice1dot7.show()
+        elif dice1 == 6:
+            GameWindow.dice1dot1.show()
+            GameWindow.dice1dot2.show()
+            GameWindow.dice1dot3.show()
+            GameWindow.dice1dot5.show()
+            GameWindow.dice1dot6.show()
+            GameWindow.dice1dot7.show()
+
         dice2 = random.randint(1, 6)
+
+        if dice2 == 1:
+            GameWindow.dice2dot4.show()
+        elif dice2 == 2:
+            GameWindow.dice2dot1.show()
+            GameWindow.dice2dot7.show()
+        elif dice2 == 3:
+            GameWindow.dice2dot1.show()
+            GameWindow.dice2dot4.show()
+            GameWindow.dice2dot7.show()
+        elif dice2 == 4:
+            GameWindow.dice2dot1.show()
+            GameWindow.dice2dot2.show()
+            GameWindow.dice2dot6.show()
+            GameWindow.dice2dot7.show()
+        elif dice2 == 5:
+            GameWindow.dice2dot1.show()
+            GameWindow.dice2dot2.show()
+            GameWindow.dice2dot4.show()
+            GameWindow.dice2dot6.show()
+            GameWindow.dice2dot7.show()
+        elif dice2 == 6:
+            GameWindow.dice2dot1.show()
+            GameWindow.dice2dot2.show()
+            GameWindow.dice2dot3.show()
+            GameWindow.dice2dot5.show()
+            GameWindow.dice2dot6.show()
+            GameWindow.dice2dot7.show()
+        
+
         roll = dice1 + dice2
-        print(f"{self.name} threw a {dice1} and a {dice2}, giving a roll of {roll}.")
+        GameWindow.displayLabel.setText(f"{self.name} threw a {dice1} and a {dice2}, giving a roll of {roll}.")
+        QtTest.QTest.qWait(2000)
 
         if dice1 == dice2:
             self.doublesCount += 1
             if self.doublesCount == 3:
+                GameWindow.transactionLabel.setText(f"{self.name} rolled three doubles, and is going to jail.")
                 self.sendToJail(GameWindow)
                 return roll
+            GameWindow.transactionLabel.setText(f"{self.name} rolled a double, and will play again.")
         else:
             self.doublesCount = 0
         return roll
 
+    def movePlayer(self, GameWindow, amount):
+        self.currentPos += amount
     
     def leaveJail(self, GameWindow):
         self.currentPos = 10
@@ -51,6 +118,15 @@ class Player:
         self.inJail = False
         GameWindow.displayLabel.setText(f"{self.name} has been released from jail.")
         GameWindow.inJailGroupBox.hide()
+    
+    def sendToJail(self, GameWindow):
+        self.currentPos = 10
+        self.turnsInJail = 0
+        self.doublesCount = 0
+        self.inJail = True
+        GameWindow.displayLabel.setText(f"{self.name} has been sent to jail.")
+        GameWindow.endTurnButton.show()
+        GameWindow.endTurnButton.isEnabled = True
     
 
     def reduceBalance(self, GameWindow, amount, playerList, fastBankrutcy, nonRentPayment, houseIndicators, mortgageIndicators, ownershipIndicators):

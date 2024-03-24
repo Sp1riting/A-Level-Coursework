@@ -11,3 +11,4 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
+- Play tokens moving around the game board
