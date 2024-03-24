@@ -320,7 +320,7 @@ class GameWindow(QDialog):
         diceRoll = currentPlayer.rollDice(self)
         currentPlayer.movePlayer(self, diceRoll)
         chanceCounter = currentPlayer.checkPosition(self, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
-        if currentPlayer.doublesRolled > 0:
+        if currentPlayer.doublesCount > 0:
             self.playTurnButton.isEnabled = True
         else:
             self.endTurnButton.show()
