@@ -247,6 +247,31 @@ class Player:
         return self.balance
     
 
+    def payRent(self, GameWindow, card, playerList, roll, isDoubled, houseIndicators, mortgageIndicators, ownershipIndicators):
+        cardOwner = self.findOwner(card, playerList)
+        if card.cardSet == "Travel Square":
+            if cardOwner.travelSquaresOwned == 1:
+                rent = 25
+            elif cardOwner.travelSquaresOwned == 2:
+                rent = 50
+            elif cardOwner.travelSquaresOwned == 3:
+                rent = 100
+            elif cardOwner.travelSquaresOwned == 4:
+                rent = 200
+        elif card.cardSet == "Utility":
+            if cardOwner.utilitiesOwned == 1:
+                rent = roll * 4
+            elif cardOwner.utilitiesOwned == 2:
+                rent = roll * 10
+        else:
+            rent = card.rentAmounts[card.housesBuilt]
+        if isDoubled:
+            rent *= 2
+        GameWindow.displayLabel2.setText(f"{self.name} is paying £{rent} to {cardOwner.name} for rent.")
+        self.reduceBalance(GameWindow, rent, playerList, houseIndicators, mortgageIndicators, ownershipIndicators)
+        cardOwner.addBalance(GameWindow, rent)
+
+
     def checkBankruptcy(self, amount):
         worth = 0
 
@@ -287,3 +312,9 @@ class Player:
         playerList.remove(self)
         GameWindow.displayLabel.setText(f"{self.name} is now bankrupt. It is game over for them!")
         GameWindow.displayLabel2.setText("")
+
+
+    def findOwner(self, card, playerList):
+         for person in playerList:
+            if str(person.playerID) == card.ownerID:
+                return person

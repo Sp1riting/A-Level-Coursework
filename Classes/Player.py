@@ -159,7 +159,7 @@ class Player:
                 return person
 
 
-    def payRent(self, GameWindow, card, playerList, roll, isDoubled):
+    def payRent(self, GameWindow, card, playerList, roll, isDoubled, houseIndicators, mortgageIndicators, ownershipIndicators):
         cardOwner = self.findOwner(card, playerList)
         if card.cardSet == "Travel Square":
             if cardOwner.travelSquaresOwned == 1:

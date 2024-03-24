@@ -11,6 +11,9 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
-- Play tokens moving around the game board
 - Pay rent and find owner functions
-- 
+
+- Add utility, travel square, and normal card purchasing and not purchasing
+- Change card file functions
+
+- Play tokens moving around the game board
