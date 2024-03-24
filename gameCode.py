@@ -279,14 +279,20 @@ class GameWindow(QDialog):
         
         else:
             self.playTurnButton.show()
-            self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail))
+            self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter))
 
     
-    def playTurnPressed(self, currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail):
+    def playTurnPressed(self, currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter, houseIndicators, mortgageIndicators, ownershipIndicators):
         self.playTurnButton.isEnabled = False
         diceRoll = currentPlayer.rollDice(self)
         currentPlayer.movePlayer(self, diceRoll)
-        chanceCounter = currentPlayer.checkPosition(self, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+        chanceCounter = currentPlayer.checkPosition(self, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
+        if currentPlayer.doublesRolled > 0:
+            self.playTurnButton.isEnabled = True
+        else:
+            currentPlayer = playerList[(playerList.find(currentPlayer) + 1) % len(playerList)]
+            self.currentPlayerLabel = currentPlayer.name
+            self.displayLabel.setText(f"{currentPlayer.name}'s turn has now started.")
 
 
     def GOOJFCpressed(self, currentPlayer):
@@ -301,7 +307,7 @@ class GameWindow(QDialog):
     
     def payBailPressed(self, currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
         if currentPlayer.balance >= 50:
-            self.transactionLabel.setText(f"{currentPlayer.name} paid £50 to get out of jail.")
+            self.displayLabel2.setText(f"{currentPlayer.name} paid £50 to get out of jail.")
             currentPlayer.reduceBalance(self, 50, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators)
             currentPlayer.leaveJail(self)
             self.playTurnButton.isEnabled = True
