@@ -27,50 +27,50 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, gameValues, moneyF
     elif currentChance == 5:
         GameWindow.chanceCardTextBrowser.setText("Advance to the nearest travel square. You may buy it if unowned, but must pay double the normal rent if owned.")
         if (self.currentPos % 40) < 5:
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, 5, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, fastBankruptcy, 5, houseIndicators, mortgageIndicators, ownershipIndicators)
         elif (self.currentPos % 40) < 15:
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, 15, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, fastBankruptcy, 15, houseIndicators, mortgageIndicators, ownershipIndicators)
         elif (self.currentPos % 40) < 25:
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, 25, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, fastBankruptcy, 25, houseIndicators, mortgageIndicators, ownershipIndicators)
         elif (self.currentPos % 40) < 35:
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, 35, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, fastBankruptcy, 35, houseIndicators, mortgageIndicators, ownershipIndicators)
         else:
             GameWindow.displayLabel2.setText(f"{self.name} passed Go, and collects £{moneyFromGo}.")
             self.addBalance(GameWindow, moneyFromGo)
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, 5, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, fastBankruptcy, 5, houseIndicators, mortgageIndicators, ownershipIndicators)
     
     elif currentChance == 6:
         GameWindow.chanceCardTextBrowser.setText("Advance to the nearest utility. You may buy it if unowned, but must pay double the normal rent if owned.")
         if (self.currentPos % 40) < 12:
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, 12, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, fastBankruptcy, 12, houseIndicators, mortgageIndicators, ownershipIndicators)
         elif (self.currentPos % 40) < 28:
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, 28, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, fastBankruptcy, 28, houseIndicators, mortgageIndicators, ownershipIndicators)
         else:
             GameWindow.displayLabel2.setText(f"{self.name} passed Go, and collects £{moneyFromGo}.")
             self.addBalance(GameWindow, moneyFromGo)
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, 12, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, fastBankruptcy, 12, houseIndicators, mortgageIndicators, ownershipIndicators)
     
     elif currentChance == 7:
         GameWindow.chanceCardTextBrowser.setText(f"Advance to {board[39].cardName}")
-        self.advanceToSquare(GameWindow, board, playerList, diceRoll, False, 39, houseIndicators, mortgageIndicators, ownershipIndicators)
+        self.advanceToSquare(GameWindow, board, playerList, diceRoll, False, fastBankruptcy, 39, houseIndicators, mortgageIndicators, ownershipIndicators)
     
     elif currentChance == 8:
         GameWindow.chanceCardTextBrowser.setText(f"Advance to {board[24].cardName}. If you pass go, collect £{moneyFromGo}.")
         if (self.currentPos % 40) < 24:
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, False, 24, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, False, fastBankruptcy, 24, houseIndicators, mortgageIndicators, ownershipIndicators)
         else:
             GameWindow.displayLabel2.setText(f"{self.name} passed Go, and collects £{moneyFromGo}.")
             self.addBalance(GameWindow, moneyFromGo)
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, False, 24, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, False,fastBankruptcy, 24, houseIndicators, mortgageIndicators, ownershipIndicators)
     
     elif currentChance == 9:
         GameWindow.chanceCardTextBrowser.setText(f"Advance to {board[11].cardName}. If you pass go, collect £{moneyFromGo}.")
         if (self.currentPos % 40) < 11:
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, False, 11, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, False, fastBankruptcy, 11, houseIndicators, mortgageIndicators, ownershipIndicators)
         else:
             GameWindow.displayLabel2.setText(f"{self.name} passed Go, and collects £{moneyFromGo}.")
             self.addBalance(GameWindow, moneyFromGo)
-            self.advanceToSquare(GameWindow, board, playerList, diceRoll, False, 11, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.advanceToSquare(GameWindow, board, playerList, diceRoll, False, fastBankruptcy, 11, houseIndicators, mortgageIndicators, ownershipIndicators)
     
     elif currentChance == 10:
         GameWindow.chanceCardTextBrowser.setText("You've been caught speeding around the board. Pay a fine of £20.")
