@@ -329,6 +329,7 @@ class GameWindow(QDialog):
         else:
             self.playTurnButton.setEnabled(False)
             self.endTurnButton.show()
+        print(chanceCounter)
         return chanceCounter
             
     def endTurnPressed(self, currentPlayer, playerList):

@@ -11,7 +11,7 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
-- Add utility, travel square, and normal card purchasing and not purchasing
+- Make it actually move on to the next person.
 - Change card file functions
 
 - Play tokens moving around the game board

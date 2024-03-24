@@ -19,7 +19,7 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, chanceCounter, ran
     elif currentChance == 3:
         GameWindow.chanceCardTextBrowser.setText("Ouch! You drove into a lampost and have to fix your car. Go back three spaces.")
         self.currentPos = (self.currentPos - 3) % 40
-        self.checkPosition(GameWindow, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail)
+        self.checkPosition(GameWindow, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
 
     elif currentChance == 4:
         GameWindow.chanceCardTextBrowser.setText(f"Move directly to jail. You may not pass go, or collect £{moneyFromGo}.")
