@@ -168,7 +168,7 @@ class Player:
         
         elif boardProperty.cardName == 'Chance':
             GameWindow.displayLabel.setText(f"{self.name} landed on Chance, and will draw a card.")
-            chanceCounter = chance.drawChance(self, GameWindow, board, playerList, roll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
+            chance.drawChance(self, GameWindow, board, playerList, roll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
 
         else:
             if boardProperty.mortgaged:
@@ -201,7 +201,6 @@ class Player:
                     GameWindow.normalCardThreeLabel.setText(f"£{boardProperty.rentAmounts[3]}")
                     GameWindow.normalCardFourLabel.setText(f"£{boardProperty.rentAmounts[4]}")
                     GameWindow.normalCardFiveLabel.setText(f"£{boardProperty.rentAmounts[5]}")
-        return chanceCounter
 
 
     def advanceToSquare(self, GameWindow, board, playerList, diceRoll, isDoubled, i, houseIndicators, mortgageIndicators, ownershipIndicators):

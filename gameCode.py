@@ -261,9 +261,11 @@ class GameWindow(QDialog):
 
 
         gameEnded = False
+        global chanceCounter
         chanceCounter = 0
         randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
         random.shuffle(randomList)
+        global currentPlayer
         currentPlayer = playerList[0]
         self.currentPlayerLabel.setText(playerNames[0])
         self.playTurnButton.setEnabled(True)
@@ -321,7 +323,7 @@ class GameWindow(QDialog):
         self.playTurnButton.setEnabled(False)
         diceRoll = currentPlayer.rollDice(self)
         currentPlayer.movePlayer(self, diceRoll)
-        chanceCounter = currentPlayer.checkPosition(self, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
+        currentPlayer.checkPosition(self, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
         if currentPlayer.doublesCount > 0:
             self.playTurnButton.setEnabled(True)
         else:
@@ -330,10 +332,11 @@ class GameWindow(QDialog):
             
     def endTurnPressed(self, currentPlayer, playerList):
         currentPlayer = playerList[(playerList.index(currentPlayer) + 1) % len(playerList)]
-        self.currentPlayerLabel = currentPlayer.name
+        self.currentPlayerLabel.setText(currentPlayer.name)
         self.displayLabel.setText(f"{currentPlayer.name}'s turn has now started.")
         self.endTurnButton.hide()
         self.playTurnButton.setEnabled(True)
+        return currentPlayer
 
     def GOOJFCpressed(self, currentPlayer):
         if currentPlayer.GOOJFC:
