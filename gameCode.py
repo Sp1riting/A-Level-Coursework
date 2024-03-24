@@ -280,6 +280,7 @@ class GameWindow(QDialog):
         else:
             self.playTurnButton.show()
             self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter))
+            
 
     
     def playTurnPressed(self, currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter, houseIndicators, mortgageIndicators, ownershipIndicators):

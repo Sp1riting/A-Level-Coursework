@@ -185,10 +185,22 @@ class Player:
                 GameWindow.displayLabel.setText(f"{self.name} landed on {boardProperty.cardName}")
                 if boardProperty.cardSet == "Travel Square":
                     GameWindow.travelSquareFrame.show()
+                    GameWindow.travelSquareNameLabel.setText(boardProperty.cardName)
                 elif boardProperty.cardSet == "Utility":
                     GameWindow.utilityFrame.show()
+                    GameWindow.utilityNameLabel.setText(boardProperty.cardName)
                 else:
                     GameWindow.normalCardFrame.show()
+                    GameWindow.normalCardNameLabel.setText(boardProperty.cardName)
+                    GameWindow.normalCardColourSetLabel.setText(boardProperty.cardSet)
+                    GameWindow.normalCardCostLabel.setText(f"£{boardProperty.cost}")
+                    GameWindow.normalCardHouseCostLabel.setText(f"£{boardProperty.houseCost}")
+                    GameWindow.normalCardBaseRentLabel.setText(f"£{boardProperty.rentAmounts[0]}")
+                    GameWindow.normalCardOneLabel.setText(f"£{boardProperty.rentAmounts[1]}")
+                    GameWindow.normalCardTwoLabel.setText(f"£{boardProperty.rentAmounts[2]}")
+                    GameWindow.normalCardThreeLabel.setText(f"£{boardProperty.rentAmounts[3]}")
+                    GameWindow.normalCardFourLabel.setText(f"£{boardProperty.rentAmounts[4]}")
+                    GameWindow.normalCardFiveLabel.setText(f"£{boardProperty.rentAmounts[5]}")
         return chanceCounter
 
 
@@ -201,10 +213,22 @@ class Player:
             self.payRent(GameWindow, board[i], playerList, diceRoll, isDoubled, houseIndicators, mortgageIndicators, ownershipIndicators)
         elif board[i].cardSet == "Travel Square":
             GameWindow.travelSquareFrame.show()
+            GameWindow.travelSquareNameLabel.setText(board[i].cardName)
         elif board[i].cardSet == "Utility":
             GameWindow.utilityFrame.show()
+            GameWindow.utilityNameLabel.setText(board[i].cardName)
         else:
             GameWindow.normalCardFrame.show()
+            GameWindow.normalCardNameLabel.setText(board[i].cardName)
+            GameWindow.normalCardColourSetLabel.setText(board[i].cardSet)
+            GameWindow.normalCardCostLabel.setText(f"£{board[i].cost}")
+            GameWindow.normalCardHouseCostLabel.setText(f"£{board[i].houseCost}")
+            GameWindow.normalCardBaseRentLabel.setText(f"£{board[i].rentAmounts[0]}")
+            GameWindow.normalCardOneLabel.setText(f"£{board[i].rentAmounts[1]}")
+            GameWindow.normalCardTwoLabel.setText(f"£{board[i].rentAmounts[2]}")
+            GameWindow.normalCardThreeLabel.setText(f"£{board[i].rentAmounts[3]}")
+            GameWindow.normalCardFourLabel.setText(f"£{board[i].rentAmounts[4]}")
+            GameWindow.normalCardFiveLabel.setText(f"£{board[i].rentAmounts[5]}")
 
 
     def leaveJail(self, GameWindow):
