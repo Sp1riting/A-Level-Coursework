@@ -102,3 +102,4 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, chanceCounter, ran
 
     
     chanceCounter += 1
+    return chanceCounter

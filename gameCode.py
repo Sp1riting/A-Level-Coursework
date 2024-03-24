@@ -261,7 +261,6 @@ class GameWindow(QDialog):
 
 
         gameEnded = False
-        global chanceCounter
         chanceCounter = 0
         randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
         random.shuffle(randomList)
@@ -323,7 +322,7 @@ class GameWindow(QDialog):
         self.playTurnButton.setEnabled(False)
         diceRoll = currentPlayer.rollDice(self)
         currentPlayer.movePlayer(self, diceRoll)
-        currentPlayer.checkPosition(self, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
+        chanceCounter = currentPlayer.checkPosition(self, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
         if currentPlayer.doublesCount > 0:
             self.playTurnButton.setEnabled(True)
         else:
