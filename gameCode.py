@@ -9,6 +9,7 @@ import Classes.card as Cards
 from GameStart import board as board
 
 class GameWindow(QDialog):
+
     def __init__(self, username, startingBalance, moneyFromGo, numberOfPlayers, fastBankruptcy, rentFromJail, playerNames):
         super(GameWindow, self).__init__()
         loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\game.ui', self)
@@ -264,7 +265,6 @@ class GameWindow(QDialog):
         chanceCounter = 0
         randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
         random.shuffle(randomList)
-        global currentPlayer
         currentPlayer = playerList[0]
         self.currentPlayerLabel.setText(playerNames[0])
         self.playTurnButton.setEnabled(True)
@@ -319,6 +319,7 @@ class GameWindow(QDialog):
 
     
     def playTurnPressed(self, currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter, houseIndicators, mortgageIndicators, ownershipIndicators):
+        self.chanceCardTextBrowser.hide()
         self.playTurnButton.setEnabled(False)
         diceRoll = currentPlayer.rollDice(self)
         currentPlayer.movePlayer(self, diceRoll)
@@ -328,8 +329,10 @@ class GameWindow(QDialog):
         else:
             self.playTurnButton.setEnabled(False)
             self.endTurnButton.show()
+        return chanceCounter
             
     def endTurnPressed(self, currentPlayer, playerList):
+        self.chanceCardTextBrowser.hide()
         currentPlayer = playerList[(playerList.index(currentPlayer) + 1) % len(playerList)]
         self.currentPlayerLabel.setText(currentPlayer.name)
         self.displayLabel.setText(f"{currentPlayer.name}'s turn has now started.")
