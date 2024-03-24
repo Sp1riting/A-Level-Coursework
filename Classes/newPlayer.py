@@ -192,15 +192,15 @@ class Player:
                 else:
                     GameWindow.normalCardFrame.show()
                     GameWindow.normalCardNameLabel.setText(boardProperty.cardName)
-                    GameWindow.normalCardColourSetLabel.setText(boardProperty.cardSet)
-                    GameWindow.normalCardCostLabel.setText(f"£{boardProperty.cost}")
-                    GameWindow.normalCardHouseCostLabel.setText(f"£{boardProperty.houseCost}")
-                    GameWindow.normalCardBaseRentLabel.setText(f"£{boardProperty.rentAmounts[0]}")
-                    GameWindow.normalCardOneLabel.setText(f"£{boardProperty.rentAmounts[1]}")
-                    GameWindow.normalCardTwoLabel.setText(f"£{boardProperty.rentAmounts[2]}")
-                    GameWindow.normalCardThreeLabel.setText(f"£{boardProperty.rentAmounts[3]}")
-                    GameWindow.normalCardFourLabel.setText(f"£{boardProperty.rentAmounts[4]}")
-                    GameWindow.normalCardFiveLabel.setText(f"£{boardProperty.rentAmounts[5]}")
+                    GameWindow.normalCardColourDisplayLabel.setText(boardProperty.cardSet)
+                    GameWindow.normalCardCostDisplayLabel.setText(f"£{boardProperty.cost}")
+                    GameWindow.normalCardHouseCostDisplayLabel.setText(f"£{boardProperty.houseCost}")
+                    GameWindow.normalCardBaseAmountLabel.setText(f"£{boardProperty.rentAmounts[0]}")
+                    GameWindow.normalCardOneAmountLabel.setText(f"£{boardProperty.rentAmounts[1]}")
+                    GameWindow.normalCardTwoAmountLabel.setText(f"£{boardProperty.rentAmounts[2]}")
+                    GameWindow.normalCardThreeAmountLabel.setText(f"£{boardProperty.rentAmounts[3]}")
+                    GameWindow.normalCardFourAmountLabel.setText(f"£{boardProperty.rentAmounts[4]}")
+                    GameWindow.normalCardFiveAmountLabel.setText(f"£{boardProperty.rentAmounts[5]}")
         return chanceCounter
 
 
@@ -220,15 +220,15 @@ class Player:
         else:
             GameWindow.normalCardFrame.show()
             GameWindow.normalCardNameLabel.setText(board[i].cardName)
-            GameWindow.normalCardColourSetLabel.setText(board[i].cardSet)
-            GameWindow.normalCardCostLabel.setText(f"£{board[i].cost}")
-            GameWindow.normalCardHouseCostLabel.setText(f"£{board[i].houseCost}")
-            GameWindow.normalCardBaseRentLabel.setText(f"£{board[i].rentAmounts[0]}")
-            GameWindow.normalCardOneLabel.setText(f"£{board[i].rentAmounts[1]}")
-            GameWindow.normalCardTwoLabel.setText(f"£{board[i].rentAmounts[2]}")
-            GameWindow.normalCardThreeLabel.setText(f"£{board[i].rentAmounts[3]}")
-            GameWindow.normalCardFourLabel.setText(f"£{board[i].rentAmounts[4]}")
-            GameWindow.normalCardFiveLabel.setText(f"£{board[i].rentAmounts[5]}")
+            GameWindow.normalCardColourDisplayLabel.setText(board[i].cardSet)
+            GameWindow.normalCardCostDisplayLabel.setText(f"£{board[i].cost}")
+            GameWindow.normalCardHouseCostDisplayLabel.setText(f"£{board[i].houseCost}")
+            GameWindow.normalCardBaseAmountLabel.setText(f"£{board[i].rentAmounts[0]}")
+            GameWindow.normalCardOneAmountLabel.setText(f"£{board[i].rentAmounts[1]}")
+            GameWindow.normalCardTwoAmountLabel.setText(f"£{board[i].rentAmounts[2]}")
+            GameWindow.normalCardThreeAmountLabel.setText(f"£{board[i].rentAmounts[3]}")
+            GameWindow.normalCardFourAmountLabel.setText(f"£{board[i].rentAmounts[4]}")
+            GameWindow.normalCardFiveAmountLabel.setText(f"£{board[i].rentAmounts[5]}")
 
 
     def leaveJail(self, GameWindow):
