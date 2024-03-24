@@ -329,7 +329,7 @@ class GameWindow(QDialog):
             self.endTurnButton.show()
             
     def endTurnPressed(self, currentPlayer, playerList):
-        currentPlayer = playerList[(playerList.find(currentPlayer) + 1) % len(playerList)]
+        currentPlayer = playerList[(playerList.index(currentPlayer) + 1) % len(playerList)]
         self.currentPlayerLabel = currentPlayer.name
         self.displayLabel.setText(f"{currentPlayer.name}'s turn has now started.")
         self.endTurnButton.hide()
