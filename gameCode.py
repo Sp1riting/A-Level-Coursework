@@ -323,6 +323,7 @@ class GameWindow(QDialog):
         if currentPlayer.doublesCount > 0:
             self.playTurnButton.isEnabled = True
         else:
+            self.playTurnButton.isEnabled = False
             self.endTurnButton.show()
             
     def endTurnPressed(self, currentPlayer, playerList):
