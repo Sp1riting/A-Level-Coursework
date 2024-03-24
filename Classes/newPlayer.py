@@ -192,6 +192,21 @@ class Player:
         return chanceCounter
 
 
+    def advanceToSquare(self, GameWindow, board, playerList, diceRoll, isDoubled, i, houseIndicators, mortgageIndicators, ownershipIndicators):
+        self.currentPos = i
+        if board[i].mortgaged:
+            GameWindow.displayLabel.setText(f"{self.name} landed on {board[i].cardName}, a mortgaged property.")
+        elif board[i].ownerID != "0":
+            GameWindow.displayLabel.setText(f"{self.name} landed on {board[i].cardName}")
+            self.payRent(GameWindow, board[i], playerList, diceRoll, isDoubled, houseIndicators, mortgageIndicators, ownershipIndicators)
+        elif board[i].cardSet == "Travel Square":
+            GameWindow.travelSquareFrame.show()
+        elif board[i].cardSet == "Utility":
+            GameWindow.utilityFrame.show()
+        else:
+            GameWindow.normalCardFrame.show()
+
+
     def leaveJail(self, GameWindow):
         self.currentPos = 10
         self.turnsInJail = 0
@@ -215,6 +230,7 @@ class Player:
         self.balance += amount
         GameWindow.transactionLabel.setText(f"£{amount} has been added to {self.name}")
         return self.balance
+
 
     def reduceBalance(self, GameWindow, amount, playerList, fastBankruptcy, nonRentPayment, houseIndicators, mortgageIndicators, ownershipIndicators):
         if self.balance < amount:

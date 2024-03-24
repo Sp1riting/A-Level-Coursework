@@ -12,4 +12,5 @@ Game things:
 
 UI Things:
 - Play tokens moving around the game board
-- Pay rent and draw chance functions
+- Pay rent and find owner functions
+- 
