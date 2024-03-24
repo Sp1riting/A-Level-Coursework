@@ -294,7 +294,7 @@ class GameWindow(QDialog):
 
     def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
         card = Cards.locateCard(cardNameLabel.text(), board)
-        Cards.card.purchaseCard(self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
+        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
         self.travelSquareFrame.hide()
 
     def noPurchaseTravelSquare(self):
@@ -302,7 +302,7 @@ class GameWindow(QDialog):
 
     def purchaseUtility(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
         card = Cards.locateCard(cardNameLabel.text(), board)
-        Cards.card.purchaseCard(self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
+        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
         self.utilityFrame.hide()
 
     def noPurchaseUtility(self):
@@ -310,7 +310,7 @@ class GameWindow(QDialog):
 
     def purchaseNormalCard(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
         card = Cards.locateCard(cardNameLabel.text(), board)
-        Cards.card.purchaseCard(self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
+        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
         self.normalCardFrame.hide()
 
     def noPurchaseNormalCard(self):
