@@ -315,6 +315,7 @@ class GameWindow(QDialog):
 
     
     def playTurnPressed(self, gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators):
+        self.displayLabel2.setText("")
         self.chanceCardTextBrowser.hide()
         self.playTurnButton.setEnabled(False)
         diceRoll = gameValues.currentPlayer.rollDice(self)
