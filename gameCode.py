@@ -288,6 +288,8 @@ class GameWindow(QDialog):
             self.utilityNoPurchaseButton.clicked.connect(self.noPurchaseUtility)
             self.normalCardPurchaseButton.clicked.connect(lambda:self.purchaseNormalCard(currentPlayer, self.normalCardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
             self.normalCardNoPurchaseButton.clicked.connect(self.noPurchaseNormalCard)
+        
+        self.endTurnButton.clicked.connect(lambda:self.endTurnPressed(currentPlayer, playerList))
 
 
     def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
