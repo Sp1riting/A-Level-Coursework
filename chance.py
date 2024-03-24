@@ -1,5 +1,4 @@
 def drawChance(self, GameWindow, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators):
-
     currentChance = gameValues.randomList[gameValues.chanceCounter % 17]
     GameWindow.chanceCardTextBrowser.show()
 
