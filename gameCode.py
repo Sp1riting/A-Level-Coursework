@@ -279,7 +279,7 @@ class GameWindow(QDialog):
         
         else:
             self.playTurnButton.show()
-            self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter))
+            self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter, houseIndicators, mortgageIndicators, ownershipIndicators))
             
             self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseTravelSquare(currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
             self.travelSquareNoPurchaseButton.clicked.connect(self.noPurchaseTravelSquare)
