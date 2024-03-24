@@ -19,7 +19,7 @@ class GameWindow(QDialog):
         self.bankruptButton.hide()
         self.playTurnButton.hide()
 
-        self.dice1Outline.hide()
+        self.dice1outline.hide()
         self.dice1dot1.hide()
         self.dice1dot2.hide()
         self.dice1dot3.hide()
@@ -28,7 +28,7 @@ class GameWindow(QDialog):
         self.dice1dot6.hide()
         self.dice1dot7.hide()
 
-        self.dice2Outline.hide()
+        self.dice2outline.hide()
         self.dice2dot1.hide()
         self.dice2dot2.hide()
         self.dice2dot3.hide()
