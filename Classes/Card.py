@@ -68,7 +68,7 @@ class Card:
                 player.travelSquaresOwned += 1
             elif self.cardSet == "Utility":
                 player.utilitiesOwned += 1
-            player.reduceBalance(self, GameWindow, self.cost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+            player.reduceBalance(GameWindow, self.cost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
             self.owner = player.name
             self.ownerID = str(player.playerID)
             player.ownedCards.append(self.cardName)
