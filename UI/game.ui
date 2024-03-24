@@ -449,7 +449,7 @@
            <enum>QLCDNumber::Filled</enum>
           </property>
          </widget>
-         <widget class="QLCDNumber" name="lBue2lcdNumber">
+         <widget class="QLCDNumber" name="lBlue2lcdNumber">
           <property name="geometry">
            <rect>
             <x>340</x>
