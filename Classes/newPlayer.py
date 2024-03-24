@@ -168,7 +168,7 @@ class Player:
         
         elif boardProperty.cardName == 'Chance':
             GameWindow.displayLabel.setText(f"{self.name} landed on Chance, and will draw a card.")
-            chanceCounter = chance.drawChance(self, GameWindow, board, playerList, roll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators, houseIndicators, mortgageIndicators, ownershipIndicators)
+            chanceCounter = chance.drawChance(self, GameWindow, board, playerList, roll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
 
         else:
             if boardProperty.mortgaged:

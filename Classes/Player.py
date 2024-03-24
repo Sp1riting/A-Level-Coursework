@@ -183,13 +183,13 @@ class Player:
         self.reduceBalance(GameWindow, rent, playerList)
         cardOwner.addBalance(GameWindow, rent)
     
-    def advanceToSquare(self, GameWindow, board, playerList, diceRoll, isDoubled, i):
+    def advanceToSquare(self, GameWindow, board, playerList, diceRoll, isDoubled, i, houseIndicators, mortgageIndicators, ownershipIndicators):
         print(f"{self.name} landed on {board[i].cardName}")
         self.currentPos = i
         if board[i].mortgaged:
             print(f"{self.name} landed on a mortgaged property.")
         elif board[i].ownerID != "0":
-            self.payRent(GameWindow, board[i], playerList, diceRoll, isDoubled)
+            self.payRent(GameWindow, board[i], playerList, diceRoll, isDoubled, houseIndicators, mortgageIndicators, ownershipIndicators)
         else:
             question = input(f"Do you want to buy the property? It costs £{board[i].cost} (y/n) ")
             if question == 'y':
