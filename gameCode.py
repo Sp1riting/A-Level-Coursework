@@ -5,6 +5,7 @@ from PyQt5.uic import loadUi
 from PyQt5.QtGui import QPixmap
 import main as main
 import Classes.newPlayer as Players
+import Classes.card as Cards
 from GameStart import board as board
 
 class GameWindow(QDialog):
@@ -268,7 +269,6 @@ class GameWindow(QDialog):
 
         if currentPlayer.inJail and currentPlayer.turnsInJail >= 3:
             currentPlayer.leaveJail(self)
-            currentPlayer.turnsInJail = 0
 
         elif currentPlayer.inJail:
             self.inJailGroupBox.show()
@@ -280,7 +280,19 @@ class GameWindow(QDialog):
         else:
             self.playTurnButton.show()
             self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter))
-            
+            self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseNormalCard(currentPlayer, self.normalCardNameLabel, board))
+            self.travelSquareNoPurchaseButton.clicked.connect(self.noPurchaseNormalCard())
+            self.utilityPurchaseButton.clicked.connect()
+            self.utilityNoPurchaseButton.clicked.connect()
+            self.normalCardPurchaseButton.clicked.connect()
+            self.normalCardNoPurchaseButton.clicked.connect()
+
+    def purchaseNormalCard(self, currentPlayer, cardNameLabel, board):
+        card = Cards.locateCard(cardNameLabel.text(), board)
+        Cards.card.purchaseCard(self, currentPlayer)
+
+    def noPurchaseNormalCard(self):
+        self.normalCardFrame.hide()
 
     
     def playTurnPressed(self, currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter, houseIndicators, mortgageIndicators, ownershipIndicators):
@@ -291,10 +303,13 @@ class GameWindow(QDialog):
         if currentPlayer.doublesRolled > 0:
             self.playTurnButton.isEnabled = True
         else:
-            currentPlayer = playerList[(playerList.find(currentPlayer) + 1) % len(playerList)]
-            self.currentPlayerLabel = currentPlayer.name
-            self.displayLabel.setText(f"{currentPlayer.name}'s turn has now started.")
-
+            self.endTurnButton.show()
+            
+    def endTurnPressed(self, currentPlayer, playerList):
+        currentPlayer = playerList[(playerList.find(currentPlayer) + 1) % len(playerList)]
+        self.currentPlayerLabel = currentPlayer.name
+        self.displayLabel.setText(f"{currentPlayer.name}'s turn has now started.")
+        self.endTurnButton.hide()
 
     def GOOJFCpressed(self, currentPlayer):
         if currentPlayer.GOOJFC:

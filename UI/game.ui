@@ -95,7 +95,7 @@
             <x>210</x>
             <y>880</y>
             <width>731</width>
-            <height>71</height>
+            <height>41</height>
            </rect>
           </property>
           <property name="text">
@@ -4670,6 +4670,25 @@ p, li { white-space: pre-wrap; }
           </property>
           <property name="text">
            <string>•</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="displayLabel2">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>920</y>
+            <width>731</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Display Message Here</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </widget>

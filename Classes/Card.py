@@ -73,10 +73,6 @@ class Card:
             self.ownerID = str(player.playerID)
             player.ownedCards.append(self.cardName)
 
-    
-    
-                
-
 
 def locateCard(name, board):
     for card in board:

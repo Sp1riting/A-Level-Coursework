@@ -60,7 +60,7 @@ class Ui_Dialog(object):
         self.bankruptButton.setFont(font1)
         self.displayLabel = QLabel(self.groupBox)
         self.displayLabel.setObjectName(u"displayLabel")
-        self.displayLabel.setGeometry(QRect(210, 880, 731, 71))
+        self.displayLabel.setGeometry(QRect(210, 880, 731, 41))
         self.displayLabel.setAlignment(Qt.AlignCenter)
         self.displayLabel.setWordWrap(True)
         self.dice1Outline = QLabel(self.groupBox)
@@ -1281,6 +1281,11 @@ class Ui_Dialog(object):
         palette35.setBrush(QPalette.Disabled, QPalette.WindowText, brush1)
         self.player8token.setPalette(palette35)
         self.player8token.setFont(font2)
+        self.displayLabel2 = QLabel(self.groupBox)
+        self.displayLabel2.setObjectName(u"displayLabel2")
+        self.displayLabel2.setGeometry(QRect(210, 920, 731, 41))
+        self.displayLabel2.setAlignment(Qt.AlignCenter)
+        self.displayLabel2.setWordWrap(True)
 
         self.gridLayout.addWidget(self.groupBox, 0, 0, 1, 1)
 
@@ -1724,6 +1729,7 @@ class Ui_Dialog(object):
         self.player6token.setText(QCoreApplication.translate("Dialog", u"\u2022", None))
         self.player7token.setText(QCoreApplication.translate("Dialog", u"\u2022", None))
         self.player8token.setText(QCoreApplication.translate("Dialog", u"\u2022", None))
+        self.displayLabel2.setText(QCoreApplication.translate("Dialog", u"Display Message Here", None))
         self.currentPlayerLabel.setText(QCoreApplication.translate("Dialog", u"player", None))
         self.playerInfoBox.setTitle(QCoreApplication.translate("Dialog", u"Players", None))
         self.player1NameLabel.setText(QCoreApplication.translate("Dialog", u"player1", None))
