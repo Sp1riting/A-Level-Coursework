@@ -79,8 +79,9 @@ class Player:
                 card.mortgaged = False
                 card.housesBuilt = 0
                 position = board.find(card)
-                houseIndicators[position].value = 0
-                houseIndicators[position].hide()
+                if not houseIndicators[position] == "N/A":
+                    houseIndicators[position].value = 0
+                    houseIndicators[position].hide()
                 mortgageIndicators[position].hide()
                 ownershipIndicators[position].hide()
                 
