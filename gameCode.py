@@ -266,14 +266,14 @@ class GameWindow(QDialog):
         random.shuffle(randomList)
         currentPlayer = playerList[0]
         self.currentPlayerLabel.setText(playerNames[0])
-        self.playTurnButton.isEnabled = True
+        self.playTurnButton.setEnabled(True)
 
         if currentPlayer.inJail and currentPlayer.turnsInJail >= 3:
             currentPlayer.leaveJail(self)
 
         elif currentPlayer.inJail:
             self.inJailGroupBox.show()
-            self.playTurnButton.isEnabled = False
+            self.playTurnButton.setEnabled(False)
             self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(currentPlayer))
             self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
             self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(currentPlayer))
@@ -316,14 +316,14 @@ class GameWindow(QDialog):
 
     
     def playTurnPressed(self, currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter, houseIndicators, mortgageIndicators, ownershipIndicators):
-        self.playTurnButton.isEnabled = False
+        self.playTurnButton.setEnabled(False)
         diceRoll = currentPlayer.rollDice(self)
         currentPlayer.movePlayer(self, diceRoll)
         chanceCounter = currentPlayer.checkPosition(self, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
         if currentPlayer.doublesCount > 0:
-            self.playTurnButton.isEnabled = True
+            self.playTurnButton.setEnabled(True)
         else:
-            self.playTurnButton.isEnabled = False
+            self.playTurnButton.setEnabled(False)
             self.endTurnButton.show()
             
     def endTurnPressed(self, currentPlayer, playerList):
@@ -337,7 +337,7 @@ class GameWindow(QDialog):
             self.transactionLabel.setText(f"{currentPlayer.name} used their get out of jail free card.")
             currentPlayer.leaveJail(self)
             currentPlayer.GOOJFC = False
-            self.playTurnButton.isEnabled = True
+            self.playTurnButton.setEnabled(True)
         else:
             self.inJailMessageLabel.setText("You do not have a get out of jail free card.")
         self.endTurnButton.show()
@@ -347,7 +347,7 @@ class GameWindow(QDialog):
             self.displayLabel2.setText(f"{currentPlayer.name} paid £50 to get out of jail.")
             currentPlayer.reduceBalance(self, 50, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators)
             currentPlayer.leaveJail(self)
-            self.playTurnButton.isEnabled = True
+            self.playTurnButton.setEnabled(True)
             if currentPlayer.balance >= 0:
                 self.endTurnButton.show()
         else:
@@ -363,7 +363,7 @@ class GameWindow(QDialog):
             currentPlayer.leaveJail(self)
             currentPlayer.doublesCount = 0
             self.displayLabel.setText(f"{currentPlayer.name} has rolled a doubles, and was released from jail.")
-            self.playTurnButton.isEnabled = True
+            self.playTurnButton.setEnabled(True)
         else:
             currentPlayer.turnsInJail += 1
             self.displayLabel.setText(f"{currentPlayer.name} failed to roll a double, and have now spent {currentPlayer.turnsInJail} days in jail.")
