@@ -1,6 +1,6 @@
-def drawChance(self, GameWindow, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators):
+def drawChance(self, GameWindow, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators):
 
-    currentChance = randomList[chanceCounter % len(randomList)]
+    currentChance = gameValues.randomList[gameValues.chanceCounter % len(gameValues.randomList)]
     GameWindow.chanceCardTextBrowser.show()
 
     if currentChance == 0:
@@ -19,7 +19,7 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, chanceCounter, ran
     elif currentChance == 3:
         GameWindow.chanceCardTextBrowser.setText("Ouch! You drove into a lampost and have to fix your car. Go back three spaces.")
         self.currentPos = (self.currentPos - 3) % 40
-        self.checkPosition(GameWindow, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
+        self.checkPosition(GameWindow, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
 
     elif currentChance == 4:
         GameWindow.chanceCardTextBrowser.setText(f"Move directly to jail. You may not pass go, or collect £{moneyFromGo}.")
@@ -102,5 +102,4 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, chanceCounter, ran
         self.reduceBalance(GameWindow, self.housesOwned * 15, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
 
     
-    chanceCounter += 1
-    return chanceCounter
+    gameValues.chanceCounter += 1

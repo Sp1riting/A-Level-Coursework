@@ -263,32 +263,32 @@ class GameWindow(QDialog):
 
         gameEnded = False
         randomList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+        gameValues = values(0, playerList[0], randomList)
         self.currentPlayerLabel.setText(playerNames[0])
-        randomList = initialiseValues(playerList, randomList)
         self.playTurnButton.setEnabled(True)
 
-        if currentPlayer.inJail and currentPlayer.turnsInJail >= 3:
-            currentPlayer.leaveJail(self)
+        if gameValues.currentPlayer.inJail and gameValues.currentPlayer.turnsInJail >= 3:
+            gameValues.currentPlayer.leaveJail(self)
 
-        elif currentPlayer.inJail:
+        elif gameValues.currentPlayer.inJail:
             self.inJailGroupBox.show()
             self.playTurnButton.setEnabled(False)
-            self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(currentPlayer))
-            self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
-            self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(currentPlayer))
+            self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(gameValues.currentPlayer))
+            self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(gameValues.currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
+            self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(gameValues.currentPlayer))
         
         else:
             self.playTurnButton.show()
-            self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter, houseIndicators, mortgageIndicators, ownershipIndicators))
+            self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators))
             
-            self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseTravelSquare(currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
+            self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseTravelSquare(gameValues.currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
             self.travelSquareNoPurchaseButton.clicked.connect(self.noPurchaseTravelSquare)
-            self.utilityPurchaseButton.clicked.connect(lambda:self.purchaseUtility(currentPlayer, self.utilityNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
+            self.utilityPurchaseButton.clicked.connect(lambda:self.purchaseUtility(gameValues.currentPlayer, self.utilityNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
             self.utilityNoPurchaseButton.clicked.connect(self.noPurchaseUtility)
-            self.normalCardPurchaseButton.clicked.connect(lambda:self.purchaseNormalCard(currentPlayer, self.normalCardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
+            self.normalCardPurchaseButton.clicked.connect(lambda:self.purchaseNormalCard(gameValues.currentPlayer, self.normalCardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
             self.normalCardNoPurchaseButton.clicked.connect(self.noPurchaseNormalCard)
         
-        self.endTurnButton.clicked.connect(lambda:self.endTurnPressed(currentPlayer, playerList))
+        self.endTurnButton.clicked.connect(lambda:self.endTurnPressed(gameValues, playerList))
 
 
     def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
@@ -316,27 +316,25 @@ class GameWindow(QDialog):
         self.normalCardFrame.hide()
 
     
-    def playTurnPressed(self, currentPlayer, playerList, fastBankruptcy, randomList, moneyFromGo, rentFromJail, chanceCounter, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def playTurnPressed(self, gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators):
         self.chanceCardTextBrowser.hide()
         self.playTurnButton.setEnabled(False)
-        diceRoll = currentPlayer.rollDice(self)
-        currentPlayer.movePlayer(self, diceRoll)
-        chanceCounter = currentPlayer.checkPosition(self, board, playerList, diceRoll, chanceCounter, randomList, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
-        if currentPlayer.doublesCount > 0:
+        diceRoll = gameValues.currentPlayer.rollDice(self)
+        gameValues.currentPlayer.movePlayer(self, diceRoll)
+        gameValues.currentPlayer.checkPosition(self, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
+        if gameValues.currentPlayer.doublesCount > 0:
             self.playTurnButton.setEnabled(True)
         else:
             self.playTurnButton.setEnabled(False)
             self.endTurnButton.show()
-        return chanceCounter
             
-    def endTurnPressed(self, currentPlayer, playerList):
+    def endTurnPressed(self, gameValues, playerList):
         self.chanceCardTextBrowser.hide()
-        currentPlayer = playerList[(playerList.index(currentPlayer) + 1) % len(playerList)]
-        self.currentPlayerLabel.setText(currentPlayer.name)
-        self.displayLabel.setText(f"{currentPlayer.name}'s turn has now started.")
+        gameValues.currentPlayer = playerList[(playerList.index(gameValues.currentPlayer) + 1) % len(playerList)]
+        self.currentPlayerLabel.setText(gameValues.currentPlayer.name)
+        self.displayLabel.setText(f"{gameValues.currentPlayer.name}'s turn has now started.")
         self.endTurnButton.hide()
         self.playTurnButton.setEnabled(True)
-        return currentPlayer
 
     def GOOJFCpressed(self, currentPlayer):
         if currentPlayer.GOOJFC:
@@ -376,10 +374,8 @@ class GameWindow(QDialog):
 
 
         
-def initialiseValues(playerList, randomList):
-    global chanceCounter
-    global currentPlayer
-    chanceCounter = 0
-    currentPlayer = playerList[0]
-    random.shuffle(randomList)
-    return randomList
+class values:
+    def __init__(self, chanceCounter, currentPlayer, randomList):
+        self.chanceCounter = chanceCounter
+        self.currentPlayer = currentPlayer
+        self.randomList = random.shuffle(randomList)
