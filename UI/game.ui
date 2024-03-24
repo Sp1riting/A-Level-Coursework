@@ -5361,7 +5361,7 @@ p, li { white-space: pre-wrap; }
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="rollDiceButton">
+      <widget class="QPushButton" name="playTurnButton">
        <property name="minimumSize">
         <size>
          <width>175</width>
@@ -5374,7 +5374,7 @@ p, li { white-space: pre-wrap; }
         </font>
        </property>
        <property name="text">
-        <string>Roll Dice</string>
+        <string>Play Turn</string>
        </property>
       </widget>
      </item>

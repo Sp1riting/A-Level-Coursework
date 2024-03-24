@@ -25,6 +25,24 @@ class Player:
         self.nameLabel = nameLabel
         self.balanceLabel = balanceLabel
 
+
+    def rollDice(self, GameWindow):
+        
+
+        dice1 = random.randint(1, 6)
+        dice2 = random.randint(1, 6)
+        roll = dice1 + dice2
+        print(f"{self.name} threw a {dice1} and a {dice2}, giving a roll of {roll}.")
+
+        if dice1 == dice2:
+            self.doublesCount += 1
+            if self.doublesCount == 3:
+                self.sendToJail(GameWindow)
+                return roll
+        else:
+            self.doublesCount = 0
+        return roll
+
     
     def leaveJail(self, GameWindow):
         self.currentPos = 10
@@ -41,6 +59,7 @@ class Player:
                 self.bankruptPlayer(GameWindow, playerList, houseIndicators, mortgageIndicators, ownershipIndicators)
             else:
                 GameWindow.bankruptButton.show()
+                GameWindow.endTurnButton.hide()
         else:
             self.balance -= amount
             if nonRentPayment:
