@@ -46,6 +46,7 @@ class GameWindow(QDialog):
         self.travelSquareFrame.hide()
 
         self.displayLabel.setText("")
+        self.displayLabel2.setText("")
         self.transactionLabel.setText("")
         self.currentPlayerLabel.setText("")
 
