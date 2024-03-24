@@ -150,11 +150,11 @@ class Player:
 
         elif boardProperty.cardName == 'Luxury Tax':
             GameWindow.displayLabel.setText(f"{self.name} landed on Luxury Tax and has been fined £75.")
-            self.reduceBalance(self, GameWindow, 75, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.reduceBalance(GameWindow, 75, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
 
         elif boardProperty.cardName == 'Income Tax':
             GameWindow.displayLabel.setText(f"{self.name} landed on Income Tax and has been fined £200.")
-            self.reduceBalance(self, GameWindow, 200, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.reduceBalance(GameWindow, 200, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
 
         elif boardProperty.cardName == 'Go To Jail':
             GameWindow.displayLabel.setText(f"{self.name} landed on Go to Jail and has been arrested!")
