@@ -165,7 +165,7 @@ class GameWindow(QDialog):
                               self.dBlue2mortgaged
                               ]
 
-        for i in mortgageIndicators:
+        for i in range (0, len(mortgageIndicators)):
             if not mortgageIndicators[i] == "N/A":
                 mortgageIndicators[i].hide()
         
@@ -211,7 +211,7 @@ class GameWindow(QDialog):
                               self.dBlue2ownership
                               ]
 
-        for i in ownershipIndicators:
+        for i in range (0, len(ownershipIndicators)):
             if not ownershipIndicators[i] == "N/A":
                 ownershipIndicators[i].hide()
 
