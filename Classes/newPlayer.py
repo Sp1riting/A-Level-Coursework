@@ -241,7 +241,7 @@ class Player:
 
     def advanceToSquare(self, GameWindow, board, playerList, diceRoll, isDoubled, fastBankruptcy, i, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues):
         self.currentPos = i
-        self.token.move(gameValues.cardPositions[i])
+        self.token.move(gameValues.cardPositions[i * 2], gameValues.cardPositions[i * 2 + 1])
         if board[i].mortgaged:
             GameWindow.displayLabel.setText(f"{self.name} landed on {board[i].cardName}, a mortgaged property.")
         elif board[i].ownerID != "0":
