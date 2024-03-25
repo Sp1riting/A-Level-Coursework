@@ -289,7 +289,7 @@ class GameWindow(QDialog):
 
     def housesMenu(self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
         self.housesGroupBox.show()
-        for card in gameValues.currentPlayer.ownedcards:
+        for card in gameValues.currentPlayer.ownedCards:
             if not card.cardSet != "Travel Square" and card.cardSet != "Utility":
                 if card.housesBuilt < 5:
                     self.buyHouseSelectionComboBox.addItem(card.name)
