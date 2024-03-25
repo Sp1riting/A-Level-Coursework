@@ -33,4 +33,4 @@ class EndGameWindow(QDialog):
                          )
         
 
-        self.gameEndReturnButton.clicked.connect(self.close())
+        self.gameEndReturnButton.clicked.connect(self.close)

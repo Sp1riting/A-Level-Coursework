@@ -372,7 +372,6 @@ class Player:
         GameWindow.bankruptButton.show()
         if len(playerList) == 1:
             gameValues.gameEnded = True
-        print(gameValues.gameEnded)
 
 
     def findOwner(self, card, playerList):
