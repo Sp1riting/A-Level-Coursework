@@ -3050,7 +3050,7 @@ p, li { white-space: pre-wrap; }
             <x>460</x>
             <y>630</y>
             <width>271</width>
-            <height>151</height>
+            <height>181</height>
            </rect>
           </property>
           <property name="font">
@@ -3058,13 +3058,16 @@ p, li { white-space: pre-wrap; }
             <pointsize>9</pointsize>
            </font>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="title">
            <string>Please select properties below</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
-          <widget class="QComboBox" name="mortgageSelectionComboBox_4">
+          <widget class="QComboBox" name="mortgageSelectionComboBox">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3082,7 +3085,7 @@ p, li { white-space: pre-wrap; }
             </property>
            </item>
           </widget>
-          <widget class="QComboBox" name="unmortgageSelectionComboBox_4">
+          <widget class="QComboBox" name="unmortgageSelectionComboBox">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3100,7 +3103,7 @@ p, li { white-space: pre-wrap; }
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="mortgageItemButton_4">
+          <widget class="QPushButton" name="mortgageItemButton">
            <property name="geometry">
             <rect>
              <x>150</x>
@@ -3118,7 +3121,7 @@ p, li { white-space: pre-wrap; }
             <string>Mortgage</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="unmortgageItemButton_4">
+          <widget class="QPushButton" name="unmortgageItemButton">
            <property name="geometry">
             <rect>
              <x>150</x>
@@ -3136,6 +3139,25 @@ p, li { white-space: pre-wrap; }
             <string>Unmortgage</string>
            </property>
           </widget>
+          <widget class="QLabel" name="mortgageLabel">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>139</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
          </widget>
          <widget class="QGroupBox" name="housesGroupBox">
           <property name="geometry">
@@ -3143,7 +3165,7 @@ p, li { white-space: pre-wrap; }
             <x>460</x>
             <y>630</y>
             <width>271</width>
-            <height>151</height>
+            <height>181</height>
            </rect>
           </property>
           <property name="font">
@@ -3151,13 +3173,16 @@ p, li { white-space: pre-wrap; }
             <pointsize>9</pointsize>
            </font>
           </property>
+          <property name="autoFillBackground">
+           <bool>true</bool>
+          </property>
           <property name="title">
            <string>Please select properties below</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
-          <widget class="QComboBox" name="buyHouseSelectionComboBox_2">
+          <widget class="QComboBox" name="buyHouseSelectionComboBox">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3175,7 +3200,7 @@ p, li { white-space: pre-wrap; }
             </property>
            </item>
           </widget>
-          <widget class="QComboBox" name="sellHouseSelectionComboBox_2">
+          <widget class="QComboBox" name="sellHouseSelectionComboBox">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3193,7 +3218,7 @@ p, li { white-space: pre-wrap; }
             </property>
            </item>
           </widget>
-          <widget class="QPushButton" name="buyHouseButton_2">
+          <widget class="QPushButton" name="buyHouseButton">
            <property name="geometry">
             <rect>
              <x>150</x>
@@ -3211,7 +3236,7 @@ p, li { white-space: pre-wrap; }
             <string>Buy House</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="sellHouseButton_2">
+          <widget class="QPushButton" name="sellHouseButton">
            <property name="geometry">
             <rect>
              <x>150</x>
@@ -3227,6 +3252,25 @@ p, li { white-space: pre-wrap; }
            </property>
            <property name="text">
             <string>Sell House</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="housesLabel">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>139</y>
+             <width>251</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </widget>
@@ -4633,7 +4677,7 @@ p, li { white-space: pre-wrap; }
           <property name="geometry">
            <rect>
             <x>1010</x>
-            <y>1010</y>
+            <y>900</y>
             <width>41</width>
             <height>51</height>
            </rect>
@@ -4803,8 +4847,6 @@ p, li { white-space: pre-wrap; }
          <zorder>u1mortgaged</zorder>
          <zorder>rr2mortgaged</zorder>
          <zorder>chanceCardTextBrowser</zorder>
-         <zorder>mortgageGroupBox</zorder>
-         <zorder>housesGroupBox</zorder>
          <zorder>inJailGroupBox</zorder>
          <zorder>normalCardFrame</zorder>
          <zorder>utilityFrame</zorder>
@@ -4817,6 +4859,8 @@ p, li { white-space: pre-wrap; }
          <zorder>player6token</zorder>
          <zorder>player7token</zorder>
          <zorder>player8token</zorder>
+         <zorder>housesGroupBox</zorder>
+         <zorder>mortgageGroupBox</zorder>
         </widget>
        </item>
       </layout>

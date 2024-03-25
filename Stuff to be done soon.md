@@ -5,13 +5,9 @@ Other than that, UI needs to be made for the main game
 Game things:
 - Add check for full colour set owned when buying houses
 - Add double rent cost when a full colour set is owned
-- Implement selling houses and properties when a player can't afford something
 
-- Check if player can gain rent in jail when paying to somebody else.
-- Add fast bankruptcies
 
 UI Things:
-- Hide appropriate game tokens beforehand.
 - Make mortgaging and houses work
 - wait a second after chance card is landed on
 - when landing on properties, the buttons are not hidden after rolling a double.
