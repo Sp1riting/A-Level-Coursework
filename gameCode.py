@@ -407,7 +407,7 @@ class GameWindow(QDialog):
                 self.endTurnButton.show()
         else:
             self.inJailMessageLabel.setText("You don't have enough money for bail.")
-            self.inJailGroupBox.hide()
+
             
     def rollDoublePressed(self, currentPlayer):
         self.inJailGroupBox.hide()
