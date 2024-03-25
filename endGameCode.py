@@ -6,7 +6,7 @@ from PyQt5.uic import loadUi
 conn = sqlite3.connect('users.db')
 database = conn.cursor()
 
-class EndGameWindow(QMainWindow):
+class EndGameWindow(QDialog):
     def __init__(self, gameValues, playerList, username):
         super(EndGameWindow, self).__init__()
         loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\endGameScreen.ui', self)
