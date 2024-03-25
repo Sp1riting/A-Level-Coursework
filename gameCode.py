@@ -267,28 +267,16 @@ class GameWindow(QDialog):
         if gameValues.gameEnded == True:
             pass #add end game screen here
 
-        if gameValues.currentPlayer.inJail and gameValues.currentPlayer.turnsInJail >= 3:
-            gameValues.currentPlayer.leaveJail(self)
-            print('this')
-        elif gameValues.currentPlayer.inJail:
-            print('that')
-            self.inJailGroupBox.show()
-            self.playTurnButton.setEnabled(False)
-            self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(gameValues.currentPlayer))
-            self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(gameValues.currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues))
-            self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(gameValues.currentPlayer))
+
+        self.playTurnButton.show()
+        self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators))
         
-        else:
-            print('the other')
-            self.playTurnButton.show()
-            self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators))
-            
-            self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseTravelSquare(gameValues.currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
-            self.travelSquareNoPurchaseButton.clicked.connect(self.noPurchaseTravelSquare)
-            self.utilityPurchaseButton.clicked.connect(lambda:self.purchaseUtility(gameValues.currentPlayer, self.utilityNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
-            self.utilityNoPurchaseButton.clicked.connect(self.noPurchaseUtility)
-            self.normalCardPurchaseButton.clicked.connect(lambda:self.purchaseNormalCard(gameValues.currentPlayer, self.normalCardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
-            self.normalCardNoPurchaseButton.clicked.connect(self.noPurchaseNormalCard)
+        self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseTravelSquare(gameValues.currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
+        self.travelSquareNoPurchaseButton.clicked.connect(self.noPurchaseTravelSquare)
+        self.utilityPurchaseButton.clicked.connect(lambda:self.purchaseUtility(gameValues.currentPlayer, self.utilityNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
+        self.utilityNoPurchaseButton.clicked.connect(self.noPurchaseUtility)
+        self.normalCardPurchaseButton.clicked.connect(lambda:self.purchaseNormalCard(gameValues.currentPlayer, self.normalCardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
+        self.normalCardNoPurchaseButton.clicked.connect(self.noPurchaseNormalCard)
         
         self.endTurnButton.clicked.connect(lambda:self.endTurnPressed(gameValues, playerList))
         self.bankruptButton.clicked.connect(lambda:self.bankruptPressed(gameValues, playerList, houseIndicators, mortgageIndicators, ownershipIndicators))
@@ -350,6 +338,17 @@ class GameWindow(QDialog):
 
     
     def playTurnPressed(self, gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators):
+        if gameValues.currentPlayer.inJail:
+            if gameValues.currentPlayer.turnsInJail >= 3:
+                gameValues.currentPlayer.leaveJail(self)
+            else:
+                self.inJailGroupBox.show()
+                self.playTurnButton.setEnabled(False)
+                self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(gameValues.currentPlayer))
+                self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(gameValues.currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues))
+                self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(gameValues.currentPlayer))
+                return
+
         self.displayLabel2.setText("")
         self.chanceCardTextBrowser.hide()
         self.playTurnButton.setEnabled(False)
