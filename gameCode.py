@@ -260,7 +260,7 @@ class GameWindow(QDialog):
                               self.dBlue2lcdNumber
                               ]
 
-        gameValues = values(0, playerList[0], random.sample([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 17), False)
+        gameValues = values(playerList[0], random.sample([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 17))
         self.currentPlayerLabel.setText(playerNames[0])
         self.playTurnButton.setEnabled(True)
 
@@ -278,19 +278,19 @@ class GameWindow(QDialog):
             self.playTurnButton.show()
             self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators))
             
-            self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseTravelSquare(gameValues.currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
+            self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseTravelSquare(gameValues.currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
             self.travelSquareNoPurchaseButton.clicked.connect(self.noPurchaseTravelSquare)
-            self.utilityPurchaseButton.clicked.connect(lambda:self.purchaseUtility(gameValues.currentPlayer, self.utilityNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
+            self.utilityPurchaseButton.clicked.connect(lambda:self.purchaseUtility(gameValues.currentPlayer, self.utilityNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
             self.utilityNoPurchaseButton.clicked.connect(self.noPurchaseUtility)
-            self.normalCardPurchaseButton.clicked.connect(lambda:self.purchaseNormalCard(gameValues.currentPlayer, self.normalCardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy))
+            self.normalCardPurchaseButton.clicked.connect(lambda:self.purchaseNormalCard(gameValues.currentPlayer, self.normalCardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
             self.normalCardNoPurchaseButton.clicked.connect(self.noPurchaseNormalCard)
         
         self.endTurnButton.clicked.connect(lambda:self.endTurnPressed(gameValues, playerList))
 
 
-    def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
+    def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         card = Cards.locateCard(cardNameLabel.text(), board)
-        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
+        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues)
         self.travelSquareFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
@@ -306,9 +306,9 @@ class GameWindow(QDialog):
         self.housesButton.setEnabled(True)
         self.tradeButton.setEnabled(True)
 
-    def purchaseUtility(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
+    def purchaseUtility(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         card = Cards.locateCard(cardNameLabel.text(), board)
-        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
+        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues)
         self.utilityFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
@@ -324,9 +324,9 @@ class GameWindow(QDialog):
         self.housesButton.setEnabled(True)
         self.tradeButton.setEnabled(True)
 
-    def purchaseNormalCard(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
+    def purchaseNormalCard(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         card = Cards.locateCard(cardNameLabel.text(), board)
-        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
+        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues)
         self.normalCardFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
@@ -404,8 +404,9 @@ class GameWindow(QDialog):
 
         
 class values:
-    def __init__(self, chanceCounter, currentPlayer, randomList, gameEnded):
-        self.chanceCounter = chanceCounter
+    doublesRolled = 0; propertiesPurchased = 0; moneyEarned = 0; rentPaid = 0; passedGo = 0
+    gameEnded = False
+    chanceCounter = 0
+    def __init__(self, currentPlayer, randomList):
         self.currentPlayer = currentPlayer
         self.randomList = randomList
-        self.gameEnded = gameEnded

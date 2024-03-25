@@ -13,13 +13,13 @@ class Card:
         self.mortgageCost = mortgageCost
         self.rentAmounts = rentAmounts
     
-    def mortgage(self, GameWindow, player):
+    def mortgage(self, GameWindow, player, gameValues):
         if self.housesBuilt == 0:
             if self.cardSet == "TravelSquare":
                 player.travelSquaresOwned -= 1
             elif self.cardSet == "Utility":
                 player.utilitiesOwned -= 1
-            player.addBalance(self.mortgageCost)
+            player.addBalance(GameWindow, self.mortgageCost, gameValues)
             self.mortgaged = True
             player.ownedCards.remove(self.cardName)
         else:
@@ -52,15 +52,15 @@ class Card:
                 player.reduceBalance(GameWindow, self.houseCost)
     
 
-    def sellHouse(self, GameWindow, player):
+    def sellHouse(self, GameWindow, player, gameValues):
         if self.housesBuilt == 0 or self.housesBuilt == "N/A":
             print("You cannot sell houses from this property")
         else:
             self.housesBuilt -= 1
-            player.addBalance(GameWindow, self.houseCost / 2)
+            player.addBalance(GameWindow, self.houseCost / 2, gameValues)
                 
 
-    def purchaseCard(self, GameWindow, player, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
+    def purchaseCard(self, GameWindow, player, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         if self.cost > player.balance:
             GameWindow.displayLabel2.setText("You did not have enough to purchase this card")
         else:
@@ -72,6 +72,7 @@ class Card:
             self.owner = player.name
             self.ownerID = str(player.playerID)
             player.ownedCards.append(self.cardName)
+            gameValues.propertiesPurchased += 1
 
 
 def locateCard(name, board):
