@@ -287,15 +287,14 @@ class Player:
 
 
     def reduceBalance(self, GameWindow, amount, playerList, fastBankruptcy, nonRentPayment, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues):
-        if self.balance < amount:
+        self.balance -= amount
+        if self.balance < 0:
             if fastBankruptcy:
                 self.bankruptPlayer(GameWindow, playerList, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
             else:
                 GameWindow.bankruptButton.show()
                 GameWindow.endTurnButton.hide()
-        else:
-            self.balance -= amount
-            if nonRentPayment:
+        elif nonRentPayment:
                 self.balanceLabel.setText(f"£{self.balance}")
                 GameWindow.transactionLabel.setText(f"£{amount} has been deducted from {self.name}.")
         return self.balance
@@ -322,7 +321,7 @@ class Player:
         if isDoubled:
             rent *= 2
         GameWindow.displayLabel2.setText(f"{self.name} is paying £{rent} to {cardOwner.name} for rent.")
-        self.reduceBalance(GameWindow, rent, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
+        self.reduceBalance(GameWindow, rent, playerList, fastBankruptcy, False, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
         cardOwner.addBalance(GameWindow, rent, gameValues)
         gameValues.rentPaid += rent
 
@@ -363,7 +362,8 @@ class Player:
                     houseIndicators[position].hide()
                 mortgageIndicators[position].hide()
                 ownershipIndicators[position].hide()
-                
+
+        gameValues.currentPlayer = playerList[(playerList.index(gameValues.currentPlayer) + 1) % len(playerList)]        
         playerList.remove(self)
         GameWindow.displayLabel2.setText(f"{self.name} is now bankrupt. It is game over for them!")
         GameWindow.displayLabel.setText("")
