@@ -48,7 +48,8 @@ class Player:
         GameWindow.dice2dot6.hide()
         GameWindow.dice2dot7.hide()
 
-        dice1 = random.randint(1, 6)
+        #dice1 = random.randint(1, 6)
+        dice1 = 2
 
         if dice1 == 1:
             GameWindow.dice1dot4.show()
@@ -78,7 +79,8 @@ class Player:
             GameWindow.dice1dot6.show()
             GameWindow.dice1dot7.show()
 
-        dice2 = random.randint(1, 6)
+        #dice2 = random.randint(1, 6)
+        dice2 = 2
 
         if dice2 == 1:
             GameWindow.dice2dot4.show()
@@ -363,8 +365,6 @@ class Player:
                     houseIndicators[position].hide()
                 mortgageIndicators[position].hide()
                 ownershipIndicators[position].hide()
-
-        gameValues.currentPlayer = playerList[(playerList.index(gameValues.currentPlayer) + 1) % len(playerList)]        
         playerList.remove(self)
         GameWindow.displayLabel2.setText(f"{self.name} is now bankrupt. It is game over for them!")
         GameWindow.displayLabel.setText("")

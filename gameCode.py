@@ -259,8 +259,6 @@ class GameWindow(QDialog):
                               "N/A",
                               self.dBlue2lcdNumber
                               ]
-        print(rentFromJail)
-        print(fastBankruptcy)
 
         gameValues = values(playerList[0], random.sample([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 17))
         self.currentPlayerLabel.setText(playerNames[0])
@@ -388,10 +386,11 @@ class GameWindow(QDialog):
         self.playTurnButton.setEnabled(True)
 
     def bankruptPressed(self, gameValues, playerList, houseIndicators, mortgageIndicators, ownershipIndicators):
-        gameValues.currentPlayer = playerList[(playerList.index(gameValues.currentPlayer) + 1) % len(playerList)]
+        #tempIndex = (playerList.index(gameValues.currentPlayer) + 1) % len(playerList)
         gameValues.currentPlayer.bankruptPlayer(self, playerList, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
-        self.currentPlayerLabel.setText(gameValues.currentPlayer.name)
-        self.displayLabel.setText(f"{gameValues.currentPlayer.name}'s turn has now started.")
+        #gameValues.currentPlayer = playerList[tempIndex]
+        #self.currentPlayerLabel.setText(gameValues.currentPlayer.name)
+        #self.displayLabel.setText(f"{gameValues.currentPlayer.name}'s turn has now started.")
         self.bankruptButton.hide()
         self.endTurnButton.hide()
         self.playTurnButton.setEnabled(True)
