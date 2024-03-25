@@ -170,6 +170,7 @@ class Player:
             self.addBalance(GameWindow, moneyFromGo, gameValues)
             self.currentPos = self.currentPos % 40
         boardProperty = board[self.currentPos]
+        self.token.move(gameValues.cardPositions[self.currentPos * 2], gameValues.cardPositions[self.currentPos * 2 + 1])
 
         if boardProperty.cardName == 'Jail' and not self.inJail:
                 GameWindow.displayLabel.setText(f"{self.name} is visiting jail.")
@@ -240,6 +241,7 @@ class Player:
 
     def advanceToSquare(self, GameWindow, board, playerList, diceRoll, isDoubled, fastBankruptcy, i, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues):
         self.currentPos = i
+        self.token.move(gameValues.cardPositions[i])
         if board[i].mortgaged:
             GameWindow.displayLabel.setText(f"{self.name} landed on {board[i].cardName}, a mortgaged property.")
         elif board[i].ownerID != "0":
