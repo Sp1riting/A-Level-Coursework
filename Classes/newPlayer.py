@@ -303,7 +303,7 @@ class Player:
 
     def payRent(self, GameWindow, card, playerList, roll, isDoubled, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues):
         cardOwner = self.findOwner(card, playerList)
-        if cardOwner.inJail and not gameValues.rentFromJail:
+        if cardOwner.inJail == True and gameValues.rentFromJail == False:
             GameWindow.displayLabel2.setText("Players cannot gain rent from jail, so no money was transactioned.")
         else:
             if card.cardSet == "Travel Square":

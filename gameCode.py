@@ -263,8 +263,7 @@ class GameWindow(QDialog):
 
         gameValues = values(playerList[0], random.sample([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 17), rentFromJail)
         self.currentPlayerLabel.setText(playerNames[0])
-        self.playTurnButton.setEnabled(True)
-
+        print(gameValues.rentFromJail)
         self.playTurnButton.show()
         self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators, username))
         
