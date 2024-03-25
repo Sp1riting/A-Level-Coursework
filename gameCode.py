@@ -362,15 +362,13 @@ class GameWindow(QDialog):
         self.mortgageButton.setEnabled(True)
         self.tradeButton.setEnabled(True)
         self.housesButton.setEnabled(True)
-        if gameValues.currentPlayer.doublesCount > 0:
-            self.playTurnButton.setEnabled(True)
-        elif gameValues.currentPlayer.balance < 0:
+        
+        if gameValues.currentPlayer.balance < 0:
             self.playTurnButton.setEnabled(False)
-            self.mortgageButton.setEnabled(False)
-            self.tradeButton.setEnabled(False)
-            self.housesButton.setEnabled(False)
             self.endTurnButton.hide()
             self.bankruptButton.show()
+        elif gameValues.currentPlayer.doublesCount > 0:
+            self.playTurnButton.setEnabled(True)
         elif gameValues.currentPlayer.balance >= 0:
             self.playTurnButton.setEnabled(False)
             self.endTurnButton.show()
@@ -378,8 +376,7 @@ class GameWindow(QDialog):
     def endTurnPressed(self, gameValues, playerList):
         self.displayLabel2.setText("")
         self.chanceCardTextBrowser.hide()
-        if not gameValues.currentPlayer.bankrupt:
-            gameValues.currentPlayer = playerList[(playerList.index(gameValues.currentPlayer) + 1) % len(playerList)]
+        gameValues.currentPlayer = playerList[(playerList.index(gameValues.currentPlayer) + 1) % len(playerList)]
         self.currentPlayerLabel.setText(gameValues.currentPlayer.name)
         self.displayLabel.setText(f"{gameValues.currentPlayer.name}'s turn has now started.")
         self.endTurnButton.hide()
