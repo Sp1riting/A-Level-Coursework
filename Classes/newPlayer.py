@@ -341,7 +341,7 @@ class Player:
             return False
         
     def bankruptPlayer(self, GameWindow, playerList, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues):
-        self.balance = 0
+        self.balance = -1
         self.travelSquaresOwned = 0
         self.bankrupt = True
         self.token.hide()
@@ -367,6 +367,8 @@ class Player:
         playerList.remove(self)
         GameWindow.displayLabel2.setText(f"{self.name} is now bankrupt. It is game over for them!")
         GameWindow.displayLabel.setText("")
+        GameWindow.endTurnButton.hide()
+        GameWindow.bankruptButton.show()
         if self.gameHasEnded(playerList):
             gameValues.gameEnded = True
 
