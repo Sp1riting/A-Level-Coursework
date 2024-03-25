@@ -283,20 +283,21 @@ class GameWindow(QDialog):
         
         self.endTurnButton.clicked.connect(lambda:self.endTurnPressed(gameValues, playerList))
         self.bankruptButton.clicked.connect(lambda:self.bankruptPressed(gameValues, playerList, houseIndicators, mortgageIndicators, ownershipIndicators))
-        self.housesButton.clicked.connect(lambda:self.housesMenu(gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
+        self.housesButton.clicked.connect(lambda:self.housesMenu(gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
     
 
-    def housesMenu(self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def housesMenu(self, gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
         self.housesGroupBox.show()
         if len(gameValues.currentPlayer.ownedCards) > 0:
             for card in gameValues.currentPlayer.ownedCards:
-                if not card.cardSet != "Travel Square" and card.cardSet != "Utility":
-                    if card.housesBuilt < 5:
-                        self.buyHouseSelectionComboBox.addItem(card.name)
-                    if card.housesBuilt > 0:
-                        self.sellHouseSelectionComboBox.addItem(card.name)
-            self.buyHousesButton.clicked.connect(lambda:Cards.Card.purchaseHouse(self, gameValues.currentPlayer, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
-            self.sellHousesButton.clicked.connect(lambda:Cards.Card.sellHouse(self, gameValues.currentPlayer, gameValues))
+                currentCard =  Cards.locateCard(card, board)
+                if currentCard.cardSet != "Travel Square" and currentCard.cardSet != "Utility":
+                    if currentCard.housesBuilt < 5:
+                        self.buyHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
+                    if currentCard.housesBuilt > 0:
+                        self.sellHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
+            self.buyHouseButton.clicked.connect(lambda:Cards.Card.purchaseHouse(self, gameValues.currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
+            self.sellHouseButton.clicked.connect(lambda:Cards.Card.sellHouse(self, gameValues.currentPlayer, gameValues))
 
 
     def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
