@@ -12,7 +12,7 @@ Game things:
 
 UI Things:
 - Rent from jail
-- Game end screen, which appends the user statistics
+- Make fast bankruptcy work
 - Make mortgaging and houses work
 - Play tokens moving around the game board
 - when landing on properties, the buttons are not hidden after rolling a double.

@@ -265,14 +265,8 @@ class GameWindow(QDialog):
         self.currentPlayerLabel.setText(playerNames[0])
         self.playTurnButton.setEnabled(True)
 
-        if gameValues.gameEnded == True:
-            self._new_window = endGameWindow(gameValues, playerList, username)
-            self.close()
-            self._new_window.show()
-
-
         self.playTurnButton.show()
-        self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators))
+        self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators, username))
         
         self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseTravelSquare(gameValues.currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
         self.travelSquareNoPurchaseButton.clicked.connect(self.noPurchaseTravelSquare)
@@ -340,41 +334,46 @@ class GameWindow(QDialog):
         self.tradeButton.setEnabled(True)
 
     
-    def playTurnPressed(self, gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators):
-        if gameValues.currentPlayer.inJail:
-            if gameValues.currentPlayer.turnsInJail >= 3:
-                gameValues.currentPlayer.leaveJail(self)
-            else:
-                self.inJailMessageLabel.setText("")
-                self.inJailGroupBox.show()
-                self.playTurnButton.setEnabled(False)
-                self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(gameValues.currentPlayer))
-                self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(gameValues.currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues))
-                self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(gameValues.currentPlayer))
-                return
+    def playTurnPressed(self, gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators, username):
+        if gameValues.gameEnded:
+            self._new_window = endGameWindow(gameValues, playerList, username)
+            self.close()
+            self._new_window.show()
+        else:
+            if gameValues.currentPlayer.inJail:
+                if gameValues.currentPlayer.turnsInJail >= 3:
+                    gameValues.currentPlayer.leaveJail(self)
+                else:
+                    self.inJailMessageLabel.setText("")
+                    self.inJailGroupBox.show()
+                    self.playTurnButton.setEnabled(False)
+                    self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(gameValues.currentPlayer))
+                    self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(gameValues.currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues))
+                    self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(gameValues.currentPlayer))
+                    return
 
-        self.displayLabel2.setText("")
-        self.chanceCardTextBrowser.hide()
-        self.playTurnButton.setEnabled(False)
-        self.mortgageButton.setEnabled(False)
-        self.tradeButton.setEnabled(False)
-        self.housesButton.setEnabled(False)
-        diceRoll = gameValues.currentPlayer.rollDice(self)
-        gameValues.currentPlayer.movePlayer(self, diceRoll)
-        gameValues.currentPlayer.checkPosition(self, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
-        self.mortgageButton.setEnabled(True)
-        self.tradeButton.setEnabled(True)
-        self.housesButton.setEnabled(True)
-        
-        if gameValues.currentPlayer.balance < 0:
+            self.displayLabel2.setText("")
+            self.chanceCardTextBrowser.hide()
             self.playTurnButton.setEnabled(False)
-            self.endTurnButton.hide()
-            self.bankruptButton.show()
-        elif gameValues.currentPlayer.doublesCount > 0:
-            self.playTurnButton.setEnabled(True)
-        elif gameValues.currentPlayer.balance >= 0:
-            self.playTurnButton.setEnabled(False)
-            self.endTurnButton.show()
+            self.mortgageButton.setEnabled(False)
+            self.tradeButton.setEnabled(False)
+            self.housesButton.setEnabled(False)
+            diceRoll = gameValues.currentPlayer.rollDice(self)
+            gameValues.currentPlayer.movePlayer(self, diceRoll)
+            gameValues.currentPlayer.checkPosition(self, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.mortgageButton.setEnabled(True)
+            self.tradeButton.setEnabled(True)
+            self.housesButton.setEnabled(True)
+            
+            if gameValues.currentPlayer.balance < 0:
+                self.playTurnButton.setEnabled(False)
+                self.endTurnButton.hide()
+                self.bankruptButton.show()
+            elif gameValues.currentPlayer.doublesCount > 0:
+                self.playTurnButton.setEnabled(True)
+            elif gameValues.currentPlayer.balance >= 0:
+                self.playTurnButton.setEnabled(False)
+                self.endTurnButton.show()
             
     def endTurnPressed(self, gameValues, playerList):
         self.displayLabel2.setText("")
