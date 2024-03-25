@@ -271,7 +271,6 @@ class GameWindow(QDialog):
 
         gameValues = values(playerList[0], random.sample([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 17), rentFromJail)
         self.currentPlayerLabel.setText(playerNames[0])
-        print(gameValues.rentFromJail)
         self.playTurnButton.show()
         self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators, username))
         
@@ -289,14 +288,15 @@ class GameWindow(QDialog):
 
     def housesMenu(self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
         self.housesGroupBox.show()
-        for card in gameValues.currentPlayer.ownedCards:
-            if not card.cardSet != "Travel Square" and card.cardSet != "Utility":
-                if card.housesBuilt < 5:
-                    self.buyHouseSelectionComboBox.addItem(card.name)
-                if card.housesBuilt > 0:
-                    self.sellHouseSelectionComboBox.addItem(card.name)
-        self.buyHousesButton.clicked.connect(lambda:Cards.Card.purchaseHouse(self, gameValues.currentPlayer, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
-        self.sellHousesButton.clicked.connect(lambda:Cards.Card.sellHouse(self, gameValues.currentPlayer, gameValues))
+        if len(gameValues.currentPlayer.ownedCards) > 0:
+            for card in gameValues.currentPlayer.ownedCards:
+                if not card.cardSet != "Travel Square" and card.cardSet != "Utility":
+                    if card.housesBuilt < 5:
+                        self.buyHouseSelectionComboBox.addItem(card.name)
+                    if card.housesBuilt > 0:
+                        self.sellHouseSelectionComboBox.addItem(card.name)
+            self.buyHousesButton.clicked.connect(lambda:Cards.Card.purchaseHouse(self, gameValues.currentPlayer, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
+            self.sellHousesButton.clicked.connect(lambda:Cards.Card.sellHouse(self, gameValues.currentPlayer, gameValues))
 
 
     def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):

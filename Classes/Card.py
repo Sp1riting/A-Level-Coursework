@@ -40,7 +40,7 @@ class Card:
 
 
     def purchaseHouse(self, GameWindow, player, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
-        if self.houseCost > player.balance or self.housesBuilt == "N/A":
+        if self.houseCost > player.balance:
             GameWindow.housesLabel.setText("You do not have enough to purchase this house")
         elif self.housesBuilt >= 5:
             GameWindow.housesLabel.setText("You have already built the maximum number of houses on this property")
