@@ -342,6 +342,7 @@ class GameWindow(QDialog):
             if gameValues.currentPlayer.turnsInJail >= 3:
                 gameValues.currentPlayer.leaveJail(self)
             else:
+                self.inJailMessageLabel.setText("")
                 self.inJailGroupBox.show()
                 self.playTurnButton.setEnabled(False)
                 self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(gameValues.currentPlayer))
@@ -385,14 +386,15 @@ class GameWindow(QDialog):
             currentPlayer.leaveJail(self)
             currentPlayer.GOOJFC = False
             self.playTurnButton.setEnabled(True)
+            self.endTurnButton.show()
         else:
             self.inJailMessageLabel.setText("You do not have a get out of jail free card.")
-        self.endTurnButton.show()
+        
     
     def payBailPressed(self, currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues):
         if currentPlayer.balance >= 50:
             self.displayLabel2.setText(f"{currentPlayer.name} paid £50 to get out of jail.")
-            currentPlayer.reduceBalance(self, 50, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
+            currentPlayer.reduceBalance(self, 50, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
             currentPlayer.leaveJail(self)
             self.playTurnButton.setEnabled(True)
             if currentPlayer.balance >= 0:
@@ -400,7 +402,6 @@ class GameWindow(QDialog):
         else:
             self.inJailMessageLabel.setText("You don't have enough money for bail.")
             self.inJailGroupBox.hide()
-            self.endTurnButton.show()
             
     def rollDoublePressed(self, currentPlayer):
         self.inJailGroupBox.hide()
@@ -413,6 +414,8 @@ class GameWindow(QDialog):
         else:
             currentPlayer.turnsInJail += 1
             self.displayLabel.setText(f"{currentPlayer.name} failed to roll a double, and have now spent {currentPlayer.turnsInJail} days in jail.")
+            self.inJailGroupBox.hide()
+            self.endTurnButton.show()
 
 
         
