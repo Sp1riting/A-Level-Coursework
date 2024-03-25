@@ -3336,7 +3336,7 @@ p, li { white-space: pre-wrap; }
           <property name="geometry">
            <rect>
             <x>440</x>
-            <y>460</y>
+            <y>450</y>
             <width>321</width>
             <height>501</height>
            </rect>
@@ -4703,6 +4703,120 @@ p, li { white-space: pre-wrap; }
            <bool>true</bool>
           </property>
          </widget>
+         <zorder>boardImageLabel</zorder>
+         <zorder>displayLabel2</zorder>
+         <zorder>endTurnButton</zorder>
+         <zorder>bankruptButton</zorder>
+         <zorder>displayLabel</zorder>
+         <zorder>dice1outline</zorder>
+         <zorder>dice2outline</zorder>
+         <zorder>dice1dot1</zorder>
+         <zorder>dice1dot4</zorder>
+         <zorder>dice1dot6</zorder>
+         <zorder>dice1dot7</zorder>
+         <zorder>dice1dot2</zorder>
+         <zorder>dice1dot5</zorder>
+         <zorder>dice1dot3</zorder>
+         <zorder>dice2dot5</zorder>
+         <zorder>dice2dot3</zorder>
+         <zorder>dice2dot7</zorder>
+         <zorder>dice2dot6</zorder>
+         <zorder>dice2dot1</zorder>
+         <zorder>dice2dot2</zorder>
+         <zorder>dice2dot4</zorder>
+         <zorder>brown1lcdNumber</zorder>
+         <zorder>brown2lcdNumber</zorder>
+         <zorder>lBlue1lcdNumber</zorder>
+         <zorder>lBlue2lcdNumber</zorder>
+         <zorder>lBlue3lcdNumber</zorder>
+         <zorder>pink1lcdNumber</zorder>
+         <zorder>pink2lcdNumber</zorder>
+         <zorder>pink3lcdNumber</zorder>
+         <zorder>orange1lcdNumber</zorder>
+         <zorder>orange2lcdNumber</zorder>
+         <zorder>orange3lcdNumber</zorder>
+         <zorder>red1lcdNumber</zorder>
+         <zorder>red2lcdNumber</zorder>
+         <zorder>red3lcdNumber</zorder>
+         <zorder>yellow1lcdNumber</zorder>
+         <zorder>yellow2lcdNumber</zorder>
+         <zorder>yellow3lcdNumber</zorder>
+         <zorder>green1lcdNumber</zorder>
+         <zorder>green2lcdNumber</zorder>
+         <zorder>green3lcdNumber</zorder>
+         <zorder>dBlue1lcdNumber</zorder>
+         <zorder>dBlue2lcdNumber</zorder>
+         <zorder>brown1ownership</zorder>
+         <zorder>brown2ownership</zorder>
+         <zorder>lBlue1ownership</zorder>
+         <zorder>lBlue2ownership</zorder>
+         <zorder>lBlue3ownership</zorder>
+         <zorder>pink1ownership</zorder>
+         <zorder>pink2ownership</zorder>
+         <zorder>pink3ownership</zorder>
+         <zorder>orange1ownership</zorder>
+         <zorder>orange2ownership</zorder>
+         <zorder>orange3ownership</zorder>
+         <zorder>red1ownership</zorder>
+         <zorder>red2ownership</zorder>
+         <zorder>red3ownership</zorder>
+         <zorder>yellow1ownership</zorder>
+         <zorder>yellow2ownership</zorder>
+         <zorder>yellow3ownership</zorder>
+         <zorder>green1ownership</zorder>
+         <zorder>green2ownership</zorder>
+         <zorder>green3ownership</zorder>
+         <zorder>dBlue1ownership</zorder>
+         <zorder>dBlue2ownership</zorder>
+         <zorder>rr1ownership</zorder>
+         <zorder>u1ownership</zorder>
+         <zorder>rr2ownership</zorder>
+         <zorder>rr3ownership</zorder>
+         <zorder>u2ownership</zorder>
+         <zorder>rr4ownership</zorder>
+         <zorder>brown1mortgaged</zorder>
+         <zorder>brown2mortgaged</zorder>
+         <zorder>rr1mortgaged</zorder>
+         <zorder>lBlue1mortgaged</zorder>
+         <zorder>lBlue2mortgaged</zorder>
+         <zorder>lBlue3mortgaged</zorder>
+         <zorder>pink1mortgaged</zorder>
+         <zorder>pink2mortgaged</zorder>
+         <zorder>pink3mortgaged</zorder>
+         <zorder>orange1mortgaged</zorder>
+         <zorder>orange2mortgaged</zorder>
+         <zorder>orange3mortgaged</zorder>
+         <zorder>red1mortgaged</zorder>
+         <zorder>red2mortgaged</zorder>
+         <zorder>red3mortgaged</zorder>
+         <zorder>yellow1mortgaged</zorder>
+         <zorder>yellow2mortgaged</zorder>
+         <zorder>yellow3mortgaged</zorder>
+         <zorder>rr3mortgaged</zorder>
+         <zorder>u2mortgaged</zorder>
+         <zorder>green1mortgaged</zorder>
+         <zorder>green2mortgaged</zorder>
+         <zorder>green3mortgaged</zorder>
+         <zorder>rr4mortgaged</zorder>
+         <zorder>dBlue1mortgaged</zorder>
+         <zorder>dBlue2mortgaged</zorder>
+         <zorder>u1mortgaged</zorder>
+         <zorder>rr2mortgaged</zorder>
+         <zorder>chanceCardTextBrowser</zorder>
+         <zorder>mortgageGroupBox</zorder>
+         <zorder>housesGroupBox</zorder>
+         <zorder>inJailGroupBox</zorder>
+         <zorder>normalCardFrame</zorder>
+         <zorder>utilityFrame</zorder>
+         <zorder>travelSquareFrame</zorder>
+         <zorder>player1token</zorder>
+         <zorder>player2token</zorder>
+         <zorder>player3token</zorder>
+         <zorder>player4token</zorder>
+         <zorder>player5token</zorder>
+         <zorder>player6token</zorder>
+         <zorder>player7token</zorder>
+         <zorder>player8token</zorder>
         </widget>
        </item>
       </layout>

@@ -269,8 +269,9 @@ class GameWindow(QDialog):
 
         if gameValues.currentPlayer.inJail and gameValues.currentPlayer.turnsInJail >= 3:
             gameValues.currentPlayer.leaveJail(self)
-
+            print('this')
         elif gameValues.currentPlayer.inJail:
+            print('that')
             self.inJailGroupBox.show()
             self.playTurnButton.setEnabled(False)
             self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(gameValues.currentPlayer))
@@ -278,6 +279,7 @@ class GameWindow(QDialog):
             self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(gameValues.currentPlayer))
         
         else:
+            print('the other')
             self.playTurnButton.show()
             self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators))
             
