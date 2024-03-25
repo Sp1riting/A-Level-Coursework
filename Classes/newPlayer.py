@@ -32,6 +32,22 @@ class Player:
         GameWindow.dice1outline.show()
         GameWindow.dice2outline.show()
         
+        GameWindow.dice1dot1.hide()
+        GameWindow.dice1dot2.hide()
+        GameWindow.dice1dot3.hide()
+        GameWindow.dice1dot4.hide()
+        GameWindow.dice1dot5.hide()
+        GameWindow.dice1dot6.hide()
+        GameWindow.dice1dot7.hide()
+
+        GameWindow.dice2dot1.hide()
+        GameWindow.dice2dot2.hide()
+        GameWindow.dice2dot3.hide()
+        GameWindow.dice2dot4.hide()
+        GameWindow.dice2dot5.hide()
+        GameWindow.dice2dot6.hide()
+        GameWindow.dice2dot7.hide()
+
         dice1 = random.randint(1, 6)
 
         if dice1 == 1:
