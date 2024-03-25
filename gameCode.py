@@ -432,7 +432,7 @@ class GameWindow(QDialog):
             
     def rollDoublePressed(self, currentPlayer):
         self.inJailGroupBox.hide()
-        currentPlayer.rollDice(self)
+        roll = currentPlayer.rollDice(self)
         if currentPlayer.doublesCount == 1:
             currentPlayer.leaveJail(self)
             currentPlayer.doublesCount = 0
@@ -441,7 +441,6 @@ class GameWindow(QDialog):
         else:
             currentPlayer.turnsInJail += 1
             self.displayLabel.setText(f"{currentPlayer.name} failed to roll a double, and have now spent {currentPlayer.turnsInJail} days in jail.")
-            self.inJailGroupBox.hide()
             self.endTurnButton.show()
 
 

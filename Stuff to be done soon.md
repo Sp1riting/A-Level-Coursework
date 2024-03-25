@@ -11,7 +11,6 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
-- Rent from jail
 - hide dice after rolling for a double in jail
 - Make mortgaging and houses work
 - Play tokens moving around the game board
