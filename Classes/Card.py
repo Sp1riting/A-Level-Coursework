@@ -26,7 +26,7 @@ class Card:
             print("Sell all houses on this property before mortgaging")
     
     
-    def unmortgage(self, GameWindow, player):
+    def unmortgage(self, GameWindow, player, gameValues):
         if self.cost > player.balance:
             print("You do not have enough to unmortgage this card")
         else:
@@ -34,12 +34,12 @@ class Card:
                 player.travelSquaresOwned += 1
             elif self.cardSet == "Utility":
                 player.utilitiesOwned += 1
-            player.reduceBalance(GameWindow, self.cost)
+            player.reduceBalance(GameWindow, self.cost, gameValues)
             self.mortgaged = False
             player.ownedCards.append(self.cardName)
 
 
-    def purchaseHouse(self, GameWindow, player):
+    def purchaseHouse(self, GameWindow, player, gameValues):
         if self.cardSet == "Travel Square" or self.cardSet == "Utility":
             print("This property cannot gain houses")
         else:
@@ -49,7 +49,7 @@ class Card:
                 print("You have already built the maximum number of houses on this property")
             else:
                 self.housesBuilt += 1
-                player.reduceBalance(GameWindow, self.houseCost)
+                player.reduceBalance(GameWindow, self.houseCost, gameValues)
     
 
     def sellHouse(self, GameWindow, player, gameValues):
@@ -68,7 +68,7 @@ class Card:
                 player.travelSquaresOwned += 1
             elif self.cardSet == "Utility":
                 player.utilitiesOwned += 1
-            player.reduceBalance(GameWindow, self.cost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+            player.reduceBalance(GameWindow, self.cost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
             self.owner = player.name
             self.ownerID = str(player.playerID)
             player.ownedCards.append(self.cardName)

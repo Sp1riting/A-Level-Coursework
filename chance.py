@@ -4,7 +4,7 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, gameValues, moneyF
 
     if currentChance == 0:
         GameWindow.chanceCardTextBrowser.setText("Oh no, your friend is asking for a loan from you. Pay £50.")
-        self.reduceBalance(GameWindow, 50, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+        self.reduceBalance(GameWindow, 50, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
 
     elif currentChance == 1:
         GameWindow.chanceCardTextBrowser.setText(f"Move directly to Go! Collect £{moneyFromGo}.")
@@ -78,7 +78,7 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, gameValues, moneyF
     
     elif currentChance == 10:
         GameWindow.chanceCardTextBrowser.setText("You've been caught speeding around the board. Pay a fine of £20.")
-        self.reduceBalance(GameWindow, 20, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+        self.reduceBalance(GameWindow, 20, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
     
     elif currentChance == 11:
         GameWindow.chanceCardTextBrowser.setText("There was a bank error and you are being compensated. Collect £200.")
@@ -90,7 +90,7 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, gameValues, moneyF
     
     elif currentChance == 13:
         GameWindow.chanceCardTextBrowser.setText("You sprained your wrist driving too hard and have to pay £100 of hospital fees.")
-        self.reduceBalance(GameWindow, 100, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+        self.reduceBalance(GameWindow, 100, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
     
     elif currentChance == 14:
         GameWindow.chanceCardTextBrowser.setText("It's your birthday! Collect £20.")
@@ -98,11 +98,11 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, gameValues, moneyF
     
     elif currentChance == 15:
         GameWindow.chanceCardTextBrowser.setText("You broke down. Pay £100 for repairs.")
-        self.reduceBalance(GameWindow, 100, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+        self.reduceBalance(GameWindow, 100, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
 
     elif currentChance == 16:
         GameWindow.chanceCardTextBrowser.setText("The tax man is hungry. Pay £15 for each house you own.")
-        self.reduceBalance(GameWindow, self.housesOwned * 15, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+        self.reduceBalance(GameWindow, self.housesOwned * 15, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
 
     
     gameValues.chanceCounter += 1

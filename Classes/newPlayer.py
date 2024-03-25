@@ -151,11 +151,11 @@ class Player:
 
         elif boardProperty.cardName == 'Luxury Tax':
             GameWindow.displayLabel.setText(f"{self.name} landed on Luxury Tax and has been fined £75.")
-            self.reduceBalance(GameWindow, 75, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.reduceBalance(GameWindow, 75, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
 
         elif boardProperty.cardName == 'Income Tax':
             GameWindow.displayLabel.setText(f"{self.name} landed on Income Tax and has been fined £200.")
-            self.reduceBalance(GameWindow, 200, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+            self.reduceBalance(GameWindow, 200, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
 
         elif boardProperty.cardName == 'Go To Jail':
             GameWindow.displayLabel.setText(f"{self.name} landed on Go to Jail and has been arrested!")
@@ -264,10 +264,10 @@ class Player:
         return self.balance
 
 
-    def reduceBalance(self, GameWindow, amount, playerList, fastBankruptcy, nonRentPayment, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def reduceBalance(self, GameWindow, amount, playerList, fastBankruptcy, nonRentPayment, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues):
         if self.balance < amount:
             if fastBankruptcy:
-                self.bankruptPlayer(GameWindow, playerList, houseIndicators, mortgageIndicators, ownershipIndicators)
+                self.bankruptPlayer(GameWindow, playerList, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
             else:
                 GameWindow.bankruptButton.show()
                 GameWindow.endTurnButton.hide()
@@ -300,7 +300,7 @@ class Player:
         if isDoubled:
             rent *= 2
         GameWindow.displayLabel2.setText(f"{self.name} is paying £{rent} to {cardOwner.name} for rent.")
-        self.reduceBalance(GameWindow, rent, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators)
+        self.reduceBalance(GameWindow, rent, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
         cardOwner.addBalance(GameWindow, rent, gameValues)
         gameValues.rentPaid += rent
 
@@ -319,7 +319,7 @@ class Player:
         else:
             return False
         
-    def bankruptPlayer(self, GameWindow, playerList, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def bankruptPlayer(self, GameWindow, playerList, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues):
         self.balance = 0
         self.travelSquaresOwned = 0
         self.bankrupt = True
@@ -343,8 +343,20 @@ class Player:
                 ownershipIndicators[position].hide()
                 
         playerList.remove(self)
-        GameWindow.displayLabel.setText(f"{self.name} is now bankrupt. It is game over for them!")
-        GameWindow.displayLabel2.setText("")
+        GameWindow.displayLabel2.setText(f"{self.name} is now bankrupt. It is game over for them!")
+        GameWindow.displayLabel.setText("")
+        if self.gameHasEnded(playerList):
+            gameValues.gameEnded = True
+
+    def gameHasEnded(self, playerList):
+        counter = 0
+        for player in playerList:
+            if player.bankrupt:
+                counter += 1
+        if counter == len(playerList) - 1:
+            return True
+        else:
+            return False
 
 
     def findOwner(self, card, playerList):
