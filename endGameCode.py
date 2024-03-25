@@ -12,10 +12,10 @@ class EndGameWindow(QDialog):
         loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\endGameScreen.ui', self)
         self.winnerDisplayLabel.setText(playerList[0].name)
         self.doublesDisplayLabel.setText(f"£{gameValues.doublesRolled}")
-        self.propertiesDisplayLabel.setText(gameValues.propertiesPurchased)
+        self.propertiesDisplayLabel.setText(f"gameValues.propertiesPurchased")
         self.earnedDisplayLabel.setText(f"£{gameValues.moneyEarned}")
         self.rentDisplayLabel.setText(f"£{gameValues.rentPaid}")
-        self.goDisplayLabel.setText(gameValues.passedGo)
+        self.goDisplayLabel.setText(f"gameValues.passedGo")
 
         query = database.execute("SELECT * FROM users WHERE username = ?",(username,))
         instance = query.fetchone()
