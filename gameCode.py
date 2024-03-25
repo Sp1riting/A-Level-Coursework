@@ -363,9 +363,20 @@ class GameWindow(QDialog):
                 gameValues.doublesRolled += 1
             gameValues.currentPlayer.movePlayer(self, diceRoll)
             gameValues.currentPlayer.checkPosition(self, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
-            self.mortgageButton.setEnabled(True)
-            self.tradeButton.setEnabled(True)
-            self.housesButton.setEnabled(True)
+            if gameValues.currentPlayer.balance >= 0:
+                self.mortgageButton.setEnabled(True)
+                self.tradeButton.setEnabled(True)
+                self.housesButton.setEnabled(True)
+            elif fastBankruptcy:
+                tempIndex = (playerList.index(gameValues.currentPlayer)) % len(playerList)
+                gameValues.currentPlayer.bankruptPlayer(self, playerList, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
+                gameValues.currentPlayer = playerList[tempIndex]
+                self.currentPlayerLabel.setText(gameValues.currentPlayer.name)
+                self.displayLabel.setText(f"{gameValues.currentPlayer.name}'s turn has now started.")
+                self.bankruptButton.hide()
+                self.endTurnButton.hide()
+                self.playTurnButton.setEnabled(True)
+                return
             
             if gameValues.currentPlayer.balance < 0:
                 self.playTurnButton.setEnabled(False)

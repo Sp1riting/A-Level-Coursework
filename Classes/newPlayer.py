@@ -293,7 +293,7 @@ class Player:
         self.balance -= amount
         if self.balance < 0:
             if fastBankruptcy:
-                self.bankruptPlayer(GameWindow, playerList, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
+                return self.balance
             else:
                 GameWindow.bankruptButton.show()
                 GameWindow.endTurnButton.hide()

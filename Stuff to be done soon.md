@@ -11,8 +11,8 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
-- Rent from jail
 - Make fast bankruptcy work
+- Rent from jail
 - Make mortgaging and houses work
 - Play tokens moving around the game board
 - when landing on properties, the buttons are not hidden after rolling a double.
