@@ -11,6 +11,8 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
-- Disable other buttons when purchasing menus are showing.
+- Rent from jail
+- Game end screen, which appends the user statistics
 - Make mortgaging and houses work
 - Play tokens moving around the game board
+- when landing on properties, the buttons are not hidden after rolling a double.
