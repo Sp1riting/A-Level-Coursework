@@ -370,18 +370,8 @@ class Player:
         GameWindow.displayLabel.setText("")
         GameWindow.endTurnButton.hide()
         GameWindow.bankruptButton.show()
-        if self.gameHasEnded(playerList):
+        if len(playerList) == 1:
             gameValues.gameEnded = True
-
-    def gameHasEnded(self, playerList):
-        counter = 0
-        for player in playerList:
-            if player.bankrupt:
-                counter += 1
-        if counter == len(playerList) - 1:
-            return True
-        else:
-            return False
 
 
     def findOwner(self, card, playerList):
