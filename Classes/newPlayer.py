@@ -345,10 +345,7 @@ class Player:
         self.balance = 0
         self.travelSquaresOwned = 0
         self.bankrupt = True
-        playerTokens = {}
-        for i in range (0, len(playerList)):
-            playerTokens.append(playerList[i]: playerList[i].token)
-        GameWindow.playerTokens.hide()
+        self.token.hide()
         self.balanceLabel.hide()
         font = self.nameLabel.font()
         font.setStrikeOut(True)
