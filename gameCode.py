@@ -366,8 +366,12 @@ class GameWindow(QDialog):
             self.playTurnButton.setEnabled(True)
         elif gameValues.currentPlayer.balance < 0:
             self.playTurnButton.setEnabled(False)
-            self.bankruptButton.setEnabled(True)
-        else:
+            self.mortgageButton.setEnabled(False)
+            self.tradeButton.setEnabled(False)
+            self.housesButton.setEnabled(False)
+            self.endTurnButton.hide()
+            self.bankruptButton.show()
+        elif gameValues.currentPlayer.balance >= 0:
             self.playTurnButton.setEnabled(False)
             self.endTurnButton.show()
             
@@ -383,10 +387,11 @@ class GameWindow(QDialog):
 
     def bankruptPressed(self, gameValues, playerList, houseIndicators, mortgageIndicators, ownershipIndicators):
         gameValues.currentPlayer = playerList[(playerList.index(gameValues.currentPlayer) + 1) % len(playerList)]
-        self.bankruptPlayer(gameValues.currentPlayer, playerList, houseIndicators, mortgageIndicators, ownershipIndicators)
+        gameValues.currentPlayer.bankruptPlayer(self, playerList, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
         self.currentPlayerLabel.setText(gameValues.currentPlayer.name)
         self.displayLabel.setText(f"{gameValues.currentPlayer.name}'s turn has now started.")
         self.bankruptButton.hide()
+        self.endTurnButton.hide()
         self.playTurnButton.setEnabled(True)
 
 

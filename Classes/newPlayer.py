@@ -283,6 +283,7 @@ class Player:
         self.balance += amount
         GameWindow.transactionLabel.setText(f"£{amount} has been added to {self.name}")
         gameValues.moneyEarned += amount
+        self.balanceLabel.setText(f"£{self.balance}")
         return self.balance
 
 
