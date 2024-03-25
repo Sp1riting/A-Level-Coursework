@@ -31,7 +31,7 @@ class Player:
     def rollDice(self, GameWindow):
         GameWindow.dice1outline.show()
         GameWindow.dice2outline.show()
-
+        
         dice1 = random.randint(1, 6)
 
         if dice1 == 1:
@@ -189,7 +189,7 @@ class Player:
                 GameWindow.mortgageButton.setEnabled(False)
                 GameWindow.housesButton.setEnabled(False)
                 GameWindow.tradeButton.setEnabled(False)
-                
+
                 if boardProperty.cardSet == "Travel Square":
                     GameWindow.travelSquareFrame.show()
                     GameWindow.travelSquareNameLabel.setText(boardProperty.cardName)

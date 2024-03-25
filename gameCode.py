@@ -409,7 +409,7 @@ class GameWindow(QDialog):
         if currentPlayer.doublesCount == 1:
             currentPlayer.leaveJail(self)
             currentPlayer.doublesCount = 0
-            self.displayLabel.setText(f"{currentPlayer.name} has rolled a doubles, and was released from jail.")
+            self.displayLabel.setText(f"{currentPlayer.name} has rolled a double, and was released from jail.")
             self.playTurnButton.setEnabled(True)
         else:
             currentPlayer.turnsInJail += 1
