@@ -184,6 +184,12 @@ class Player:
 
             else:
                 GameWindow.displayLabel.setText(f"{self.name} landed on {boardProperty.cardName}")
+                GameWindow.endTurnButton.setEnabled(False)
+                GameWindow.bankruptButton.setEnabled(False)
+                GameWindow.mortgageButton.setEnabled(False)
+                GameWindow.housesButton.setEnabled(False)
+                GameWindow.tradeButton.setEnabled(False)
+                
                 if boardProperty.cardSet == "Travel Square":
                     GameWindow.travelSquareFrame.show()
                     GameWindow.travelSquareNameLabel.setText(boardProperty.cardName)
