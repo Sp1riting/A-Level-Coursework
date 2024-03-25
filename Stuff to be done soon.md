@@ -11,7 +11,7 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
-- hide dice after rolling for a double in jail
 - Make mortgaging and houses work
 - Play tokens moving around the game board
 - when landing on properties, the buttons are not hidden after rolling a double.
+- Clean up mortgage, houses and trade indicators by putting them into the gameValues class
