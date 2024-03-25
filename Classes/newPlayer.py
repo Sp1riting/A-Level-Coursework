@@ -345,7 +345,8 @@ class Player:
         self.balance = 0
         self.travelSquaresOwned = 0
         self.bankrupt = True
-        GameWindow.self.token.hide()
+        playerToken = self.token
+        GameWindow.playerToken.hide()
         self.balanceLabel.hide()
         font = self.nameLabel.font()
         font.setStrikeOut(True)
