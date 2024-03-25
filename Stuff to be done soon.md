@@ -11,6 +11,6 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
-- Move the purchase property menus to better spots, and disable other buttons when they are showing.
+- Disable other buttons when purchasing menus are showing.
 - Make mortgaging and houses work
 - Play tokens moving around the game board

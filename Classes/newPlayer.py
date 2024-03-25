@@ -210,24 +210,31 @@ class Player:
         elif board[i].ownerID != "0":
             GameWindow.displayLabel.setText(f"{self.name} landed on {board[i].cardName}")
             self.payRent(GameWindow, board[i], playerList, diceRoll, isDoubled, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators)
-        elif board[i].cardSet == "Travel Square":
-            GameWindow.travelSquareFrame.show()
-            GameWindow.travelSquareNameLabel.setText(board[i].cardName)
-        elif board[i].cardSet == "Utility":
-            GameWindow.utilityFrame.show()
-            GameWindow.utilityNameLabel.setText(board[i].cardName)
         else:
-            GameWindow.normalCardFrame.show()
-            GameWindow.normalCardNameLabel.setText(board[i].cardName)
-            GameWindow.normalCardColourDisplayLabel.setText(board[i].cardSet)
-            GameWindow.normalCardCostDisplayLabel.setText(f"£{board[i].cost}")
-            GameWindow.normalCardHouseCostDisplayLabel.setText(f"£{board[i].houseCost}")
-            GameWindow.normalCardBaseAmountLabel.setText(f"£{board[i].rentAmounts[0]}")
-            GameWindow.normalCardOneAmountLabel.setText(f"£{board[i].rentAmounts[1]}")
-            GameWindow.normalCardTwoAmountLabel.setText(f"£{board[i].rentAmounts[2]}")
-            GameWindow.normalCardThreeAmountLabel.setText(f"£{board[i].rentAmounts[3]}")
-            GameWindow.normalCardFourAmountLabel.setText(f"£{board[i].rentAmounts[4]}")
-            GameWindow.normalCardFiveAmountLabel.setText(f"£{board[i].rentAmounts[5]}")
+            GameWindow.endTurnButton.setEnabled(False)
+            GameWindow.bankruptButton.setEnabled(False)
+            GameWindow.mortgageButton.setEnabled(False)
+            GameWindow.housesButton.setEnabled(False)
+            GameWindow.tradeButton.setEnabled(False)
+
+            if board[i].cardSet == "Travel Square":
+                GameWindow.travelSquareFrame.show()
+                GameWindow.travelSquareNameLabel.setText(board[i].cardName)
+            elif board[i].cardSet == "Utility":
+                GameWindow.utilityFrame.show()
+                GameWindow.utilityNameLabel.setText(board[i].cardName)
+            else:
+                GameWindow.normalCardFrame.show()
+                GameWindow.normalCardNameLabel.setText(board[i].cardName)
+                GameWindow.normalCardColourDisplayLabel.setText(board[i].cardSet)
+                GameWindow.normalCardCostDisplayLabel.setText(f"£{board[i].cost}")
+                GameWindow.normalCardHouseCostDisplayLabel.setText(f"£{board[i].houseCost}")
+                GameWindow.normalCardBaseAmountLabel.setText(f"£{board[i].rentAmounts[0]}")
+                GameWindow.normalCardOneAmountLabel.setText(f"£{board[i].rentAmounts[1]}")
+                GameWindow.normalCardTwoAmountLabel.setText(f"£{board[i].rentAmounts[2]}")
+                GameWindow.normalCardThreeAmountLabel.setText(f"£{board[i].rentAmounts[3]}")
+                GameWindow.normalCardFourAmountLabel.setText(f"£{board[i].rentAmounts[4]}")
+                GameWindow.normalCardFiveAmountLabel.setText(f"£{board[i].rentAmounts[5]}")
 
 
     def leaveJail(self, GameWindow):

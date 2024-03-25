@@ -292,25 +292,55 @@ class GameWindow(QDialog):
         card = Cards.locateCard(cardNameLabel.text(), board)
         Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
         self.travelSquareFrame.hide()
+        self.endTurnButton.setEnabled(True)
+        self.bankruptButton.setEnabled(True)
+        self.mortgageButton.setEnabled(True)
+        self.housesButton.setEnabled(True)
+        self.tradeButton.setEnabled(True)
 
     def noPurchaseTravelSquare(self):
         self.travelSquareFrame.hide()
+        self.endTurnButton.setEnabled(True)
+        self.bankruptButton.setEnabled(True)
+        self.mortgageButton.setEnabled(True)
+        self.housesButton.setEnabled(True)
+        self.tradeButton.setEnabled(True)
 
     def purchaseUtility(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
         card = Cards.locateCard(cardNameLabel.text(), board)
         Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
         self.utilityFrame.hide()
+        self.endTurnButton.setEnabled(True)
+        self.bankruptButton.setEnabled(True)
+        self.mortgageButton.setEnabled(True)
+        self.housesButton.setEnabled(True)
+        self.tradeButton.setEnabled(True)
 
     def noPurchaseUtility(self):
         self.utilityFrame.hide()
+        self.endTurnButton.setEnabled(True)
+        self.bankruptButton.setEnabled(True)
+        self.mortgageButton.setEnabled(True)
+        self.housesButton.setEnabled(True)
+        self.tradeButton.setEnabled(True)
 
     def purchaseNormalCard(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy):
         card = Cards.locateCard(cardNameLabel.text(), board)
         Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy)
         self.normalCardFrame.hide()
+        self.endTurnButton.setEnabled(True)
+        self.bankruptButton.setEnabled(True)
+        self.mortgageButton.setEnabled(True)
+        self.housesButton.setEnabled(True)
+        self.tradeButton.setEnabled(True)
 
     def noPurchaseNormalCard(self):
         self.normalCardFrame.hide()
+        self.endTurnButton.setEnabled(True)
+        self.bankruptButton.setEnabled(True)
+        self.mortgageButton.setEnabled(True)
+        self.housesButton.setEnabled(True)
+        self.tradeButton.setEnabled(True)
 
     
     def playTurnPressed(self, gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators):
