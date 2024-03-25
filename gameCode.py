@@ -353,9 +353,15 @@ class GameWindow(QDialog):
         self.displayLabel2.setText("")
         self.chanceCardTextBrowser.hide()
         self.playTurnButton.setEnabled(False)
+        self.mortgageButton.setEnabled(False)
+        self.tradeButton.setEnabled(False)
+        self.housesButton.setEnabled(False)
         diceRoll = gameValues.currentPlayer.rollDice(self)
         gameValues.currentPlayer.movePlayer(self, diceRoll)
         gameValues.currentPlayer.checkPosition(self, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
+        self.mortgageButton.setEnabled(True)
+        self.tradeButton.setEnabled(True)
+        self.housesButton.setEnabled(True)
         if gameValues.currentPlayer.doublesCount > 0:
             self.playTurnButton.setEnabled(True)
         else:

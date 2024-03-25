@@ -118,13 +118,13 @@ class Player:
             if self.doublesCount == 3:
                 GameWindow.displayLabel2.setText(f"{self.name} rolled three doubles, and is going to jail.")
                 self.sendToJail(GameWindow)
-                QtTest.QTest.qWait(2000)
+                QtTest.QTest.qWait(1000)
                 return roll
             GameWindow.displayLabel2.setText(f"{self.name} rolled a double, and will play again.")
-            QtTest.QTest.qWait(2000)
+            QtTest.QTest.qWait(1000)
         else:
             self.doublesCount = 0
-            QtTest.QTest.qWait(2000)
+            QtTest.QTest.qWait(1000)
         return roll
 
 
