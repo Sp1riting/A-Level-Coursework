@@ -426,22 +426,15 @@ class GameWindow(QDialog):
             self.playTurnButton.setEnabled(True)
             if currentPlayer.balance >= 0:
                 self.endTurnButton.show()
+                self.playTurnButton.setEnabled(False)
         else:
             self.inJailMessageLabel.setText("You don't have enough money for bail.")
 
             
     def rollDoublePressed(self, currentPlayer):
         self.inJailGroupBox.hide()
-        roll = currentPlayer.rollDice(self)
-        if currentPlayer.doublesCount == 1:
-            currentPlayer.leaveJail(self)
-            currentPlayer.doublesCount = 0
-            self.displayLabel.setText(f"{currentPlayer.name} has rolled a double, and was released from jail.")
-            self.playTurnButton.setEnabled(True)
-        else:
-            currentPlayer.turnsInJail += 1
-            self.displayLabel.setText(f"{currentPlayer.name} failed to roll a double, and have now spent {currentPlayer.turnsInJail} days in jail.")
-            self.endTurnButton.show()
+        currentPlayer.rollDice(self)
+        
 
 
         

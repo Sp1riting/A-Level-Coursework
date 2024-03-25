@@ -48,7 +48,8 @@ class Player:
         GameWindow.dice2dot6.hide()
         GameWindow.dice2dot7.hide()
 
-        dice1 = random.randint(1, 6)
+        dice1 = 5
+        #dice1 = random.randint(1, 6)
 
         if dice1 == 1:
             GameWindow.dice1dot4.show()
@@ -78,7 +79,8 @@ class Player:
             GameWindow.dice1dot6.show()
             GameWindow.dice1dot7.show()
 
-        dice2 = random.randint(1, 6)
+        dice2 = 5
+        #dice2 = random.randint(1, 6)
 
         if dice2 == 1:
             GameWindow.dice2dot4.show()
@@ -112,8 +114,18 @@ class Player:
         roll = dice1 + dice2
         GameWindow.displayLabel.setText(f"{self.name} threw a {dice1} and a {dice2}, giving a roll of {roll}.")
         
+        if self.inJail:
+            if dice1 == dice2:
+                self.leaveJail(GameWindow)
+                self.doublesCount = 0
+                GameWindow.displayLabel.setText(f"{self.name} has rolled a double, and was released from jail.")
+                GameWindow.playTurnButton.setEnabled(True)
+            else:
+                self.turnsInJail += 1
+                GameWindow.displayLabel.setText(f"{self.name} failed to roll a double, and have now spent {self.turnsInJail} days in jail.")
+                GameWindow.endTurnButton.show()
 
-        if dice1 == dice2:
+        elif dice1 == dice2:
             self.doublesCount += 1
             if self.doublesCount == 3:
                 GameWindow.displayLabel2.setText(f"{self.name} rolled three doubles, and is going to jail.")
