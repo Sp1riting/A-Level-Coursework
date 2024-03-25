@@ -11,7 +11,11 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
+- Hide appropriate game tokens beforehand.
 - Make mortgaging and houses work
-- Play tokens moving around the game board
+- wait a second after chance card is landed on
 - when landing on properties, the buttons are not hidden after rolling a double.
+
+
 - Clean up mortgage, houses and trade indicators by putting them into the gameValues class
+- Eventually remove the chance symbol from the background image

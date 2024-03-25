@@ -63,6 +63,7 @@ class GameWindow(QDialog):
         else:
             self.player1NameLabel.hide()
             self.player1BalanceLabel.hide()
+            self.player1token.hide()
         
         if numberOfPlayers >= 2:
             self.player2NameLabel.setText(playerNames[1])
@@ -72,6 +73,7 @@ class GameWindow(QDialog):
         else:
             self.player2NameLabel.hide()
             self.player2BalanceLabel.hide()
+            self.player2token.hide()
 
         if numberOfPlayers >= 3:
             self.player3NameLabel.setText(playerNames[2])
@@ -81,6 +83,7 @@ class GameWindow(QDialog):
         else:
             self.player3NameLabel.hide()
             self.player3BalanceLabel.hide()
+            self.player3token.hide()
 
         if numberOfPlayers >= 4:
             self.player4NameLabel.setText(playerNames[3])
@@ -90,6 +93,7 @@ class GameWindow(QDialog):
         else:
             self.player4NameLabel.hide()
             self.player4BalanceLabel.hide()
+            self.player4token.hide()
 
         if numberOfPlayers >= 5:
             self.player5NameLabel.setText(playerNames[4])
@@ -99,6 +103,7 @@ class GameWindow(QDialog):
         else:
             self.player5NameLabel.hide()
             self.player5BalanceLabel.hide()
+            self.player5token.hide()
 
         if numberOfPlayers >= 6:
             self.player6NameLabel.setText(playerNames[5])
@@ -108,6 +113,7 @@ class GameWindow(QDialog):
         else:
             self.player6NameLabel.hide()
             self.player6BalanceLabel.hide()
+            self.player6token.hide()
 
         if numberOfPlayers >= 7:
             self.player7NameLabel.setText(playerNames[6])
@@ -117,6 +123,7 @@ class GameWindow(QDialog):
         else:
             self.player7NameLabel.hide()
             self.player7BalanceLabel.hide()
+            self.player7token.hide()
 
         if numberOfPlayers >= 8:
             self.player8NameLabel.setText(playerNames[7])
@@ -126,6 +133,7 @@ class GameWindow(QDialog):
         else:
             self.player8NameLabel.hide()
             self.player8BalanceLabel.hide()
+            self.player8token.hide()
 
         mortgageIndicators = ["N/A", 
                               self.brown1mortgaged, 
