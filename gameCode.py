@@ -7,6 +7,7 @@ import main as main
 import Classes.newPlayer as Players
 import Classes.card as Cards
 from GameStart import board as board
+from endGameCode import EndGameWindow as endGameWindow 
 
 class GameWindow(QDialog):
 
@@ -265,7 +266,9 @@ class GameWindow(QDialog):
         self.playTurnButton.setEnabled(True)
 
         if gameValues.gameEnded == True:
-            pass #add end game screen here
+            self._new_window = endGameWindow(gameValues, playerList, username)
+            self.close()
+            self._new_window.show()
 
 
         self.playTurnButton.show()
@@ -439,3 +442,4 @@ class values:
     def __init__(self, currentPlayer, randomList):
         self.currentPlayer = currentPlayer
         self.randomList = randomList
+

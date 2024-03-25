@@ -34,8 +34,8 @@ class PreGameSettingsWindow(QDialog):
                 playerNames.append(f"player{i}")
 
         self._new_window = gameWindow(username, startingBalance, moneyFromGo, numberOfPlayers, fastBankruptcy, rentFromJail, playerNames)
+        self.close()
         self._new_window.show()
-        self.close
 
 
 
