@@ -28,9 +28,10 @@ class EndGameWindow(QDialog):
         passedGoValue = instance[7] + gameValues.passedGo
 
         database.execute(f"""UPDATE users 
-                         SET rolledDoubles = {doublesRolledValue}, gamesPlayed = {gamesPlayedValue}, propertiesBought = {propertiesPurchasedValue}, moneyEarned = {moneyEarnedValue}, rentPaid = {rentPaidValue}, passedGo = {passedGoValue} 
-                         WHERE username = ?""",(username,)
+                         SET rolledDoubles = ?, gamesPlayed = ?, propertiesBought = ?, moneyEarned = ?, rentPaid = ?, passedGo = ? 
+                         WHERE username = ?""",(doublesRolledValue, gamesPlayedValue, propertiesPurchasedValue, moneyEarnedValue, rentPaidValue, passedGoValue, username,)
                          )
+        conn.commit()
         
 
         self.gameEndReturnButton.clicked.connect(self.close)
