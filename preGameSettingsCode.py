@@ -8,6 +8,8 @@ class PreGameSettingsWindow(QDialog):
     def __init__(self, username, fastBankruptcy, rentFromJail):
         super(PreGameSettingsWindow, self).__init__()
         loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\preGameSettings.ui', self)
+        fastBankruptcy = False
+        rentFromJail = False
         self.preGamePlayButton.clicked.connect(lambda:self.game(username, fastBankruptcy, rentFromJail))
         self.preGameReturnButton.clicked.connect(self.close)
         fastBankruptcy = self.fastBankruptcyCheckBox.clicked.connect(lambda:self.changeFastBankruptcy(fastBankruptcy))

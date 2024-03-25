@@ -11,6 +11,7 @@ Game things:
 - Add fast bankruptcies
 
 UI Things:
+- Bankruptcy stuff is all broken. Please fix this
 - Rent from jail
 - Game end screen, which appends the user statistics
 - Make mortgaging and houses work
