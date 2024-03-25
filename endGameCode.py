@@ -11,7 +11,7 @@ class EndGameWindow(QDialog):
         super(EndGameWindow, self).__init__()
         loadUi('C:\\Users\\willj\\OneDrive\\Documents\\Y13\\coursework\\UI\\endGameScreen.ui', self)
         self.winnerDisplayLabel.setText(playerList[0].name)
-        self.doublesDisplayLabel.setText(f"£{gameValues.doublesRolled}")
+        self.doublesDisplayLabel.setText(f"{gameValues.doublesRolled}")
         self.propertiesDisplayLabel.setText(f"{gameValues.propertiesPurchased}")
         self.earnedDisplayLabel.setText(f"£{gameValues.moneyEarned}")
         self.rentDisplayLabel.setText(f"£{gameValues.rentPaid}")

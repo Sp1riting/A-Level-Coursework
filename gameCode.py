@@ -359,6 +359,8 @@ class GameWindow(QDialog):
             self.tradeButton.setEnabled(False)
             self.housesButton.setEnabled(False)
             diceRoll = gameValues.currentPlayer.rollDice(self)
+            if gameValues.currentPlayer.doublesCount > 0:
+                gameValues.doublesRolled += 1
             gameValues.currentPlayer.movePlayer(self, diceRoll)
             gameValues.currentPlayer.checkPosition(self, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
             self.mortgageButton.setEnabled(True)
