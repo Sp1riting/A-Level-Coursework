@@ -261,7 +261,7 @@ class GameWindow(QDialog):
                               self.dBlue2lcdNumber
                               ]
 
-        gameValues = values(playerList[0], random.sample([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 17))
+        gameValues = values(playerList[0], random.sample([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 17), rentFromJail)
         self.currentPlayerLabel.setText(playerNames[0])
         self.playTurnButton.setEnabled(True)
 
@@ -451,7 +451,8 @@ class values:
     doublesRolled = 0; propertiesPurchased = 0; moneyEarned = 0; rentPaid = 0; passedGo = 0
     gameEnded = False
     chanceCounter = 0
-    def __init__(self, currentPlayer, randomList):
+    def __init__(self, currentPlayer, randomList, rentFromJail):
         self.currentPlayer = currentPlayer
         self.randomList = randomList
+        self.rentFromJail = rentFromJail
 
