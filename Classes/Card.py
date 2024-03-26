@@ -54,6 +54,7 @@ class Card:
         else:
             GameWindow.housesLabel.setText("")
             self.housesBuilt += 1
+            houseIndicators[gameValues.currentPlayer.currentPos].display(houseIndicators[gameValues.currentPlayer.currentPos].value() + 1)
             gameValues.currentPlayer.reduceBalance(GameWindow, self.houseCost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
     
 
@@ -64,6 +65,7 @@ class Card:
             GameWindow.housesLabel.setText("")
             self.housesBuilt -= 1
             player.addBalance(GameWindow, int(self.houseCost / 2), gameValues)
+            houseIndicators[player.currentPos].display(houseIndicators[player.currentPos].value() - 1)
 
     def purchaseCard(self, GameWindow, player, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         if self.cost > player.balance:
