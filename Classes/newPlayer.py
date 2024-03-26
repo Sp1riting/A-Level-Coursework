@@ -175,6 +175,7 @@ class Player:
         
         elif boardProperty.cardName == 'Jail' and self.inJail:
                 GameWindow.displayLabel.setText(f"{self.name} is in jail.")
+                
 
         elif boardProperty.cardName == 'Luxury Tax':
             GameWindow.displayLabel.setText(f"{self.name} landed on Luxury Tax and has been fined £75.")
@@ -290,8 +291,9 @@ class Player:
         self.inJail = True
         self.token.move(gameValues.cardPositions[self.currentPos * 2], gameValues.cardPositions[self.currentPos * 2 + 1])
         GameWindow.displayLabel2.setText(f"{self.name} has been sent to jail.")
+        GameWindow.playTurnButton.setEnabled(False)
         GameWindow.endTurnButton.show()
-        GameWindow.endTurnButton.isEnabled = True
+        GameWindow.endTurnButton.setEnabled(True)
     
 
     def addBalance(self, GameWindow, amount, gameValues):

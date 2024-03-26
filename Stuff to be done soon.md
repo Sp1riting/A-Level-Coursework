@@ -8,6 +8,7 @@ Game things:
 
 
 UI Things:
+- Landing in jail after 3 doubles immediately moves the player after.
 - Ownership indicators
 - Mortgage indicators
 - House indicators

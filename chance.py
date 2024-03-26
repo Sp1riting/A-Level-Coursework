@@ -9,7 +9,7 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, gameValues, moneyF
     elif currentChance == 1:
         GameWindow.chanceCardTextBrowser.setText(f"Move directly to Go! Collect £{moneyFromGo}.")
         self.currentPos = 0
-        self.token.move(gameValues.cardPositions[self.currentPos * 2], gameValues.cardPositions[self.currentPos * 2 + 1])
+        self.checkPosition(GameWindow, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
         self.addBalance(GameWindow, moneyFromGo, gameValues)
         gameValues.passedGo += 1
 

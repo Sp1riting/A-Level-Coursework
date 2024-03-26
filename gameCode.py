@@ -315,7 +315,7 @@ class GameWindow(QDialog):
             self.mortgageLabel.setText("Please select a property")
         else:
             currentCard = Cards.locateCard(cardString, board)
-            Cards.Card.unmortgage(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators)
+            Cards.Card.unmortgage(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, board)
     
     def mortgagePressed(self, board, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators):
         cardString = self.mortgageSelectionComboBox.currentText()
@@ -323,7 +323,7 @@ class GameWindow(QDialog):
             self.mortgageLabel.setText("Please select a property")
         else:
             currentCard = Cards.locateCard(cardString, board)
-            Cards.Card.mortgage(currentCard, self, gameValues.currentPlayer, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators)
+            Cards.Card.mortgage(currentCard, self, gameValues.currentPlayer, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators, board)
 
     def returnMortgagePressed(self):
         self.mortgageGroupBox.hide()
@@ -354,25 +354,25 @@ class GameWindow(QDialog):
                         self.buyHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
                     if currentCard.housesBuilt > 0:
                         self.sellHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
-            self.buyHouseButton.clicked.connect(lambda:self.buyHousePressed(gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
-            self.sellHouseButton.clicked.connect(lambda:self.sellHousePressed(gameValues, houseIndicators, mortgageIndicators, ownershipIndicators))
+            self.buyHouseButton.clicked.connect(lambda:self.buyHousePressed(gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, board))
+            self.sellHouseButton.clicked.connect(lambda:self.sellHousePressed(gameValues, houseIndicators, mortgageIndicators, ownershipIndicators, board))
         self.houseReturnButton.clicked.connect(self.houseReturnPressed)
 
-    def buyHousePressed(self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def buyHousePressed(self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, board):
         cardString = self.buyHouseSelectionComboBox.currentText()
         if cardString == "Select Property":
             self.housesLabel.setText("Please select a property")
         else:
             currentCard = Cards.locateCard(cardString, board)
-            Cards.Card.purchaseHouse(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators)
+            Cards.Card.purchaseHouse(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, board)
 
-    def sellHousePressed(self, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def sellHousePressed(self, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators, board):
         cardString = self.sellHouseSelectionComboBox.currentText()
         if cardString == "Select Property":
             self.housesLabel.setText("Please select a property")
         else:
             currentCard = Cards.locateCard(cardString, board)
-            Cards.Card.sellHouse(currentCard, self, gameValues.currentPlayer, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators)
+            Cards.Card.sellHouse(currentCard, self, gameValues.currentPlayer, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators, board)
 
     def houseReturnPressed(self):
         self.housesGroupBox.hide()
@@ -384,7 +384,7 @@ class GameWindow(QDialog):
 
     def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         card = Cards.locateCard(cardNameLabel.text(), board)
-        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues)
+        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues, board)
         self.travelSquareFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
@@ -402,7 +402,7 @@ class GameWindow(QDialog):
 
     def purchaseUtility(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         card = Cards.locateCard(cardNameLabel.text(), board)
-        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues)
+        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues, board)
         self.utilityFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
@@ -420,7 +420,7 @@ class GameWindow(QDialog):
 
     def purchaseNormalCard(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         card = Cards.locateCard(cardNameLabel.text(), board)
-        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues)
+        Cards.Card.purchaseCard(card, self, currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues, board)
         self.normalCardFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
@@ -479,7 +479,7 @@ class GameWindow(QDialog):
                 self.playTurnButton.setEnabled(True)
                 return
             
-            if gameValues.currentPlayer.balance < 0:
+            elif gameValues.currentPlayer.balance < 0:
                 self.playTurnButton.setEnabled(False)
                 self.endTurnButton.hide()
                 self.bankruptButton.show()

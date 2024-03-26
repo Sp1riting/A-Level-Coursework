@@ -13,7 +13,7 @@ class Card:
         self.mortgageCost = mortgageCost
         self.rentAmounts = rentAmounts
     
-    def mortgage(self, GameWindow, player, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def mortgage(self, GameWindow, player, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators, board):
         if not self.mortgaged:
             if self.housesBuilt == 0 or self.housesBuilt == "N/A":
                 if self.cardSet == "TravelSquare":
@@ -28,7 +28,7 @@ class Card:
             GameWindow.mortgageLabel.setText("You have already mortgaged this property.")
     
     
-    def unmortgage(self, GameWindow, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def unmortgage(self, GameWindow, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, board):
         if self.mortgaged:
             if self.cost > gameValues.currentPlayer.balance:
                 GameWindow.mortgageLabel.setText("You do not have enough to unmortgage this card")
@@ -44,7 +44,7 @@ class Card:
             GameWindow.mortgageLabel.setText("You have already unmortgaged this property")
 
 
-    def purchaseHouse(self, GameWindow, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def purchaseHouse(self, GameWindow, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, board):
         if int(self.houseCost) > gameValues.currentPlayer.balance:
             GameWindow.housesLabel.setText("You do not have enough to purchase this house")
         elif self.housesBuilt >= 5:
@@ -52,20 +52,20 @@ class Card:
         else:
             GameWindow.housesLabel.setText("")
             self.housesBuilt += 1
-            houseIndicators[gameValues.currentPlayer.currentPos].display(houseIndicators[gameValues.currentPlayer.currentPos].value() + 1)
+            houseIndicators[board.index(self)].display(houseIndicators[board.index(self)].value() + 1)
             gameValues.currentPlayer.reduceBalance(GameWindow, int(self.houseCost), playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
     
 
-    def sellHouse(self, GameWindow, player, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def sellHouse(self, GameWindow, player, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators, board):
         if self.housesBuilt == 0:
             GameWindow.housesLabel.setText("You cannot sell houses from this property")
         else:
             GameWindow.housesLabel.setText("")
             self.housesBuilt -= 1
-            houseIndicators[player.currentPos].display(houseIndicators[player.currentPos].value() - 1)
+            houseIndicators[board.index(self)].display(houseIndicators[board.index(self)].value() - 1)
             player.addBalance(GameWindow, int(self.houseCost / 2), gameValues)
 
-    def purchaseCard(self, GameWindow, player, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
+    def purchaseCard(self, GameWindow, player, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues, board):
         if self.cost > player.balance:
             GameWindow.displayLabel2.setText("You did not have enough to purchase this card")
         else:
