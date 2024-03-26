@@ -302,7 +302,7 @@ class GameWindow(QDialog):
                 else:
                     self.mortgageSelectionComboBox.addItem(f"{currentCard.cardName}")
             self.unmortgageItemButton.clicked.connect(lambda:Cards.Card.unmortgage(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
-            self.mortgageItemButton.clicked.connect(lambda:Cards.Card.mortgage(currentCard, self, gameValues.currentPlayer, gameValues))
+            self.mortgageItemButton.clicked.connect(lambda:Cards.Card.mortgage(currentCard, self, gameValues.currentPlayer, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators))
         self.mortgageReturnButton.clicked.connect(self.returnMortgagePressed)
 
     def returnMortgagePressed(self):
@@ -329,7 +329,7 @@ class GameWindow(QDialog):
                     if currentCard.housesBuilt > 0:
                         self.sellHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
             self.buyHouseButton.clicked.connect(lambda:Cards.Card.purchaseHouse(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
-            self.sellHouseButton.clicked.connect(lambda:Cards.Card.sellHouse(currentCard, self, gameValues.currentPlayer, gameValues))
+            self.sellHouseButton.clicked.connect(lambda:Cards.Card.sellHouse(currentCard, self, gameValues.currentPlayer, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators))
         self.houseReturnButton.clicked.connect(self.houseReturnPressed)
 
     def houseReturnPressed(self):

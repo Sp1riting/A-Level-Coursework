@@ -13,7 +13,7 @@ class Card:
         self.mortgageCost = mortgageCost
         self.rentAmounts = rentAmounts
     
-    def mortgage(self, GameWindow, player, gameValues):
+    def mortgage(self, GameWindow, player, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators):
         if self.cardName in player.ownedCards:
             if self.housesBuilt == 0 or self.housesBuilt == "N/A":
                 if self.cardSet == "TravelSquare":
@@ -57,7 +57,7 @@ class Card:
             gameValues.currentPlayer.reduceBalance(GameWindow, self.houseCost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
     
 
-    def sellHouse(self, GameWindow, player, gameValues):
+    def sellHouse(self, GameWindow, player, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators):
         if self.housesBuilt == 0:
             GameWindow.housesLabel.setText("You cannot sell houses from this property")
         else:
