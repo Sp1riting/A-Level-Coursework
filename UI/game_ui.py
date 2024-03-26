@@ -704,7 +704,7 @@ class Ui_Dialog(object):
         self.unmortgageItemButton.setFont(font6)
         self.mortgageLabel = QLabel(self.mortgageGroupBox)
         self.mortgageLabel.setObjectName(u"mortgageLabel")
-        self.mortgageLabel.setGeometry(QRect(10, 139, 251, 31))
+        self.mortgageLabel.setGeometry(QRect(10, 139, 251, 61))
         self.mortgageLabel.setAlignment(Qt.AlignCenter)
         self.mortgageLabel.setWordWrap(True)
         self.mortgageReturnButton = QPushButton(self.mortgageGroupBox)
@@ -735,7 +735,7 @@ class Ui_Dialog(object):
         self.sellHouseButton.setFont(font6)
         self.housesLabel = QLabel(self.housesGroupBox)
         self.housesLabel.setObjectName(u"housesLabel")
-        self.housesLabel.setGeometry(QRect(10, 139, 251, 31))
+        self.housesLabel.setGeometry(QRect(10, 139, 251, 61))
         self.housesLabel.setAlignment(Qt.AlignCenter)
         self.housesLabel.setWordWrap(True)
         self.houseReturnButton = QPushButton(self.housesGroupBox)
@@ -1422,8 +1422,8 @@ class Ui_Dialog(object):
         self.player6token.raise_()
         self.player7token.raise_()
         self.player8token.raise_()
-        self.mortgageGroupBox.raise_()
         self.housesGroupBox.raise_()
+        self.mortgageGroupBox.raise_()
 
         self.gridLayout.addWidget(self.groupBox, 0, 0, 1, 1)
 

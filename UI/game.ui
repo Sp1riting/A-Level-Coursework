@@ -3145,7 +3145,7 @@ p, li { white-space: pre-wrap; }
              <x>10</x>
              <y>139</y>
              <width>251</width>
-             <height>31</height>
+             <height>61</height>
             </rect>
            </property>
            <property name="text">
@@ -3278,7 +3278,7 @@ p, li { white-space: pre-wrap; }
              <x>10</x>
              <y>139</y>
              <width>251</width>
-             <height>31</height>
+             <height>61</height>
             </rect>
            </property>
            <property name="text">
@@ -4895,8 +4895,8 @@ p, li { white-space: pre-wrap; }
          <zorder>player6token</zorder>
          <zorder>player7token</zorder>
          <zorder>player8token</zorder>
-         <zorder>mortgageGroupBox</zorder>
          <zorder>housesGroupBox</zorder>
+         <zorder>mortgageGroupBox</zorder>
         </widget>
        </item>
       </layout>

@@ -49,6 +49,7 @@ class Player:
         GameWindow.dice2dot7.hide()
 
         dice1 = random.randint(1, 6)
+        dice1 = 3
 
         if dice1 == 1:
             GameWindow.dice1dot4.show()
@@ -79,6 +80,7 @@ class Player:
             GameWindow.dice1dot7.show()
 
         dice2 = random.randint(1, 6)
+        dice2 = 4
 
         if dice2 == 1:
             GameWindow.dice2dot4.show()
