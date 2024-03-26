@@ -47,7 +47,7 @@ class Card:
 
 
     def purchaseHouse(self, GameWindow, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
-        if self.houseCost > gameValues.currentPlayer.balance:
+        if int(self.houseCost) > gameValues.currentPlayer.balance:
             GameWindow.housesLabel.setText("You do not have enough to purchase this house")
         elif self.housesBuilt >= 5:
             GameWindow.housesLabel.setText("You have already built the maximum number of houses on this property")
@@ -55,7 +55,7 @@ class Card:
             GameWindow.housesLabel.setText("")
             self.housesBuilt += 1
             houseIndicators[gameValues.currentPlayer.currentPos].display(houseIndicators[gameValues.currentPlayer.currentPos].value() + 1)
-            gameValues.currentPlayer.reduceBalance(GameWindow, self.houseCost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
+            gameValues.currentPlayer.reduceBalance(GameWindow, int(self.houseCost), playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
     
 
     def sellHouse(self, GameWindow, player, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators):
@@ -64,8 +64,8 @@ class Card:
         else:
             GameWindow.housesLabel.setText("")
             self.housesBuilt -= 1
-            player.addBalance(GameWindow, int(self.houseCost / 2), gameValues)
             houseIndicators[player.currentPos].display(houseIndicators[player.currentPos].value() - 1)
+            player.addBalance(GameWindow, int(self.houseCost / 2), gameValues)
 
     def purchaseCard(self, GameWindow, player, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         if self.cost > player.balance:
