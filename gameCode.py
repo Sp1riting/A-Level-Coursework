@@ -390,7 +390,7 @@ class GameWindow(QDialog):
                     self.playTurnButton.setEnabled(False)
                     self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(gameValues.currentPlayer))
                     self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(gameValues.currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues))
-                    self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(gameValues.currentPlayer))
+                    self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(gameValues))
                     return
 
             self.displayLabel2.setText("")
@@ -399,7 +399,7 @@ class GameWindow(QDialog):
             self.mortgageButton.setEnabled(False)
             self.tradeButton.setEnabled(False)
             self.housesButton.setEnabled(False)
-            diceRoll = gameValues.currentPlayer.rollDice(self)
+            diceRoll = gameValues.currentPlayer.rollDice(self, gameValues)
             if gameValues.currentPlayer.doublesCount > 0:
                 gameValues.doublesRolled += 1
             gameValues.currentPlayer.movePlayer(self, diceRoll)
@@ -473,9 +473,9 @@ class GameWindow(QDialog):
             self.inJailMessageLabel.setText("You don't have enough money for bail.")
 
             
-    def rollDoublePressed(self, currentPlayer):
+    def rollDoublePressed(self, gameValues):
         self.inJailGroupBox.hide()
-        currentPlayer.rollDice(self)
+        gameValues.currentPlayer.rollDice(self, gameValues)
         
 
 

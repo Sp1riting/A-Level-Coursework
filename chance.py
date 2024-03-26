@@ -22,7 +22,7 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, gameValues, moneyF
 
     elif currentChance == 4:
         GameWindow.chanceCardTextBrowser.setText(f"Move directly to jail. You may not pass go, or collect £{moneyFromGo}.")
-        self.sendToJail(GameWindow)
+        self.sendToJail(GameWindow, gameValues)
 
     elif currentChance == 5:
         GameWindow.chanceCardTextBrowser.setText("Advance to the nearest travel square. You may buy it if unowned, but must pay double the normal rent if owned.")

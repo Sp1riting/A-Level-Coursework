@@ -28,7 +28,7 @@ class Player:
         self.balanceLabel = balanceLabel
 
 
-    def rollDice(self, GameWindow):
+    def rollDice(self, GameWindow, gameValues):
         GameWindow.dice1outline.show()
         GameWindow.dice2outline.show()
         
@@ -129,7 +129,7 @@ class Player:
             self.doublesCount += 1
             if self.doublesCount == 3:
                 GameWindow.displayLabel2.setText(f"{self.name} rolled three doubles, and is going to jail.")
-                self.sendToJail(GameWindow)
+                self.sendToJail(GameWindow, gameValues)
                 QtTest.QTest.qWait(1000)
                 return roll
             GameWindow.displayLabel2.setText(f"{self.name} rolled a double, and will play again.")
