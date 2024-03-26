@@ -294,7 +294,9 @@ class GameWindow(QDialog):
         self.endTurnButton.setEnabled(False)
         self.bankruptButton.setEnabled(False)
         self.unmortgageSelectionComboBox.clear()
+        self.unmortgageSelectionComboBox.addItem("Select Property")
         self.mortgageSelectionComboBox.clear()
+        self.mortgageSelectionComboBox.addItem("Select Property")
         self.mortgageGroupBox.show()
         if len(gameValues.currentPlayer.ownedCards) > 0:
             for card in gameValues.currentPlayer.ownedCards:
@@ -309,13 +311,19 @@ class GameWindow(QDialog):
 
     def unmortgagePressed(self, board, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
         cardString = self.unmortgageSelectionComboBox.currentText()
-        currentCard = Cards.locateCard(cardString, board)
-        Cards.Card.unmortgage(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators)
+        if cardString == "Select Property":
+            self.mortgageLabel.setText("Please select a property")
+        else:
+            currentCard = Cards.locateCard(cardString, board)
+            Cards.Card.unmortgage(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators)
     
     def mortgagePressed(self, board, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators):
         cardString = self.mortgageSelectionComboBox.currentText()
-        currentCard = Cards.locateCard(cardString, board)
-        Cards.Card.mortgage(currentCard, self, gameValues.currentPlayer, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators)
+        if cardString == "Select Property":
+            self.mortgageLabel.setText("Please select a property")
+        else:
+            currentCard = Cards.locateCard(cardString, board)
+            Cards.Card.mortgage(currentCard, self, gameValues.currentPlayer, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators)
 
     def returnMortgagePressed(self):
         self.mortgageGroupBox.hide()
@@ -333,6 +341,10 @@ class GameWindow(QDialog):
         self.tradeButton.setEnabled(False)
         self.endTurnButton.setEnabled(False)
         self.bankruptButton.setEnabled(False)
+        self.buyHouseSelectionComboBox.clear()
+        self.buyHouseSelectionComboBox.addItem("Select Property")
+        self.sellHouseSelectionComboBox.clear()
+        self.sellHouseSelectionComboBox.addItem("Select Property")
         self.housesGroupBox.show()
         if len(gameValues.currentPlayer.ownedCards) > 0:
             for card in gameValues.currentPlayer.ownedCards:
@@ -348,13 +360,19 @@ class GameWindow(QDialog):
 
     def buyHousePressed(self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
         cardString = self.buyHouseSelectionComboBox.currentText()
-        currentCard = Cards.locateCard(cardString, board)
-        Cards.Card.purchaseHouse(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators)
+        if cardString == "Select Property":
+            self.housesLabel.setText("Please select a property")
+        else:
+            currentCard = Cards.locateCard(cardString, board)
+            Cards.Card.purchaseHouse(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators)
 
     def sellHousePressed(self, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators):
         cardString = self.sellHouseSelectionComboBox.currentText()
-        currentCard = Cards.locateCard(cardString, board)
-        Cards.Card.sellHouse(currentCard, self, gameValues.currentPlayer, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators)
+        if cardString == "Select Property":
+            self.housesLabel.setText("Please select a property")
+        else:
+            currentCard = Cards.locateCard(cardString, board)
+            Cards.Card.sellHouse(currentCard, self, gameValues.currentPlayer, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators)
 
     def houseReturnPressed(self):
         self.housesGroupBox.hide()
