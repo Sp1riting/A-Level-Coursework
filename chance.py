@@ -17,7 +17,7 @@ def drawChance(self, GameWindow, board, playerList, diceRoll, gameValues, moneyF
 
     elif currentChance == 3:
         GameWindow.chanceCardTextBrowser.setText("Ouch! You drove into a lampost and have to fix your car. Go back three spaces.")
-        self.advanceToSquare(GameWindow, board, playerList, diceRoll, True, fastBankruptcy, (self.currentPos - 3) % 40, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
+        self.currentPos -= 3
         self.checkPosition(GameWindow, board, playerList, diceRoll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
 
     elif currentChance == 4:
