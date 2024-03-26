@@ -26,21 +26,24 @@ class Card:
             else:
                 GameWindow.mortgageLabel.setText("Sell all houses on this property before mortgaging")
         else:
-            GameWindow
+            GameWindow.mortgageLabel.setText("You do not own this property")
     
     
     def unmortgage(self, GameWindow, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
-        if self.cost > gameValues.currentPlayer.balance:
-            GameWindow.mortgageLabel.setText("You do not have enough to unmortgage this card")
+        if self.ownerID == str(gameValues.currentPlayer.playerID):
+            if self.cost > gameValues.currentPlayer.balance:
+                GameWindow.mortgageLabel.setText("You do not have enough to unmortgage this card")
+            else:
+                if self.cardSet == "TravelSquare":
+                    gameValues.currentPlayer.travelSquaresOwned += 1
+                elif self.cardSet == "Utility":
+                    gameValues.currentPlayer.utilitiesOwned += 1
+                gameValues.currentPlayer.reduceBalance(GameWindow, self.cost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
+                self.mortgaged = False
+                gameValues.currentPlayer.ownedCards.append(self.cardName)
+                GameWindow.mortgageGroupBox.hide()
         else:
-            if self.cardSet == "TravelSquare":
-                gameValues.currentPlayer.travelSquaresOwned += 1
-            elif self.cardSet == "Utility":
-                gameValues.currentPlayer.utilitiesOwned += 1
-            gameValues.currentPlayer.reduceBalance(GameWindow, self.cost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
-            self.mortgaged = False
-            gameValues.currentPlayer.ownedCards.append(self.cardName)
-            GameWindow.mortgageGroupBox.hide()
+            GameWindow.mortgageLabel.setText("You do not own this property")
 
 
     def purchaseHouse(self, GameWindow, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
