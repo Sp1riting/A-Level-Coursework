@@ -296,8 +296,8 @@ class GameWindow(QDialog):
                         self.buyHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
                     if currentCard.housesBuilt > 0:
                         self.sellHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
-            self.buyHouseButton.clicked.connect(lambda:Cards.Card.purchaseHouse(self, gameValues.currentPlayer, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
-            self.sellHouseButton.clicked.connect(lambda:Cards.Card.sellHouse(self, gameValues.currentPlayer, gameValues))
+            self.buyHouseButton.clicked.connect(lambda:Cards.Card.purchaseHouse(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
+            self.sellHouseButton.clicked.connect(lambda:Cards.Card.sellHouse(currentCard, self, gameValues.currentPlayer, gameValues))
 
 
     def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
