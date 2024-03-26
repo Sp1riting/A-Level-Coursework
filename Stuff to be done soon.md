@@ -8,7 +8,6 @@ Game things:
 
 
 UI Things:
-- Make mortgaging and houses work
 - wait a second after chance card is landed on
 - the buttons are not hidden after rolling a double after landing on properties, or when using the houses or mortgage buttons.
 

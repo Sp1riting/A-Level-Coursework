@@ -197,6 +197,8 @@ class Player:
         elif boardProperty.cardName == 'Chance':
             GameWindow.displayLabel.setText(f"{self.name} landed on Chance, and will draw a card.")
             chanceCounter = chance.drawChance(self, GameWindow, board, playerList, roll, gameValues, moneyFromGo, fastBankruptcy, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators)
+            QtTest.QTest.qWait(1000)
+
 
         else:
             if boardProperty.mortgaged:
