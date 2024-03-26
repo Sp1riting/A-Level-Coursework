@@ -14,8 +14,8 @@ class Card:
         self.rentAmounts = rentAmounts
     
     def mortgage(self, GameWindow, player, gameValues):
-        if player.ownedCards.contains(self.cardName):
-            if self.housesBuilt == 0:
+        if self.cardName in player.ownedCards:
+            if self.housesBuilt == 0 or self.housesBuilt == "N/A":
                 if self.cardSet == "TravelSquare":
                     player.travelSquaresOwned -= 1
                 elif self.cardSet == "Utility":
@@ -30,7 +30,7 @@ class Card:
     
     
     def unmortgage(self, GameWindow, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
-        if not gameValues.currentPlayer.ownedCards.contains(self.cardName):
+        if not self.cardName in gameValues.currentPlayer.ownedCards:
             if self.cost > gameValues.currentPlayer.balance:
                 GameWindow.mortgageLabel.setText("You do not have enough to unmortgage this card")
             else:

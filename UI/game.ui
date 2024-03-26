@@ -3050,7 +3050,7 @@ p, li { white-space: pre-wrap; }
             <x>460</x>
             <y>630</y>
             <width>271</width>
-            <height>231</height>
+            <height>251</height>
            </rect>
           </property>
           <property name="font">
@@ -3162,7 +3162,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>80</x>
-             <y>180</y>
+             <y>200</y>
              <width>111</width>
              <height>41</height>
             </rect>
@@ -3183,7 +3183,7 @@ p, li { white-space: pre-wrap; }
             <x>460</x>
             <y>630</y>
             <width>271</width>
-            <height>221</height>
+            <height>251</height>
            </rect>
           </property>
           <property name="font">
@@ -3295,7 +3295,7 @@ p, li { white-space: pre-wrap; }
            <property name="geometry">
             <rect>
              <x>80</x>
-             <y>170</y>
+             <y>200</y>
              <width>121</width>
              <height>41</height>
             </rect>
@@ -4895,8 +4895,8 @@ p, li { white-space: pre-wrap; }
          <zorder>player6token</zorder>
          <zorder>player7token</zorder>
          <zorder>player8token</zorder>
-         <zorder>housesGroupBox</zorder>
          <zorder>mortgageGroupBox</zorder>
+         <zorder>housesGroupBox</zorder>
         </widget>
        </item>
       </layout>
