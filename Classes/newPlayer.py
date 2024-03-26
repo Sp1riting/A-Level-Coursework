@@ -283,11 +283,12 @@ class Player:
         GameWindow.inJailGroupBox.hide()
     
 
-    def sendToJail(self, GameWindow):
+    def sendToJail(self, GameWindow, gameValues):
         self.currentPos = 10
         self.turnsInJail = 0
         self.doublesCount = 0
         self.inJail = True
+        self.token.move(gameValues.cardPositions[self.currentPos * 2], gameValues.cardPositions[self.currentPos * 2 + 1])
         GameWindow.displayLabel2.setText(f"{self.name} has been sent to jail.")
         GameWindow.endTurnButton.show()
         GameWindow.endTurnButton.isEnabled = True
