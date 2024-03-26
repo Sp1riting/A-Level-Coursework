@@ -349,6 +349,7 @@ class GameWindow(QDialog):
         if len(gameValues.currentPlayer.ownedCards) > 0:
             for card in gameValues.currentPlayer.ownedCards:
                 currentCard =  Cards.locateCard(card, board)
+                print(currentCard.cardName)
                 if currentCard.cardSet != "Travel Square" and currentCard.cardSet != "Utility":
                     if currentCard.housesBuilt < 5:
                         self.buyHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
