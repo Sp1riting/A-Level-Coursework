@@ -288,6 +288,11 @@ class GameWindow(QDialog):
     
 
     def mortgageMenu(self, gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
+        self.mortgageButton.setEnabled(False)
+        self.housesButton.setEnabled(False)
+        self.tradeButton.setEnabled(False)
+        self.endTurnButton.setEnabled(False)
+        self.bankruptButton.setEnabled(False)
         self.mortgageGroupBox.show()
         if len(gameValues.currentPlayer.ownedCards) > 0:
             for card in gameValues.currentPlayer.ownedCards:
@@ -302,8 +307,18 @@ class GameWindow(QDialog):
 
     def returnMortgagePressed(self):
         self.mortgageGroupBox.hide()
+        self.mortgageButton.setEnabled(True)
+        self.housesButton.setEnabled(True)
+        self.tradeButton.setEnabled(True)
+        self.endTurnButton.setEnabled(True)
+        self.bankruptButton.setEnabled(True)
 
     def housesMenu(self, gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
+        self.mortgageButton.setEnabled(False)
+        self.housesButton.setEnabled(False)
+        self.tradeButton.setEnabled(False)
+        self.endTurnButton.setEnabled(False)
+        self.bankruptButton.setEnabled(False)
         self.housesGroupBox.show()
         if len(gameValues.currentPlayer.ownedCards) > 0:
             for card in gameValues.currentPlayer.ownedCards:
@@ -319,6 +334,11 @@ class GameWindow(QDialog):
 
     def houseReturnPressed(self):
         self.housesGroupBox.hide()
+        self.mortgageButton.setEnabled(True)
+        self.housesButton.setEnabled(True)
+        self.tradeButton.setEnabled(True)
+        self.endTurnButton.setEnabled(True)
+        self.bankruptButton.setEnabled(True)
 
     def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         card = Cards.locateCard(cardNameLabel.text(), board)
