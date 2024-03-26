@@ -284,7 +284,24 @@ class GameWindow(QDialog):
         self.endTurnButton.clicked.connect(lambda:self.endTurnPressed(gameValues, playerList))
         self.bankruptButton.clicked.connect(lambda:self.bankruptPressed(gameValues, playerList, houseIndicators, mortgageIndicators, ownershipIndicators))
         self.housesButton.clicked.connect(lambda:self.housesMenu(gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
+        self.mortgageButton.clicked.connect(lambda:self.mortgageMenu(gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
     
+
+    def mortgageMenu(self, gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
+        self.mortgageGroupBox.show()
+        if len(gameValues.currentPlayer.ownedCards) > 0:
+            for card in gameValues.currentPlayer.ownedCards:
+                currentCard =  Cards.locateCard(card, board)
+                if currentCard.mortgaged:
+                    self.unmortgageSelectionComboBox.addItem(f"{currentCard.cardName}")
+                else:
+                    self.mortgageSelectionComboBox.addItem(f"{currentCard.cardName}")
+            self.unmortgageItemButton.clicked.connect(lambda:Cards.Card.unmortgage(currentCard, self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
+            self.mortgageItemButton.clicked.connect(lambda:Cards.Card.mortgage(currentCard, self, gameValues.currentPlayer, gameValues))
+        self.mortgageReturnButton.clicked.connect(self.returnMortgagePressed)
+
+    def returnMortgagePressed(self):
+        self.mortgageGroupBox.hide()
 
     def housesMenu(self, gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
         self.housesGroupBox.show()

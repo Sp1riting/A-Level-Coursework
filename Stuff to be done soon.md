@@ -10,8 +10,8 @@ Game things:
 UI Things:
 - Make mortgaging and houses work
 - wait a second after chance card is landed on
-- when landing on properties, the buttons are not hidden after rolling a double.
+- the buttons are not hidden after rolling a double after landing on properties, or when using the houses or mortgage buttons.
 
 
 - Clean up mortgage, houses and trade indicators by putting them into the gameValues class
-- Eventually remove the chance symbol from the background image
+- Eventually remove the chance symbol from the background image, move title up and chance text down.
