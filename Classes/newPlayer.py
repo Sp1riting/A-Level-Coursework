@@ -12,7 +12,7 @@ class Player:
     travelSquaresOwned = 0
     utilitiesOwned = 0
     housesOwned = 0
-    ownedCards = []
+    ownedCards = None
     turnsInJail = 0
     inJail = False
     bankrupt = False
