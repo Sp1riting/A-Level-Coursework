@@ -309,6 +309,7 @@ class GameWindow(QDialog):
         self.tradeButton.setEnabled(False)
         self.endTurnButton.setEnabled(False)
         self.bankruptButton.setEnabled(False)
+        self.playTurnButton.setEnabled(False)
         self.unmortgageSelectionComboBox.clear()
         self.unmortgageSelectionComboBox.addItem("Select Property")
         self.mortgageSelectionComboBox.clear()
@@ -348,6 +349,7 @@ class GameWindow(QDialog):
         self.tradeButton.setEnabled(True)
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
+        self.playTurnButton.setEnabled(True)
         self.buyHouseSelectionComboBox.clear()
         self.sellHouseSelectionComboBox.clear()
 
@@ -357,6 +359,7 @@ class GameWindow(QDialog):
         self.tradeButton.setEnabled(False)
         self.endTurnButton.setEnabled(False)
         self.bankruptButton.setEnabled(False)
+        self.playTurnButton.setEnabled(False)
         self.buyHouseSelectionComboBox.clear()
         self.buyHouseSelectionComboBox.addItem("Select Property")
         self.sellHouseSelectionComboBox.clear()
@@ -365,7 +368,6 @@ class GameWindow(QDialog):
         if len(gameValues.currentPlayer.ownedCards) > 0:
             for card in gameValues.currentPlayer.ownedCards:
                 currentCard =  Cards.locateCard(card, board)
-                print(currentCard.cardName)
                 if currentCard.cardSet != "Travel Square" and currentCard.cardSet != "Utility":
                     if currentCard.housesBuilt < 5:
                         self.buyHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
@@ -398,6 +400,7 @@ class GameWindow(QDialog):
         self.tradeButton.setEnabled(True)
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
+        self.playTurnButton.setEnabled(True)
 
     def purchaseTravelSquare(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         gameValues.currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues
