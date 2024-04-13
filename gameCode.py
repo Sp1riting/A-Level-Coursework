@@ -406,17 +406,11 @@ class GameWindow(QDialog):
         self.travelSquareFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
-        self.mortgageButton.setEnabled(True)
-        self.housesButton.setEnabled(True)
-        self.tradeButton.setEnabled(True)
 
     def noPurchaseTravelSquare(self):
         self.travelSquareFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
-        self.mortgageButton.setEnabled(True)
-        self.housesButton.setEnabled(True)
-        self.tradeButton.setEnabled(True)
 
     def purchaseUtility(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         card = Cards.locateCard(cardNameLabel.text(), board)
@@ -424,17 +418,11 @@ class GameWindow(QDialog):
         self.utilityFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
-        self.mortgageButton.setEnabled(True)
-        self.housesButton.setEnabled(True)
-        self.tradeButton.setEnabled(True)
 
     def noPurchaseUtility(self):
         self.utilityFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
-        self.mortgageButton.setEnabled(True)
-        self.housesButton.setEnabled(True)
-        self.tradeButton.setEnabled(True)
 
     def purchaseNormalCard(self, currentPlayer, cardNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues):
         card = Cards.locateCard(cardNameLabel.text(), board)
@@ -442,20 +430,17 @@ class GameWindow(QDialog):
         self.normalCardFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
-        self.mortgageButton.setEnabled(True)
-        self.housesButton.setEnabled(True)
-        self.tradeButton.setEnabled(True)
 
     def noPurchaseNormalCard(self):
         self.normalCardFrame.hide()
         self.endTurnButton.setEnabled(True)
         self.bankruptButton.setEnabled(True)
-        self.mortgageButton.setEnabled(True)
-        self.housesButton.setEnabled(True)
-        self.tradeButton.setEnabled(True)
 
     
     def playTurnPressed(self, gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators, username):
+        self.mortgageButton.setEnabled(False)
+        self.tradeButton.setEnabled(False)
+        self.housesButton.setEnabled(False)
         if gameValues.gameEnded:
             self._new_window = endGameWindow(gameValues, playerList, username)
             self.close()
@@ -478,9 +463,6 @@ class GameWindow(QDialog):
             self.displayLabel2.setText("")
             self.chanceCardTextBrowser.hide()
             self.playTurnButton.setEnabled(False)
-            self.mortgageButton.setEnabled(False)
-            self.tradeButton.setEnabled(False)
-            self.housesButton.setEnabled(False)
             diceRoll = gameValues.currentPlayer.rollDice(self, gameValues)
             if gameValues.currentPlayer.doublesCount > 0:
                 gameValues.doublesRolled += 1

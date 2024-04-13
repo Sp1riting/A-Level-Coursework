@@ -77,7 +77,6 @@ class Card:
             self.owner = player.name
             self.ownerID = str(player.playerID)
             player.ownedCards.append(self.cardName)
-            print(player.ownedCards)
             gameValues.propertiesPurchased += 1
 
 
