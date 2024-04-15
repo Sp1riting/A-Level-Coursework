@@ -22,6 +22,7 @@ class Card:
                     player.utilitiesOwned -= 1
                 player.addBalance(GameWindow, self.mortgageCost, gameValues)
                 self.mortgaged = True
+                mortgageIndicators[board.index(self)].show()
             else:
                 GameWindow.mortgageLabel.setText("Sell all houses on this property before mortgaging")
         else:
@@ -40,6 +41,7 @@ class Card:
                 gameValues.currentPlayer.reduceBalance(GameWindow, self.cost, playerList, fastBankruptcy, True, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues)
                 self.mortgaged = False
                 GameWindow.mortgageLabel.setText("")
+                mortgageIndicators[board.index(self)].hide()
         else:
             GameWindow.mortgageLabel.setText("You have already unmortgaged this property")
 
