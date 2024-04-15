@@ -14,12 +14,14 @@ class GameStatisticsWindow(QDialog):
         query = database.execute("SELECT * FROM users WHERE username = ?",(username,))
         instance = query.fetchone()
 
-        self.doublesRolledValue = instance[2]
-        self.gamesPlayedValue = instance[3]
-        self.propertiesPurchasedValue = instance[4]
-        self.moneyEarnedValue = instance[5]
-        self.rentPaidValue = instance[6]
-        self.passedGoValue = instance[7]
+        self.doublesRolledValue.setText(str(instance[2]))
+        self.gamesPlayedValue.setText(str(instance[3]))
+        self.propertiesPurchasedValue.setText(str(instance[4]))
+        self.moneyEarnedValue.setText(f"£{instance[5]}")
+        self.rentPaidValue.setText(f"£{instance[6]}")
+        self.passedGoValue.setText(str(instance[7]))
+
+
 
         self.gameStatsReturnButton.clicked.connect(self.close)
 
