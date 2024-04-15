@@ -288,6 +288,7 @@ class GameWindow(QDialog):
         gameValues = values(playerList[0], random.sample([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16], 17), rentFromJail)
         self.currentPlayerLabel.setText(playerNames[0])
         self.playTurnButton.show()
+
         self.playTurnButton.clicked.connect(lambda:self.playTurnPressed(gameValues, playerList, fastBankruptcy, moneyFromGo, rentFromJail, houseIndicators, mortgageIndicators, ownershipIndicators, username))
         
         self.travelSquarePurchaseButton.clicked.connect(lambda:self.purchaseTravelSquare(gameValues.currentPlayer, self.travelSquareNameLabel, board, houseIndicators, mortgageIndicators, ownershipIndicators, playerList, fastBankruptcy, gameValues))
@@ -301,9 +302,21 @@ class GameWindow(QDialog):
         self.bankruptButton.clicked.connect(lambda:self.bankruptPressed(gameValues, playerList, houseIndicators, mortgageIndicators, ownershipIndicators))
         self.housesButton.clicked.connect(lambda:self.housesMenu(gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
         self.mortgageButton.clicked.connect(lambda:self.mortgageMenu(gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
+
+        self.unmortgageItemButton.clicked.connect(lambda:self.unmortgagePressed(board, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
+        self.mortgageItemButton.clicked.connect(lambda:self.mortgagePressed(board, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators))
+        self.mortgageReturnButton.clicked.connect(self.returnMortgagePressed)
+
+        self.buyHouseButton.clicked.connect(lambda:self.buyHousePressed(gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, board))
+        self.sellHouseButton.clicked.connect(lambda:self.sellHousePressed(gameValues, houseIndicators, mortgageIndicators, ownershipIndicators, board))
+        self.houseReturnButton.clicked.connect(self.houseReturnPressed)
+
+        self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(gameValues.currentPlayer))
+        self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(gameValues.currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues))
+        self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(gameValues))
     
 
-    def mortgageMenu(self, gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def mortgageMenu(self, gameValues, board):
         self.mortgageButton.setEnabled(False)
         self.housesButton.setEnabled(False)
         self.tradeButton.setEnabled(False)
@@ -322,9 +335,7 @@ class GameWindow(QDialog):
                     self.unmortgageSelectionComboBox.addItem(f"{currentCard.cardName}")
                 else:
                     self.mortgageSelectionComboBox.addItem(f"{currentCard.cardName}")
-            self.unmortgageItemButton.clicked.connect(lambda:self.unmortgagePressed(board, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators))
-            self.mortgageItemButton.clicked.connect(lambda:self.mortgagePressed(board, gameValues, houseIndicators, mortgageIndicators, ownershipIndicators))
-        self.mortgageReturnButton.clicked.connect(self.returnMortgagePressed)
+
 
     def unmortgagePressed(self, board, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
         cardString = self.unmortgageSelectionComboBox.currentText()
@@ -353,7 +364,7 @@ class GameWindow(QDialog):
         self.buyHouseSelectionComboBox.clear()
         self.sellHouseSelectionComboBox.clear()
 
-    def housesMenu(self, gameValues, playerList, board, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators):
+    def housesMenu(self, gameValues, board):
         self.mortgageButton.setEnabled(False)
         self.housesButton.setEnabled(False)
         self.tradeButton.setEnabled(False)
@@ -373,9 +384,6 @@ class GameWindow(QDialog):
                         self.buyHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
                     if currentCard.housesBuilt > 0:
                         self.sellHouseSelectionComboBox.addItem(f"{currentCard.cardName}")
-            self.buyHouseButton.clicked.connect(lambda:self.buyHousePressed(gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, board))
-            self.sellHouseButton.clicked.connect(lambda:self.sellHousePressed(gameValues, houseIndicators, mortgageIndicators, ownershipIndicators, board))
-        self.houseReturnButton.clicked.connect(self.houseReturnPressed)
 
     def buyHousePressed(self, gameValues, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, board):
         cardString = self.buyHouseSelectionComboBox.currentText()
@@ -456,9 +464,6 @@ class GameWindow(QDialog):
                     self.inJailMessageLabel.setText("")
                     self.inJailGroupBox.show()
                     self.playTurnButton.setEnabled(False)
-                    self.GOOJFCpushButton.clicked.connect(lambda:self.GOOJFCpressed(gameValues.currentPlayer))
-                    self.payBailPushButton.clicked.connect(lambda:self.payBailPressed(gameValues.currentPlayer, playerList, fastBankruptcy, houseIndicators, mortgageIndicators, ownershipIndicators, gameValues))
-                    self.rollDoublePushButton.clicked.connect(lambda:self.rollDoublePressed(gameValues))
                     return
             self.mortgageButton.setEnabled(False)
             self.housesButton.setEnabled(False)
