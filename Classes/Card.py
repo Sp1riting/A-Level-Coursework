@@ -1,3 +1,5 @@
+from PyQt5.QtGui import QColor, QPalette
+
 class Card:
 
     mortgaged = False
@@ -80,6 +82,11 @@ class Card:
             self.ownerID = str(player.playerID)
             player.ownedCards.append(self.cardName)
             gameValues.propertiesPurchased += 1
+            palette = ownershipIndicators[board.index(self)].palette()
+            colour = QColor(player.colour)
+            palette.setColor(QPalette.Foreground, colour)
+            ownershipIndicators[board.index(self)].setPalette(palette)
+            ownershipIndicators[board.index(self)].show()
 
 
 def locateCard(name, board):
