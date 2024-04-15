@@ -58,7 +58,7 @@ class GameWindow(QDialog):
 
             self.player1NameLabel.setText(playerNames[0])
             self.player1BalanceLabel.setText(f"£{startingBalance}")
-            player1 = Players.Player(1, playerNames[0], startingBalance, self.player1token, "a80000", self.player1NameLabel, self.player1BalanceLabel)
+            player1 = Players.Player(1, playerNames[0], startingBalance, self.player1token, "#a80000", self.player1NameLabel, self.player1BalanceLabel)
             if player1.ownedCards == None:
                 player1.ownedCards = []
             playerList.append(player1)
@@ -70,7 +70,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 2:
             self.player2NameLabel.setText(playerNames[1])
             self.player2BalanceLabel.setText(f"£{startingBalance}")
-            player2 = Players.Player(2, playerNames[1], startingBalance, self.player2token, "73ba23", self.player2NameLabel, self.player2BalanceLabel)
+            player2 = Players.Player(2, playerNames[1], startingBalance, self.player2token, "#73ba23", self.player2NameLabel, self.player2BalanceLabel)
             if player2.ownedCards == None:
                 player2.ownedCards = []
             playerList.append(player2)
@@ -82,7 +82,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 3:
             self.player3NameLabel.setText(playerNames[2])
             self.player3BalanceLabel.setText(f"£{startingBalance}")
-            player3 = Players.Player(3, playerNames[2], startingBalance, self.player3token, "003eeb", self.player3NameLabel, self.player3BalanceLabel)
+            player3 = Players.Player(3, playerNames[2], startingBalance, self.player3token, "#003eeb", self.player3NameLabel, self.player3BalanceLabel)
             if player3.ownedCards == None:
                 player3.ownedCards = []
             playerList.append(player3)
@@ -94,7 +94,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 4:
             self.player4NameLabel.setText(playerNames[3])
             self.player4BalanceLabel.setText(f"£{startingBalance}")
-            player4 = Players.Player(4, playerNames[3], startingBalance, self.player4token, "ffb300", self.player4NameLabel, self.player4BalanceLabel)
+            player4 = Players.Player(4, playerNames[3], startingBalance, self.player4token, "#ffb300", self.player4NameLabel, self.player4BalanceLabel)
             if player4.ownedCards == None:
                 player4.ownedCards = []
             playerList.append(player4)
@@ -106,7 +106,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 5:
             self.player5NameLabel.setText(playerNames[4])
             self.player5BalanceLabel.setText(f"£{startingBalance}")
-            player5 = Players.Player(5, playerNames[4], startingBalance, self.player5token, "00d6e1", self.player5NameLabel, self.player5BalanceLabel)
+            player5 = Players.Player(5, playerNames[4], startingBalance, self.player5token, "#00d6e1", self.player5NameLabel, self.player5BalanceLabel)
             if player5.ownedCards == None:
                 player5.ownedCards = []
             playerList.append(player5)
@@ -118,7 +118,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 6:
             self.player6NameLabel.setText(playerNames[5])
             self.player6BalanceLabel.setText(f"£{startingBalance}")
-            player6 = Players.Player(6, playerNames[5], startingBalance, self.player6token, "6a533f", self.player6NameLabel, self.player6BalanceLabel)
+            player6 = Players.Player(6, playerNames[5], startingBalance, self.player6token, "#6a533f", self.player6NameLabel, self.player6BalanceLabel)
             if player6.ownedCards == None:
                 player6.ownedCards = []
             playerList.append(player6)
@@ -130,7 +130,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 7:
             self.player7NameLabel.setText(playerNames[6])
             self.player7BalanceLabel.setText(f"£{startingBalance}")
-            player7 = Players.Player(7, playerNames[6], startingBalance, self.player7token, "ad17cb", self.player7NameLabel, self.player7BalanceLabel)
+            player7 = Players.Player(7, playerNames[6], startingBalance, self.player7token, "#ad17cb", self.player7NameLabel, self.player7BalanceLabel)
             if player7.ownedCards == None:
                 player7.ownedCards = []
             playerList.append(player7)
@@ -142,7 +142,7 @@ class GameWindow(QDialog):
         if numberOfPlayers >= 8:
             self.player8NameLabel.setText(playerNames[7])
             self.player8BalanceLabel.setText(f"£{startingBalance}")
-            player8 = Players.Player(8, playerNames[7], startingBalance, self.player8token, "000000", self.player8NameLabel, self.player8BalanceLabel)
+            player8 = Players.Player(8, playerNames[7], startingBalance, self.player8token, "#000000", self.player8NameLabel, self.player8BalanceLabel)
             if player8.ownedCards == None:
                 player8.ownedCards = []
             playerList.append(player8)
